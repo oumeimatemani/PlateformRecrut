@@ -1,0 +1,82 @@
+[
+    {
+        "id":1,
+        "image":"assets/images/team/01.jpg",
+        "name":"Steven Townsend",
+        "position":"Web Designer",
+        "skill":["Design","UI","Digital"],
+        "salery":"$4k - $4.5k",
+        "experience":"2 Years",
+        "base":true
+    },
+    {
+        "id":2,
+        "image":"assets/images/team/02.jpg",
+        "name":"Tiffany Betancourt",
+        "position":"Web Designer",
+        "skill":["Design","UI","Digital"],
+        "salery":"$4k - $4.5k",
+        "experience":"2 Years",
+        "base":false
+    },
+    {
+        "id":3,
+        "image":"assets/images/team/03.jpg",
+        "name":"Jacqueline Burns",
+        "position":"Web Designer",
+        "skill":["Design","UI","Digital"],
+        "salery":"$4k - $4.5k",
+        "experience":"2 Years",
+        "base":false
+    },
+    {
+        "id":4,
+        "image":"assets/images/team/04.jpg",
+        "name":"Mari Harrington",
+        "position":"Web Designer",
+        "skill":["Design","UI","Digital"],
+        "salery":"$4k - $4.5k",
+        "experience":"2 Years",
+        "base":false
+    },
+    {
+        "id":5,
+        "image":"assets/images/team/05.jpg",
+        "name":"Floyd Glasgow",
+        "position":"Web Designer",
+        "skill":["Design","UI","Digital"],
+        "salery":"$4k - $4.5k",
+        "experience":"2 Years",
+        "base":false
+    },
+    {
+        "id":6,
+        "image":"assets/images/team/06.jpg",
+        "name":"Donna Schultz",
+        "position":"Web Designer",
+        "skill":["Design","UI","Digital"],
+        "salery":"$4k - $4.5k",
+        "experience":"2 Years",
+        "base":false
+    },
+    {
+        "id":7,
+        "image":"assets/images/team/07.jpg",
+        "name":"Joshua Morris",
+        "position":"Web Designer",
+        "skill":["Design","UI","Digital"],
+        "salery":"$4k - $4.5k",
+        "experience":"2 Years",
+        "base":true
+    },
+    {
+        "id":8,
+        "image":"assets/images/team/08.jpg",
+        "name":"Rosaria Vargas",
+        "position":"Web Designer",
+        "skill":["Design","UI","Digital"],
+        "salery":"$4k - $4.5k",
+        "experience":"2 Years",
+        "base":true
+    }
+]

@@ -1,0 +1,15 @@
+<div class="card">
+  <div class="card-header border-0 pb-0 flex-wrap">
+    <h4 class="fs-20 text-black me-4 mb-2">Visitor Graph</h4>
+    <div class="form-check custom-switch toggle-switch text-end me-3 mb-2">
+      <input type="checkbox" class="form-check-input" id="customSwitch1">
+      <label class="form-check-label" for="customSwitch1">Show Details</label>
+    </div>
+    <div>
+      <app-dropdown [dropdown]="dropdown_item" class="default-select w-auto style-1"></app-dropdown>
+    </div>
+  </div>
+  <div class="card-body pb-0">
+    <app-bar-chart-apex [chart_item]="chartBar" id="chartBar"></app-bar-chart-apex>
+  </div>
+</div>

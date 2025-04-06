@@ -1,0 +1,58 @@
+// html[dir="rtl"] {
+
+//content body
+[direction="rtl"] {	
+	.bootstrap-select .dropdown-toggle .filter-option{
+		text-align:right;
+	}
+	.noUi-horizontal .noUi-handle {
+		right: -11px;
+	}
+	.noUi-vertical .noUi-pips-vertical {
+		left: -20px;
+	}
+	.breadcrumb-item + .breadcrumb-item::before {
+		float: right;
+	}
+	.breadcrumb-item + .breadcrumb-item {
+		padding-right: var(--bs-breadcrumb-item-padding-x);
+	}
+	.breadcrumb-item + .breadcrumb-item::before {
+		padding-left: var(--bs-breadcrumb-item-padding-x);
+	}
+	.form-check {
+		padding-right: 1.5em;
+	}
+	.form-check .form-check-input {
+		float: right;
+		margin-right: -1.5em;
+	}
+	.toggle-switch {
+	  padding-left: 50px;
+	  padding-right: 0;
+	}
+	.toggle-switch.text-end .form-check-input {
+	  float: left;
+	  margin-right: 0;
+	  margin-left: -2.5rem;
+	}
+	.alert {
+		padding: 1rem 1.5rem 1rem 3rem;
+	}
+	.alert-dismissible .btn-close {
+		left: 0 !important;
+	}
+	.modal-header .btn-close {
+		left: 9px;
+		position: absolute;
+	}
+	.asColorPicker-trigger span{
+		border-radius:  $radius 0 0 $radius ;
+	}
+	.asColorPicker-trigger{
+		border-radius:  $radius 0 0 $radius ;
+	}
+	.form-control {
+		border-radius: 0 $radius $radius 0;
+	}
+}

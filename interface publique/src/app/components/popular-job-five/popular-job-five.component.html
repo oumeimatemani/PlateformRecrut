@@ -1,0 +1,42 @@
+<div class="grid md:grid-cols-2 mt-8 gap-[30px]">
+    <div *ngFor="let item of jobData | slice:0:6 " class="group rounded-lg shadow hover:shadow-lg dark:shadow-gray-700 transition-all duration-500">
+        <div class="flex items-center justify-between p-6">
+            <div class="flex items-center">
+                <div class="size-14 flex items-center justify-center bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 rounded-md">
+                    <img [src]="item.image" class="size-8"  alt="">
+                </div>
+
+                <div class="ms-3">
+                    <a [routerLink]="['/employer-detail', item.id]" class="block text-[16px] font-semibold hover:text-red-600 transition-all duration-500">{{item.companyName}}</a>
+                    <span class="block text-sm text-slate-400">2 days ago</span>
+                </div>
+            </div>
+
+            <a routerLink="/job-apply" class="btn btn-icon btn-lg rounded-full bg-red-600/5 group-hover:bg-red-600 border border-slate-100 dark:border-slate-800 text-red-600 group-hover:text-white"><i class="uil uil-arrow-up-right"></i></a>
+        </div>
+
+        <div class="lg:flex items-center justify-between border-t border-gray-100 dark:border-gray-800 p-6">
+            <div>
+                <a [routerLink]="['/job-detail-one', item.id]" class="text-lg font-semibold hover:text-red-600">{{item.jobTitle}}</a>
+                <p class="text-slate-400 mt-1">Total Openings: 1</p>
+            </div>
+
+            <p class="text-slate-400 lg:mt-0 mt-4"><i class="uil uil-usd-circle text-[20px] text-red-600"></i> {{item.salary}}/mo</p>
+        </div>
+
+        <div class="px-6 py-2 bg-slate-50 dark:bg-slate-800 flex justify-between items-center">
+            <div>
+                <span class="inline-block font-semibold"><i class="mdi mdi-check-decagram mdi-18px text-blue-500 me-1"></i>Verified</span>
+                <ul class="list-none inline-block ms-1 text-yellow-400 space-x-0.5">
+                    <li class="inline"><i class="mdi mdi-star text-lg"></i></li>
+                    <li class="inline"><i class="mdi mdi-star text-lg"></i></li>
+                    <li class="inline"><i class="mdi mdi-star text-lg"></i></li>
+                    <li class="inline"><i class="mdi mdi-star text-lg"></i></li>
+                    <li class="inline"><i class="mdi mdi-star text-lg"></i></li>
+                    <li class="inline text-slate-400 font-semibold">4.8</li>
+                </ul>
+            </div>
+            <span class="inline-block me-1 text-slate-400"><i class="uil uil-map-marker text-[18px] text-slate-900 dark:text-white me-1"></i>{{item.loction}}</span>
+        </div>
+    </div><!--end content-->
+</div><!--end grid-->

@@ -1,0 +1,14 @@
+<div class="grid grid-cols-1 mt-7 relative">
+    <div class="tiny-five-item">
+        <div *ngFor="let item of servicesData" class="tiny-slide">
+            <div class="group relative overflow-hidden rounded-md shadow dark:shadow-gray-700 transition duration-500 m-1 h-56">
+                <img [src]="item.image" alt="">
+                <div class="absolute inset-0 bg-slate-900/50"></div>
+
+                <div class="absolute bottom-0 p-4">
+                    <a [routerLink]="[]" (click)="$event.preventDefault()" class="text-lg font-semibold text-white hover:text-red-600 transition-all duration-500">{{item.title}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

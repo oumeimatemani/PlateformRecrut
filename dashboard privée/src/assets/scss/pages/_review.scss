@@ -1,0 +1,95 @@
+.review-table {
+    padding: 25px;
+    box-shadow: none;
+    border-radius: 0;
+    border-bottom: 1px solid #eee;
+    height: auto;
+    margin-bottom: 0;
+	.star-review i {
+		font-size: 20px;
+	}
+	.media-body{
+		p{
+			color: #3e4954;
+			font-size: 18px;
+			line-height: 1.5;
+		}
+	}
+	.disease {
+		border-#{$dz-pos-left}: 1px solid $border-color;
+		padding-#{$dz-pos-left}: 20px;
+	}
+	.media-footer {
+		min-width: 500px;
+		margin-#{$dz-pos-left}: 10px;
+	}
+	@include respond ('laptop'){
+		.media-footer{
+			min-width: 273px;
+			margin-#{$dz-pos-left}: 10px;
+		}
+	}
+	@include respond ('tab-port'){
+		.star-review i {
+			font-size: 16px;
+		}
+		.custom-control {
+			float: #{$dz-pos-right};
+			#{$dz-pos-right}:-20px;
+		}
+		.media{
+			display: block !important;
+		}
+		.media-body{
+			p {
+				font-size: 14px;
+			}
+		}
+		img {
+			float: #{$dz-pos-left};
+			width: 80px;
+		}
+		.media-footer {
+			margin-#{$dz-pos-left}: 0;
+			margin-top: 25px;
+		}
+		.disease {
+			border-#{$dz-pos-left}: 0;
+			padding-#{$dz-pos-left}: 0;
+			margin-#{$dz-pos-right}: 10px !important;
+			margin-#{$dz-pos-left}: 0;
+		}
+	}
+	@include respond ('phone'){
+		.media-footer{
+			flex-flow:wrap;
+			.disease{
+				margin-#{$dz-pos-right}:auto!important;
+			}
+			.edit{
+				margin-#{$dz-pos-left}:0!important;
+			}
+		}
+	}
+}
+
+//review-tab
+.review-tab{
+	.nav-link{
+		border-radius:0;
+		font-weight:600;
+		border-bottom:2px solid #D9D9D9;
+		@include transitionMedium;
+		&.active{
+			background:transparent;
+			color:var(--primary);
+			@include transitionMedium;
+			box-shadow:none;
+			border-color:var(--primary);
+		}
+		@include respond ('phone'){
+			padding: 10px 16px;
+			font-size: 13px;
+		}
+	}
+}

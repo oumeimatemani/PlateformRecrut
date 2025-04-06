@@ -1,0 +1,82 @@
+<app-navbar [navLight] = 'false' [navClass] = "'justify-end'" [bgLight] = 'true' [navFull] = 'false' />
+
+<div class="container-fluid relative mt-20">
+    <div class="grid grid-cols-1">
+        <div class="w-full leading-[0] border-0">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.0105911821006!2d10.175846475646013!3d36.81733377224221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd347d80c80f87%3A0x4d699b3e7df6ea5c!2sTunisys!5e1!3m2!1sfr!2stn!4v1740352106008!5m2!1sfr!2stn" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="border:0" class="w-full h-[500px]" allowfullscreen></iframe>
+        </div>
+    </div><!--end grid-->
+</div>
+
+<section class="relative lg:py-24 py-16">
+    <div class="container">
+        <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-[30px] text-center">
+    
+            <!-- Phone -->
+            <div class="px-6 flex flex-col items-center">
+                <div class="relative text-transparent">
+                    <div class="size-14 bg-red-600/5 text-red-600 rounded-xl text-2xl flex items-center justify-center mx-auto shadow-sm dark:shadow-red-800">
+                        <i class="uil uil-phone"></i>
+                    </div>
+                </div>
+                <div class="content mt-4 w-full">
+                    <h5 class="title h5 text-lg font-semibold">Téléphone:</h5>
+                    <p class="text-slate-400 mt-3 w-full">Besoin d'assistance ? Appelez-nous à tout moment pour toute demande ou support.</p>
+                    <div class="mt-3">
+                        <a href="tel:71 791 699  |  71 843 047" class="btn btn-link text-red-600 hover:text-red-600 after:bg-red-600 transition duration-500">71 791 699 <br> 71 843 047
+                        </a>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Email -->
+            <div class="px-6 flex flex-col items-center">
+                <div class="relative text-transparent">
+                    <div class="size-14 bg-red-600/5 text-red-600 rounded-xl text-2xl flex items-center justify-center mx-auto shadow-sm dark:shadow-gray-800">
+                        <i class="uil uil-envelope"></i>
+                    </div>
+                </div>
+                <div class="content mt-4 w-full">
+                    <h5 class="title h5 text-lg font-semibold">Email :</h5>
+                    <p class="text-slate-400 mt-3 w-full">Une question ? Envoyez-nous un email et nous vous répondrons rapidement.</p>
+                    <div class="mt-3">
+                        <a href="mailto:contact@tunisys.com.tn" class="btn btn-link text-red-600 hover:text-red-600 after:bg-red-600 transition duration-500">
+                            contact&#64;tunisys.com.tn
+                        </a>
+                        <a href="mailto:contact@tunisys.com.tn" class="btn btn-link text-red-600 hover:text-red-600 after:bg-red-600 transition duration-500">
+                            Myriam.Mourali&#64;tunisys.com.tn
+                        </a>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Location -->
+            <div class="px-6 flex flex-col items-center">
+                <div class="relative text-transparent">
+                    <div class="size-14 bg-red-600/5 text-red-600 rounded-xl text-2xl flex items-center justify-center mx-auto shadow-sm dark:shadow-gray-800">
+                        <i class="uil uil-map-marker"></i>
+                    </div>
+                </div>
+                <div class="content mt-4 w-full">
+                    <h5 class="title h5 text-lg font-semibold">Adresse :</h5>
+                    <p class="text-slate-400 mt-3 w-full">Tunis, Tunisie 1002, Tunis, Tunisie <br></p>
+                    <div class="mt-3">
+                        <a href="#" (click)="togggleModal($event)" data-type="iframe" class="video-play-icon read-more lightbox btn btn-link text-red-600 hover:text-red-600 after:bg-red-600 transition duration-500">
+                            <br>  Voir sur Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+        
+    </div><!--end container-->
+</section>
+<app-footer/>
+
+<div class="fixed z-999 flex items-center justify-center bg-gray-900 bg-opacity-50 dark:bg-opacity-80 w-full h-full top-0 start-0" *ngIf="isOpen">
+    <div class="modal-content relative">
+      <span class="text-white absolute -top-6 -end-6 cursor-pointer" (click)="togggleModal($event)"><i class="mdi mdi-close inline-flex items-center justify-center text-2xl"></i></span>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.0105911821006!2d10.175846475646013!3d36.81733377224221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd347d80c80f87%3A0x4d699b3e7df6ea5c!2sTunisys!5e1!3m2!1sfr!2stn!4v1740352106008!5m2!1sfr!2stn" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="border:0" class="w-full h-[500px]"  allowfullscreen></iframe>
+    </div>
+</div>

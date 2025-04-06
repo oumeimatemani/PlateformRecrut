@@ -1,0 +1,78 @@
+<app-navbar [navLight] = 'true' [navClass] = "'justify-end nav-light'" [bgLight] = 'false' [navFull] = 'false' />
+
+<section class="relative h-screen flex justify-center items-center bg-[url('../../assets/images/hero/bg.jpg')] bg-cover">
+    <div class="absolute inset-0 bg-slate-900/30"></div>
+    <div class="container z-1">
+        <div class="grid grid-cols-1 text-center mt-10 relative">
+            <h4 class="lg:leading-normal leading-normal text-4xl lg:text-6xl mb-5 font-bold text-white">
+                Tunisys, votre partenaire IT depuis 1988
+            </h4>
+            <p class="text-white/90 text-lg max-w-xl mx-auto font-semibold">
+                Intégrateur de solutions IT sur mesure, nous accompagnons vos projets IT, Data, et de transformation digitale en toute sécurité.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="relative md:py-24 py-16">
+    <div class="container md:mt-24 mt-16">
+        <div class="grid grid-cols-1">
+            <div class="relative overflow-hidden bg-red-600 rounded-md shadow dark:shadow-red-700">
+                <div class="grid md:grid-cols-2 items-center gap-[50px]">
+                    <div class="relative">
+                        <img src="assets/images/about/tunisys-team.jpg" alt="Tunisys Team">
+                        <div class="absolute md:bottom-1/2 md:translate-y-1/2 md:-end-10 ltr:md:translate-x-0 rtl:md:translate-x-0 -bottom-10 end-1/2 ltr:translate-x-1/2 rtl:-translate-x-1/2 text-center">
+                            <a href="#!" (click)="togggleModal($event)" class="lightbox size-20 rounded-full shadow-lg dark:shadow-gray-700 inline-flex items-center justify-center bg-white dark:bg-slate-900 text-red-600 dark:text-white">
+                                <i class="mdi mdi-play inline-flex items-center justify-center text-2xl"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="text-white p-4">
+                            <h4 class="leading-normal text-4xl mb-3 font-semibold">Pourquoi Choisir Tunisys ?</h4>
+                            <p class="text-white/70 text-lg max-w-xl">
+                                Depuis <strong>de 30 ans</strong>, Tunisys est pionnière sur le marché de l'intégration IT. Notre force repose sur :
+                            </p>
+                            <ul class="list-none text-white/50 mt-4">
+                                <li class="mb-1 flex"><i class="uil uil-check-circle text-white text-xl me-2"></i> Une expertise solide depuis 1988.</li>
+                                <li class="mb-1 flex"><i class="uil uil-check-circle text-white text-xl me-2"></i> Des solutions IT innovantes et sur mesure pour tous secteurs d'activité.</li>
+                                <li class="mb-1 flex"><i class="uil uil-check-circle text-white text-xl me-2"></i> Un réseau global d'experts et de partenaires stratégiques</li>
+                                <li class="mb-1 flex"><i class="uil uil-check-circle text-white text-xl me-2"></i> Une approche client centrée sur la qualité et la sécurité</li>
+                            </ul>
+                            <a href="/services" class="btn btn-light mt-4">En savoir plus</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container md:mt-24 mt-16">
+        <app-counter/>
+    </div>
+
+    <div class="container md:mt-24 mt-16">
+        <app-que-ans/>
+    </div>
+
+    <div class="container-fluid md:mt-24 mt-16">
+        <app-explore-job/>
+    </div>
+</section>
+
+<app-footer/>
+
+<div class="fixed z-999 flex items-center justify-center bg-gray-900 bg-opacity-50 dark:bg-opacity-80 w-full h-full top-0 start-0" *ngIf="isOpen">
+    <div class="modal-content relative">
+      <span class="text-white absolute -top-6 -end-6 cursor-pointer" (click)="togggleModal($event)">
+          <i class="mdi mdi-close inline-flex items-center justify-center text-2xl"></i>
+      </span>
+      <iframe
+        src="https://www.youtube.com/embed/8FUOGT6c-LM"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+</div>

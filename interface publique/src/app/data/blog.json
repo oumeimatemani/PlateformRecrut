@@ -1,0 +1,74 @@
+[
+    {
+        "id":1,
+        "image":"assets/images/blog/01.jpg",
+        "tag":"Arts",
+        "date":"13th Sep 2023",
+        "title":"11 Tips to Help You Get New Clients Through Cold Calling",
+        "auther":"Google"
+    },
+    {
+        "id":2,
+        "image":"assets/images/blog/02.jpg",
+        "tag":"Illustration",
+        "date":"29th Nov 2023",
+        "title":"DigitalOcean launches first Canadian data centre in Toronto",
+        "auther":"Facebook"
+    },
+    {
+        "id":3,
+        "image":"assets/images/blog/03.jpg",
+        "tag":"Music",
+        "date":"29th Dec 2023",
+        "title":"Using Banner Stands To Increase Trade Show Traffic",
+        "auther":"Linkedin"
+    },
+    {
+        "id":4,
+        "image":"assets/images/blog/04.jpg",
+        "tag":"Arts",
+        "date":"13th March 2023",
+        "title":"11 Tips to Help You Get New Clients Through Cold Calling",
+        "auther":"Google"
+    },
+    {
+        "id":5,
+        "image":"assets/images/blog/05.jpg",
+        "tag":"Illustration",
+        "date":"5th May 2023",
+        "title":"DigitalOcean launches first Canadian data centre in Toronto",
+        "auther":"Facebook"
+    },
+    {
+        "id":6,
+        "image":"assets/images/blog/06.jpg",
+        "tag":"Music",
+        "date":"19th June 2023",
+        "title":"Using Banner Stands To Increase Trade Show Traffic",
+        "auther":"Linkedin"
+    },
+    {
+        "id":7,
+        "image":"assets/images/blog/07.jpg",
+        "tag":"Arts",
+        "date":"20th June 2023",
+        "title":"11 Tips to Help You Get New Clients Through Cold Calling",
+        "auther":"Google"
+    },
+    {
+        "id":8,
+        "image":"assets/images/blog/08.jpg",
+        "tag":"Illustration",
+        "date":"31st Aug 2023",
+        "title":"DigitalOcean launches first Canadian data centre in Toronto",
+        "auther":"Facebook"
+    },
+    {
+        "id":9,
+        "image":"assets/images/blog/09.jpg",
+        "tag":"Music",
+        "date":"1st Sep 2023",
+        "title":"Using Banner Stands To Increase Trade Show Traffic",
+        "auther":"Linkedin"
+    }
+]

@@ -1,0 +1,117 @@
+<app-navbar [navLight] = 'true' [navClass] = "'justify-end nav-light'" [bgLight] = 'false' [navFull] = 'false' />
+
+<section class="relative table w-full py-36 bg-[url('../../assets/images/hero/bg.jpg')] bg-top bg-no-repeat bg-cover">
+    <div class="absolute inset-0 bg-red-900/90"></div>
+    <div class="container">
+        <div class="grid grid-cols-1 text-center mt-10">
+            <h3 class="md:text-3xl text-2xl md:leading-snug tracking-wide leading-snug font-medium text-white">À Propos de Nous</h3>
+
+        </div><!--end grid-->
+    </div><!--end container-->
+    
+    <div class="absolute text-center z-10 bottom-5 start-0 end-0 mx-3">
+        <ul class="breadcrumb tracking-[0.5px] breadcrumb-light mb-0 inline-block">
+           <li class="inline breadcrumb-item text-[15px] font-semibold duration-500 ease-in-out text-white/50 hover:text-white"><a routerLink="/">Tunisys</a></li>
+            <li class="inline breadcrumb-item text-[15px] font-semibold duration-500 ease-in-out text-white" aria-current="page">À Propos de Nous</li>
+        </ul>
+    </div>
+</section><!--end section-->
+<div class="relative">
+    <div class="shape absolute start-0 end-0 sm:-bottom-px -bottom-[2px] overflow-hidden z-1 text-white dark:text-slate-900">
+        <svg class="w-full h-auto" viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+        </svg>
+    </div>
+</div>
+
+<section class="relative md:py-24 py-16">
+    <div class="container md:pb-16">
+        <app-millions-of-job/>
+    </div><!--end container-->
+
+    <div class="container md:mt-24 mt-16">
+        <div class="grid grid-cols-1 pb-8 text-center">
+            <h3 class="mb-4 md:text-[26px] md:leading-normal text-2xl leading-normal font-semibold">Tunisys Features</h3>
+
+            <p class="text-slate-400 max-w-xl mx-auto">Découvrez notre expertise en intégration IT, sécurité, et solutions personnalisées. <br>  <strong> Nos principaux services : </strong> </p>
+        </div><!--end grid-->
+
+        <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 mt-8 gap-[30px]">
+            <div *ngFor="let item of featureData" class="group p-6 shadow dark:shadow-gray-700 rounded-md bg-white hover:bg-red-600/5 dark:bg-slate-900 dark:hover:bg-red-600/10 text-center transition-all duration-500">
+                <div class="size-16 flex items-center justify-center mx-auto bg-red-600/5 group-hover:bg-red-600 dark:bg-red-600/10 dark:group-hover:bg-red-600 shadow dark:shadow-gray-700 rounded-lg transition-all duration-500">
+                    <i class="text-[30px] text-red-600 group-hover:text-white" [ngClass]="item.icon"></i>
+                </div>
+
+                <div class="mt-4">
+                    <a href="#" (click)="$event.preventDefault()" class="text-lg font-semibold hover:text-red-600 transition-all duration-500">{{item.title}}</a>
+
+                    <p class="text-slate-400 mt-3 mb-2">{{item.desc}}</p>
+
+                </div>
+            </div><!--end content-->
+        </div><!--end grid-->
+    </div><!--end container-->
+
+    <div class="container md:mt-24 mt-16">
+        <div class="grid grid-cols-1">
+            <div class="relative overflow-hidden bg-red-600 rounded-md shadow dark:shadow-gray-700">
+                <div class="grid md:grid-cols-2 items-center gap-[30px]">
+                    <div class="relative">
+                        <img src="assets/images/about/tunisys-team.jpg" alt="Tunisys Team">
+                        <div class="absolute md:bottom-1/2 md:translate-y-1/2 md:-end-10 ltr:md:translate-x-0 rtl:md:translate-x-0 -bottom-10 end-1/2 ltr:translate-x-1/2 rtl:-translate-x-1/2 text-center">
+                            <a href="#!" (click)="togggleModal($event)" class="lightbox size-20 rounded-full shadow-lg dark:shadow-gray-700 inline-flex items-center justify-center bg-white dark:bg-slate-900 text-red-600 dark:text-white">
+                                <i class="mdi mdi-play inline-flex items-center justify-center text-2xl"></i>
+                            </a>
+                        </div>
+                    </div>
+    
+                    <div class="text-white p-4">
+                        <h1 class="leading-normal text-4xl mb-3 font-semibold">Soutenir les entreprises avec des solutions IT avancées</h1>
+                        <br>
+                        <p class="text-white/70 text-lg max-w-xl">
+                            Chez Tunisys, nous nous spécialisons dans la fourniture de <strong>solutions IT sur mesure</strong> adaptées aux besoins spécifiques de chaque entreprise.
+                            Notre expertise couvre le <strong>Développement de logiciels personnalisés</strong>, les <strong>Solutions Cloud sécurisées</strong>,
+                            la <strong>Cybersécurité & Gestion des risques</strong>, l'<strong>Intégration IT complète</strong>, ainsi que la <strong>Consultation en stratégie digitale</strong> 
+                            pour aider les entreprises à optimiser leurs opérations et réussir leur transformation numérique.
+                        </p>
+                        <br>
+                        <ul class="list-none text-white/50 mt-4">
+                            <li class="mb-1 flex"><i class="uil uil-check-circle text-white text-xl me-2"></i> Développement de logiciels personnalisés & Intégration</li>
+                            <li class="mb-1 flex"><i class="uil uil-check-circle text-white text-xl me-2"></i> Solutions Cloud sécurisées & DevOps</li>
+                            <li class="mb-1 flex"><i class="uil uil-check-circle text-white text-xl me-2"></i> Cybersécurité & Gestion des risques</li>
+                            <li class="mb-1 flex"><i class="uil uil-check-circle text-white text-xl me-2"></i> Intégration IT & Stratégie digitale</li>
+                        </ul>
+                        <br>
+                    </div>
+                    
+                </div>
+            </div>
+        </div><!--end grid-->
+    </div><!--end container-->
+    
+
+    <div class="container md:mt-24 mt-16">
+        <app-counter/>
+    </div><!--end container-->
+
+    <div class="container md:mt-24 mt-16">
+        <app-que-ans/>
+    </div><!--end container-->
+
+    <div class="container-fluid md:mt-24 mt-16">
+        <app-explore-job/>
+    </div><!--end container-->
+</section>
+<app-footer/>
+
+<div class="fixed z-999 flex items-center justify-center bg-gray-900 bg-opacity-50 dark:bg-opacity-80 w-full h-full top-0 start-0" *ngIf="isOpen">
+    <div class="modal-content relative">
+      <span class="text-white absolute -top-6 -end-6 cursor-pointer" (click)="togggleModal($event)"><i class="mdi mdi-close inline-flex items-center justify-center text-2xl"></i></span>
+      <iframe
+        src="https://www.youtube.com/embed/S_CGed6E610"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+</div>

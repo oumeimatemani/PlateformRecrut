@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-header border-0 pb-0 flex-wrap">
+    <h4 class="fs-20 text-black me-4 mb-3">Vacancy Stats</h4>
+    <div class="form-check custom-switch toggle-switch text-end me-3 my-2">
+      <input type="checkbox" class="form-check-input" id="customSwitch1">
+      <label class="form-check-label" for="customSwitch1">Application Sent</label>
+    </div>
+    <div class="form-check custom-switch toggle-switch text-end me-3 my-2">
+      <input type="checkbox" class="form-check-input" id="customSwitch2">
+      <label class="form-check-label" for="customSwitch2">Interviews</label>
+    </div>
+    <div class="form-check custom-switch toggle-switch text-end me-3 my-2">
+      <input type="checkbox" class="form-check-input" id="customSwitch3">
+      <label class="form-check-label" for="customSwitch3">Rejected</label>
+    </div>
+    <div>
+      <app-dropdown [dropdown]="dropdown_item"></app-dropdown>
+    </div>
+  </div>
+  <div class="card-body">
+    <app-bar-chart-apex [chart_item]="lineChartOption" id="lineChart"></app-bar-chart-apex>
+  </div>
+</div>

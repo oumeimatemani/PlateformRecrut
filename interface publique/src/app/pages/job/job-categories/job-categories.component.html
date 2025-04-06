@@ -1,0 +1,86 @@
+<app-navbar [navLight] = 'true' [navClass] = "'justify-end nav-light'" [bgLight] = 'false' [navFull] = 'false' />
+
+<section class="relative table w-full py-36 bg-[url('../../assets/images/hero/bg.jpg')] bg-top bg-no-repeat bg-cover">
+    <div class="absolute inset-0 bg-red-900/90"></div>
+    <div class="container">
+        <div class="grid grid-cols-1 text-center mt-10">
+            <h3 class="md:text-3xl text-2xl md:leading-snug tracking-wide leading-snug font-medium text-white">Job Categories</h3>
+
+        </div><!--end grid-->
+    </div><!--end container-->
+    
+    <div class="absolute text-center z-10 bottom-5 start-0 end-0 mx-3">
+        <ul class="breadcrumb tracking-[0.5px] breadcrumb-light mb-0 inline-block">
+           <li class="inline breadcrumb-item text-[15px] font-semibold duration-500 ease-in-out text-white/50 hover:text-white"><a routerLink="/">Tunisys</a></li>
+            <li class="inline breadcrumb-item text-[15px] font-semibold duration-500 ease-in-out text-white" aria-current="page">Job Categories</li>
+        </ul>
+    </div>
+</section><!--end section-->
+<div class="relative">
+    <div class="shape absolute start-0 end-0 sm:-bottom-px -bottom-[2px] overflow-hidden z-1 text-white dark:text-slate-900">
+        <svg class="w-full h-auto" viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+        </svg>
+    </div>
+</div>
+<section class="relative md:py-24 py-16">
+    <div class="container">
+        <div class="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-[30px]">
+            <div *ngFor="let item of categoryData" class="group px-3 py-10 rounded-md shadow dark:shadow-gray-700 hover:shadow-red-600/10 dark:hover:shadow-red-600/10 text-center bg-white dark:bg-slate-900 hover:bg-red-600/5 dark:hover:bg-red-600/5 transition duration-500">
+                <div class="size-16 bg-red-600/5 group-hover:bg-red-600 text-red-600 group-hover:text-white rounded-md text-2xl flex align-middle justify-center items-center shadow-sm dark:shadow-gray-700 transition duration-500 mx-auto">
+                    <i class={{item.icon}}></i>
+                </div>
+
+                <div class="content mt-6">
+                    <a href="#" (click)="$event.preventDefault()" class="title text-lg font-semibold hover:text-red-600">{{item.title}} <br> {{item.title2}}</a>
+                    <p class="text-slate-400 mt-3">{{item.job}}</p>
+                </div>
+            </div><!--end content-->
+        </div><!--end grid-->
+    </div><!--end container-->
+
+    <div class="container md:mt-24 md:pb-16 mt-16">
+        <div class="grid md:grid-cols-12 grid-cols-1 items-center gap-[30px]">
+            <div class="lg:col-span-5 md:col-span-6">
+                <div class="relative">
+                    <div class="relative">
+                        <img src="assets/images/about/ab01.jpg" class="lg:w-[400px] w-[280px] rounded-md shadow dark:shadow-gray-700" alt="">
+                        <div class="absolute top-0 translate-y-2/4 end-0 text-center">
+                            <a href="#!" (click)="togggleModal($event)" class="lightbox size-20 rounded-full shadow-lg dark:shadow-gray-700 inline-flex items-center justify-center bg-white dark:bg-slate-900 text-red-600 dark:text-white">
+                                <i class="mdi mdi-play inline-flex items-center justify-center text-2xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="absolute md:-end-5 end-0 -bottom-16">
+                        <img src="assets/images/about/ab02.jpg" class="lg:w-[280px] w-[200px] border-8 border-white dark:border-slate-900 rounded-md shadow dark:shadow-gray-700" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7 md:col-span-6 mt-14 md:mt-0">
+                <div class="lg:ms-5">
+                    <h3 class="mb-6 md:text-[26px] text-2xl md:leading-normal leading-normal font-semibold">Frequently Asked Questions</h3>
+
+                    <p class="text-slate-400 max-w-xl">Search all the open positions on the web. Get your own personalized salary estimate. Read reviews on over 30000+ companies worldwide.</p>
+                   <app-accordian/>
+                </div>
+            </div>
+        </div><!--end grid-->
+    </div><!--end container-->
+
+    <div class="container-fluid md:mt-24 mt-16">
+        <app-explore-job/>
+    </div><!--end container-->
+</section>
+<app-footer/>
+<div class="fixed z-999 flex items-center justify-center bg-gray-900 bg-opacity-50 dark:bg-opacity-80 w-full h-full top-0 start-0" *ngIf="isOpen">
+    <div class="modal-content relative">
+      <span class="text-white absolute -top-6 -end-6 cursor-pointer" (click)="togggleModal($event)"><i class="mdi mdi-close inline-flex items-center justify-center text-2xl"></i></span>
+      <iframe
+        src="https://www.youtube.com/embed/S_CGed6E610"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+</div>

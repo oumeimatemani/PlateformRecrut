@@ -1,0 +1,177 @@
+<app-navbar [navLight] = 'false' [navClass] = "'justify-end'" [bgLight] = 'false' [navFull] = 'false' />
+
+<section class="bg-slate-50 dark:bg-slate-800 md:py-24 py-16">
+    <div class="container mt-10">
+        <div class="grid md:grid-cols-12 grid-cols-1 gap-[30px]">
+            <div class="lg:col-span-8 md:col-span-6">
+                <div class="md:flex items-center p-6 shadow dark:shadow-gray-700 rounded-md bg-white dark:bg-slate-900">
+                    <img [src]="data?.image ? data.image : 'assets/images/company/lenovo-logo.png'" class="rounded-full size-28 p-4 bg-white dark:bg-slate-900 shadow dark:shadow-gray-700" alt="">
+
+                    <div class="md:ms-4 md:mt-0 mt-6">
+                        <h5 class="text-xl font-semibold">{{data?.jobTitle ? data?.jobTitle : 'Back-End Developer'}}</h5>
+                        <div class="mt-2">
+                            <span class="text-slate-400 font-medium me-2 inline-block"><i class="uil uil-building text-[18px] text-red-600 me-1"></i> {{data?.companyName ? data.companyName : 'Lenovo'}} pvt. ltd.</span>
+                            <span class="text-slate-400 font-medium me-2 inline-block"><i class="uil uil-map-marker text-[18px] text-red-600 me-1"></i> {{data?.loction ? data?.loction : 'Beijing'}}, {{data?.city ?  data?.city : 'China'}}</span>
+
+                        </div>
+                    </div>
+                </div>
+
+                <h5 class="text-lg font-semibold mt-6">Job Description:</h5>
+
+                <p class="text-slate-400 mt-4">One disadvantage of Lorum Ipsum is that in Latin certain letters appear more frequently than others - which creates a distinct visual impression. Moreover, in Latin only words at the beginning of sentences are capitalized.</p>
+                <p class="text-slate-400 mt-4">This means that Lorem Ipsum cannot accurately represent, for example, German, in which all nouns are capitalized. Thus, Lorem Ipsum has only limited suitability as a visual filler for German texts. If the fill text is intended to illustrate the characteristics of different typefaces.</p>
+                <p class="text-slate-400 mt-4">It sometimes makes sense to select texts containing the various letters and symbols specific to the output language.</p>
+                
+                <h5 class="text-lg font-semibold mt-6">Responsibilities and Duties: </h5>
+                <p class="text-slate-400 mt-4">It sometimes makes sense to select texts containing the various letters and symbols specific to the output language.</p>
+                <ul class="list-none">
+                    <li class="text-slate-400 mt-2"><i class="uil uil-arrow-right text-red-600 me-1"></i>Participate in requirements analysis</li>
+                    <li class="text-slate-400 mt-2"><i class="uil uil-arrow-right text-red-600 me-1"></i>Write clean, scalable code using C# and .NET frameworks</li>
+                    <li class="text-slate-400 mt-2"><i class="uil uil-arrow-right text-red-600 me-1"></i>Test and deploy applications and systems</li>
+                    <li class="text-slate-400 mt-2"><i class="uil uil-arrow-right text-red-600 me-1"></i>Revise, update, refactor and debug code</li>
+                    <li class="text-slate-400 mt-2"><i class="uil uil-arrow-right text-red-600 me-1"></i>Improve existing software</li>
+                    <li class="text-slate-400 mt-2"><i class="uil uil-arrow-right text-red-600 me-1"></i>Develop documentation throughout the software development life cycle (SDLC)</li>
+                    <li class="text-slate-400 mt-2"><i class="uil uil-arrow-right text-red-600 me-1"></i>Serve as an expert on applications and provide technical support</li>
+                </ul>
+
+                <h5 class="text-lg font-semibold mt-6">Required Experience, Skills and Qualifications: </h5>
+                <p class="text-slate-400 mt-4">It sometimes makes sense to select texts containing the various letters and symbols specific to the output language.</p>
+                <ul class="list-none">
+                    <li class="text-slate-400 mt-2"><i class="uil uil-arrow-right text-red-600 me-1"></i>Proven experience as a .NET Developer or Application Developer</li>
+                    <li class="text-slate-400 mt-2"><i class="uil uil-arrow-right text-red-600 me-1"></i>good understanding of SQL and Relational Databases, specifically Microsoft SQL Server.</li>
+                    <li class="text-slate-400 mt-2"><i class="uil uil-arrow-right text-red-600 me-1"></i>Experience designing, developing and creating RESTful web services and APIs</li>
+                    <li class="text-slate-400 mt-2"><i class="uil uil-arrow-right text-red-600 me-1"></i>Basic know how of Agile process and practices</li>
+                    <li class="text-slate-400 mt-2"><i class="uil uil-arrow-right text-red-600 me-1"></i>Good understanding of object-oriented programming.</li>
+                    <li class="text-slate-400 mt-2"><i class="uil uil-arrow-right text-red-600 me-1"></i>Good understanding of concurrent programming.</li>
+                    <li class="text-slate-400 mt-2"><i class="uil uil-arrow-right text-red-600 me-1"></i>Sound knowledge of application architecture and design.</li>
+                    <li class="text-slate-400 mt-2"><i class="uil uil-arrow-right text-red-600 me-1"></i>Excellent problem solving and analytical skills</li>
+                </ul>
+
+                <div class="mt-5">
+                    <a href="job-apply.html" class="btn rounded-md bg-red-600 hover:bg-red-700 border-red-600 hover:border-red-700 text-white md:ms-2 w-full md:w-auto">Apply Now</a>
+                </div>
+            </div><!--end col-->
+
+            <div class="lg:col-span-4 md:col-span-6">
+                <div class="shadow dark:shadow-gray-700 rounded-md bg-white dark:bg-slate-900 sticky top-20">
+                    <div class="p-6">
+                        <h5 class="text-lg font-semibold">Job Information</h5>
+                    </div>
+                    <div class="p-6 border-t border-slate-100 dark:border-t-gray-700">
+                        <ul class="list-none">
+                            <li class="flex items-center">
+                                <i data-feather="user-check" class="size-5"></i>
+
+                                <div class="ms-4">
+                                    <p class="font-medium">Employee Type:</p>
+                                    <span class="text-red-600 font-medium text-sm">{{data?.jobType ? data?.jobType : 'Full Time'}}</span>
+                                </div>
+                            </li>
+
+                            <li class="flex items-center mt-3">
+                                <i data-feather="map-pin" class="size-5"></i>
+
+                                <div class="ms-4">
+                                    <p class="font-medium">Location:</p>
+                                    <span class="text-red-600 font-medium text-sm">{{data?.loction ? data?.loction : 'Beijing'}}, {{data?.city ?  data?.city : 'China'}}</span>
+                                </div>
+                            </li>
+
+                            <li class="flex items-center mt-3">
+                                <i data-feather="monitor" class="size-5"></i>
+
+                                <div class="ms-4">
+                                    <p class="font-medium">Job Type:</p>
+                                    <span class="text-red-600 font-medium text-sm">{{data?.jobTitle ? data?.jobTitle : 'Back-end Developer'}}</span>
+                                </div>
+                            </li>
+
+                            <li class="flex items-center mt-3">
+                                <i data-feather="briefcase" class="size-5"></i>
+
+                                <div class="ms-4">
+                                    <p class="font-medium">Experience:</p>
+                                    <span class="text-red-600 font-medium text-sm">2+ years</span>
+                                </div>
+                            </li>
+
+                            <li class="flex items-center mt-3">
+                                <i data-feather="book" class="size-5"></i>
+
+                                <div class="ms-4">
+                                    <p class="font-medium">Qualifications:</p>
+                                    <span class="text-red-600 font-medium text-sm">MCA</span>
+                                </div>
+                            </li>
+
+                            <li class="flex items-center mt-3">
+                                <i data-feather="dollar-sign" class="size-5"></i>
+
+                                <div class="ms-4">
+                                    <p class="font-medium">Salary:</p>
+                                    <span class="text-red-600 font-medium text-sm">{{data?.salary ? data?.salary : '$4000 - $4500'}}</span>
+                                </div>
+                            </li>
+
+                            <li class="flex items-center mt-3">
+                                <i data-feather="clock" class="size-5"></i>
+
+                                <div class="ms-4">
+                                    <p class="font-medium">Date posted:</p>
+                                    <span class="text-red-600 font-medium text-sm">{{data?.date ? data?.date : '28th Feb, 2023'}}</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!--end col-->
+        </div><!--end grid-->
+    </div><!--end container-->
+
+    <div class="container lg:mt-24 mt-16">
+        <div class="grid grid-cols-1 pb-8 text-center">
+            <h3 class="mb-4 md:text-[26px] md:leading-normal text-2xl leading-normal font-semibold">Related Vacancies</h3>
+
+            <p class="text-slate-400 dark:text-slate-300 max-w-xl mx-auto">Search all the open positions on the web. Get your own personalized salary estimate. Read reviews on over 30000+ companies worldwide.</p>
+        </div><!--end grid-->
+
+        <div class="grid lg:grid-cols-3 md:grid-cols-2 mt-8 gap-[30px]">
+            <div *ngFor="let item of jobData | slice:0:3" class="group shadow dark:shadow-gray-700 p-6 rounded-md bg-white dark:bg-slate-900">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <div class="size-14 flex items-center justify-center bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 rounded-md">
+                            <img [src]="item.image" class="size-8"  alt="">
+                        </div>
+
+                        <div class="ms-3">
+                            <a [routerLink]="['/employer-detail', item.id]" class="block text-[16px] font-semibold hover:text-red-600 transition-all duration-500">{{item.companyName}}</a>
+                            <span class="block text-sm text-slate-400">2 days ago</span>
+                        </div>
+                    </div>
+
+                    <span class="bg-red-600/10 group-hover:bg-red-600 inline-block text-red-600 group-hover:text-white text-xs px-2.5 py-0.5 font-semibold rounded-full transition-all duration-500">{{item.jobType}}</span>
+                </div>
+
+                <div class="mt-6">
+                    <a [routerLink]="['/job-detail-one', item.id]" class="text-lg hover:text-red-600 font-semibold transition-all duration-500">{{item.jobTitle}}</a>
+                    <h6 class="text-base font-medium"><i class="uil uil-map-marker"></i> {{item.loction}}</h6>
+                </div>
+
+                <div class="mt-6">
+                    <div class="w-full bg-gray-100 dark:bg-gray-800 rounded-full h-[6px]">
+                        <div class="bg-red-600 h-[6px] rounded-full" style="width: 55%"></div>
+                    </div>
+                    <div class="mt-2">
+                        <span class="text-slate-400 text-sm"><span class="text-slate-900 dark:text-white font-semibold inline-block">{{item.applied}}</span> of {{item.vacancy}}</span>
+                    </div>
+                </div>
+            </div><!--end content-->
+        </div><!--end grid-->
+    </div><!--end container-->
+
+    <div class="container-fluid md:mt-24 mt-16">
+        <app-explore-job/>
+    </div><!--end container-->
+</section>
+<app-footer/>

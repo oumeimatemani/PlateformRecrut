@@ -1,0 +1,65 @@
+<div class="content-body">
+  <!-- row -->
+  <div class="container-fluid">
+    <div class="row sp-sm-15">
+      @for(item of apps; track item){
+      <div class="col-xl-2 col-xxl-4 col-md-4 col-6">
+        <div class="card">
+          <div class="card-body">
+            <p class="text-black mb-0">{{item.title}}</p>
+            <span class="fs-28 text-black font-w600 mb-sm-5 mb-3 d-block">{{item.total_no}}</span>
+            <div class="d-flex align-items-center">
+              <img src="{{item.image}}" class="min-w42 me-3"/>
+							<div *ngIf="item.description!=''"  [innerHTML]="item.description"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+    <div class="row">
+      <div class="col-xl-4">
+        <app-profile-strength [data]="profileStrength"></app-profile-strength>
+      </div>
+      <div class="col-xl-8">
+        <app-visitor-graph></app-visitor-graph>
+      </div>
+      <div class="col-xl-6">
+        <div class="card">
+          <div class="card-header border-0 pb-0">
+            <h4 class="fs-20 text-black">Network</h4>
+            <div class="dropdown float-end custom-dropdown mb-0">
+              <div class="" data-bs-toggle="dropdown" role="button" aria-expanded="false">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path d="M12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20Z" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </div>
+              <div class="dropdown-menu dropdown-menu-end">
+                <a class="dropdown-item" href="javascript:void(0);">Details</a>
+                <a class="dropdown-item text-danger" href="javascript:void(0);">Cancel</a>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row sp10">
+              @for(items of donutChartSale; track items; let i = $index){
+              <div class="col-xl-3 col-xxl-6 col-md-3 col-6 mb-4 text-center">
+                <div class="d-inline-block ms-auto me-auto mb-2 relative donut-chart-sale me-4">
+                  <app-doughnut-chart-js [index]="i" [chartOptions]="items.chart" class="custom-network"></app-doughnut-chart-js>
+                </div>
+                <h6 class="fs-18 text-black font-w600 mb-0">{{ items.title }}</h6>
+                <span class="fs-14">{{ items.vacancy }}</span>
+              </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-6">
+        <app-graph-network1></app-graph-network1>
+      </div>
+    </div>
+  </div>
+</div>

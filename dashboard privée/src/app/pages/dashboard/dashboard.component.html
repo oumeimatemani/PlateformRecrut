@@ -1,0 +1,71 @@
+<div class="content-body">
+  <!-- row -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-9 col-xxl-8">
+        <div class="row">
+          @for(item of apps; track item){
+          <div class="{{item.wrapper_class}}">
+            <div class="card border-card">
+              <div class="card-body">
+                <div class="media">
+                  <div class="media-body me-3">
+                    <h2 class="{{item.total_class}}">{{item.total_no}}</h2>
+                    <span class="position">{{item.title}}</span>
+                  </div>
+                  <span class="cd-icon {{item.image_class}}">
+                    <img src="{{item.image}}" />
+                </span>
+                </div>
+              </div>
+              <span class="line {{item.border_class}}"></span>
+            </div>
+          </div>
+          }
+          <div class="col-xl-12">
+            <app-vacancy-stats></app-vacancy-stats>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-xxl-4">
+        <div class="row">
+          <div class="col-xl-12">
+
+            <app-user-about-info></app-user-about-info>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-12">
+        <div class="d-sm-flex align-items-center mb-sm-3 mt-sm-2 mt-2  mb-2">
+          <h4 class="fs-20 text-black me-auto mb-sm-0 mb-2">Recomended Jobs</h4>
+          <a [routerLink]="['/admin/companies']" class="btn btn-outline-primary rounded mb-sm-0 mb-1">View More</a>
+        </div>
+
+        <app-recomended-jobs [data]="recomendedJobs"></app-recomended-jobs>
+
+      </div>
+      <div class="col-xl-12">
+        <div class="d-sm-flex align-items-center mb-sm-3 mt-sm-2 mt-2  mb-2">
+          <h4 class="fs-20 text-black me-auto mb-sm-0 mb-2">Featured Companies</h4>
+          <a [routerLink]="['/admin/companies']" class="btn btn-outline-primary rounded mb-sm-0 mb-1">View More</a>
+        </div>
+      </div>
+      <div class="col-xl-12">
+        <div class="row sp-sm-15">
+          @for(item of featuredCompanies; track item;){
+          <div class="col-xl-2 col-xxl-3 col-lg-3 col-md-4 col-6">
+            <div class="card text-center">
+              <div class="card-body">
+                <img src="{{item.image}}"  class="mb-sm-4 mb-3 featured-logo" >
+                <h6 class="font-w600 fs-16 mb-1"><a routerLink="{{ item.url }}" class="text-black">{{item.title}}</a></h6>
+                <span class="text-primary">{{item.total_vacancy}} Vacancy</span>
+              </div>
+            </div>
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

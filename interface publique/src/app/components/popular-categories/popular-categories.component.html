@@ -1,0 +1,15 @@
+<div class="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 mt-8 gap-[30px]">
+    <div *ngFor="let item of categoriesData" class="group px-3 py-10 shadow dark:shadow-gray-700 hover:shadow-red-600/10 dark:hover:shadow-red-600/10 text-center bg-white dark:bg-slate-900 hover:bg-red-600/5 dark:hover:bg-red-600/5 transition duration-500" [ngClass]="{ 'rounded-full' : rounded}">
+        <div *ngIf="!rounded" class="size-16 bg-red-600/5 group-hover:bg-red-600 text-red-600 group-hover:text-white rounded-md text-2xl flex align-middle justify-center items-center shadow-sm dark:shadow-gray-700 transition duration-500 mx-auto">
+            <i class={{item.icon}}></i>
+        </div>
+        <div  *ngIf="rounded" class="size-16 bg-red-600/5 group-hover:bg-red-600 text-red-600 group-hover:text-white rounded-full text-2xl flex align-middle justify-center items-center shadow-sm dark:shadow-gray-700 transition duration-500 mx-auto">
+            <i class={{item.icon}}></i>
+        </div>
+
+        <div class="content mt-6">
+            <a href="" class="title text-lg font-semibold hover:text-red-600">{{item.title1}} <br> {{item.title2}}</a>
+            <p class="text-slate-400 mt-3">{{item.job}}</p>
+        </div>
+    </div><!--end content-->
+</div><!--end grid-->

@@ -1,0 +1,103 @@
+<nav id="topnav" class="defaultscroll is-sticky" [ngClass]="{'nav-sticky': scrolled, 'bg-white dark:bg-red-900': bgLight}">
+    <div [ngClass]="navFull ? 'container-fluid container-fluid md:px-8 px-3' : 'container' ">
+        <!-- Logo container-->
+         <ng-container *ngIf="navLight; else elseTemplate">
+            <a class="logo" routerLink="/">
+                <div class="block sm:hidden">
+                    <img src="assets/images/logo-icon-40.png" class="h-10 inline-block dark:hidden"  alt="">
+                    <img src="assets/images/logo-icon-40-white.png" class="h-10 hidden dark:inline-block"  alt="">
+                </div>
+                <div class="sm:block hidden">
+                    <span class="inline-block dark:hidden">
+                        <img src="assets/images/logo-light.png" class="h-[46px] l-light" alt="">
+                    </span>
+                    <img src="assets/images/logo-white.png" class="h-[24px] hidden dark:inline-block" alt="">
+                </div>
+            </a>
+         </ng-container>
+         <ng-template #elseTemplate>
+            <a class="logo" routerLink="/">
+                <div class="block sm:hidden">
+                    <img src="assets/images/logo-icon-40.png" class="h-10 inline-block dark:hidden"  alt="">
+                    <img src="assets/images/logo-icon-40-white.png" class="h-10 hidden dark:inline-block"  alt="">
+                </div>
+                <div class="sm:block hidden">
+                    <img src="assets/images/logo-white.png" class="h-[24px] hidden dark:inline-block" alt="">
+                </div>
+            </a>
+         </ng-template>
+         
+        
+
+        
+        <!-- End Logo container-->
+
+        <!-- Start Mobile Toggle -->
+        <div class="menu-extras">
+            <div class="menu-item">
+                <a [routerLink]="[]" class="navbar-toggle" [ngClass]="showToggleMenu ? 'open' : '' " id="isToggle" (click)="toggleMenu()">
+                    <div class="lines">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!-- End Mobile Toggle -->
+
+        <!--Login button Start-->
+        <ul class="buy-button list-none mb-0">
+           
+            <li class="dropdown inline-block relative ps-1" (clickOutside)="closeOutSideClick($event)">
+                <button class="dropdown-toggle items-center" type="button" (click)="userDropdow($event)">
+                    <span class="btn btn-icon rounded-full bg-red-600 hover:bg-red-700 border-red-600 hover:border-red-700 text-white"><img src="assets/images/team/pdp.png" class="rounded-full" alt=""></span>
+                </button>
+                <!-- Dropdown menu -->
+                <div class="dropdown-menu absolute end-0 m-0 mt-4 z-10 w-44 rounded-md overflow-hidden bg-white dark:bg-slate-900 shadow dark:shadow-gray-700" [ngClass]="user ? '' : 'hidden' ">
+                    <ul class="py-2 text-start">
+                        <li>
+                            <a routerLink="/candidate-profile" class="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-red-600 dark:hover:text-white"><i data-feather="user" class="size-4 me-2"></i>Profile</a>
+                        </li>
+                        <li>
+                            <a routerLink="/candidate-profile-setting" class="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-red-600 dark:hover:text-white"><i data-feather="settings" class="size-4 me-2"></i>Settings</a>
+                        </li>
+                        <li class="border-t border-red-100 dark:border-gray-800 my-2"></li>
+                        <li>
+                            <a routerLink="/lock-screen" class="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-red-600 dark:hover:text-white"><i data-feather="lock" class="size-4 me-2"></i>Lockscreen</a>
+                        </li>
+                        <li>
+                            <a routerLink="/login" class="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-red-600 dark:hover:text-white"><i data-feather="log-out" class="size-4 me-2"></i>Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </li><!--end dropdown-->
+        </ul>
+        <!--Login button End-->
+
+        <div id="navigation" [ngClass]="showToggleMenu ? 'block' : 'hidden' ">
+           <!-- Navigation Menu-->
+<ul class="navigation-menu" [ngClass]="navClass">
+    <li class="has-submenu parent-menu-item">
+        <a [routerLink]="['/']">Accueil</a>
+    </li>  
+
+    <li [ngClass]="currentUrl === '/aboutus' ? 'active' : ''">
+        <a routerLink="/aboutus" class="sub-menu-item">À propos de nous</a>
+    </li>
+
+  
+    <li [ngClass]="currentUrl === '/job-list-four' ? 'active' : ''">
+        <a routerLink="/job-list-four" class="sub-menu-item">Offres d'emploi</a>
+    </li>
+
+
+
+    <li [ngClass]="currentUrl === '/contact' ? 'active' : ''">
+        <a routerLink="/contact" class="sub-menu-item">Contact</a>
+    </li>
+</ul><!--end navigation menu-->
+
+        </div><!--end navigation-->
+    </div><!--end container-->
+</nav>

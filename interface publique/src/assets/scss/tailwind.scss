@@ -1,0 +1,33 @@
+/* Template Name: Jobstack - Job Portal Tailwind CSS Template
+   Author: Shreethemes
+   Email: support@shreethemes.in
+   Website: https://shreethemes.in
+   Version: 1.5.0
+   Created: March 2023
+   File: Main Css File
+*/
+
+// FONTS
+@use "custom/fonts";
+
+// general
+@use "custom/general";
+
+// components
+@use "components/buttons";
+@use "components/breadcrumb";
+
+// structure
+@use "custom/structure/topnav";
+
+// pages
+@use "custom/pages/helper";
+@use "custom/pages/hero";
+@use "custom/pages/testi";
+@use "custom/pages/choices";
+@use "custom/pages/countdown";
+@use "custom/pages/contact";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

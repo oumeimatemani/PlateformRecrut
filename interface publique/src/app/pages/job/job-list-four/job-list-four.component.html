@@ -1,0 +1,126 @@
+<app-navbar [navLight] = 'true' [navClass] = "'justify-end nav-light'" [bgLight] = 'false' [navFull] = 'false' />
+
+<section class="relative table w-full py-36 bg-[url('../../assets/images/hero/bg.jpg')] bg-top bg-no-repeat bg-cover">
+    <div class="absolute inset-0 bg-red-900/90"></div>
+    <div class="container">
+        <div class="grid grid-cols-1 text-center mt-10">
+            <h3 class="md:text-3xl text-2xl md:leading-snug tracking-wide leading-snug font-medium text-white">Offres d'emploi</h3>
+        </div><!--end grid-->
+    </div><!--end container-->
+
+    <div class="absolute text-center z-10 bottom-5 start-0 end-0 mx-3">
+        <ul class="breadcrumb tracking-[0.5px] breadcrumb-light mb-0 inline-block">
+           <li class="inline breadcrumb-item text-[15px] font-semibold duration-500 ease-in-out text-white/50 hover:text-white"><a routerLink="/">Tunisys</a></li>
+            <li class="inline breadcrumb-item text-[15px] font-semibold duration-500 ease-in-out text-white" aria-current="page">Liste des Offres d'emploi</li>
+        </ul>
+    </div>
+</section><!--end section-->
+<div class="relative">
+    <div class="shape absolute start-0 end-0 sm:-bottom-px -bottom-[2px] overflow-hidden z-1 text-white dark:text-slate-900">
+        <svg class="w-full h-auto" viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+        </svg>
+    </div>
+</div>
+
+
+<section class="relative md:py-24 py-16">
+    <div class="container">
+        <div class="grid md:grid-cols-12 grid-cols-1 gap-[30px]">
+            <div class="lg:col-span-4 md:col-span-6">
+                <app-job-sidebar/>
+            </div><!--end col-->
+
+            <div class="lg:col-span-8 md:col-span-6">
+                <div class="grid grid-cols-1 gap-[30px]">
+                    <div *ngFor="let item of jobData" class="group relative overflow-hidden bg-white dark:bg-slate-900 shadow hover:shadow-md dark:shadow-gray-700 dark:hover:shadow-gray-700 hover:-mt-2 rounded-md transition-all duration-500 h-fit">
+                        <div class="p-6">
+                            <div class="flex items-center">
+                                <div class="size-14 min-w-[56px] flex items-center justify-center bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 rounded-md">
+                                    <img [src]="item.image" class="size-8"  alt="">
+                                </div>
+    
+                                <div class="ms-3">
+                                    <a href="job-detail-three.html" class="inline-block text-[16px] font-semibold hover:text-red-600 transition-all duration-500 me-1">{{item.jobTitle}}</a>
+                                    <span class="inline-block text-sm text-slate-400">2 days ago</span>
+                                    <div>
+                                        <span class="bg-red-600/10 inline-block text-red-600 text-xs px-2.5 py-0.5 font-semibold rounded-full me-1">{{item.jobType}}</span>
+                                        <span class="text-sm font-medium inline-block me-1">Est. time: <span class="text-slate-400">1 to 3 months</span></span>
+                                        <span class="text-sm font-medium inline-block me-1">Monthly: <span class="text-slate-400">{{item.salary}}</span></span>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <p class="text-slate-400 py-3">{{item.desc}}</p>
+    
+                            <div>
+                                <span *ngFor="let el of item.skill" class="bg-slate-100 dark:bg-slate-800 inline-block text-slate-900 dark:text-slate-300 text-xs px-2.5 py-0.5 font-semibold rounded-full me-1">{{el}}</span>
+                            </div>
+                        </div>
+
+                        <div class="px-6 py-2 bg-slate-50 dark:bg-slate-800 lg:flex justify-between items-center">
+                            <div class="lg:inline-block flex justify-between">
+                                <span class="inline-block me-1 font-semibold"><i class="mdi mdi-check-decagram mdi-18px text-blue-500 me-1"></i>Verified</span>
+                                <ul class="list-none inline-block me-1 text-yellow-400 space-x-0.5">
+                                    <li class="inline"><i class="mdi mdi-star text-lg"></i></li>
+                                    <li class="inline"><i class="mdi mdi-star text-lg"></i></li>
+                                    <li class="inline"><i class="mdi mdi-star text-lg"></i></li>
+                                    <li class="inline"><i class="mdi mdi-star text-lg"></i></li>
+                                    <li class="inline"><i class="mdi mdi-star text-lg"></i></li>
+                                </ul>
+                                <span class="inline-block me-1 text-slate-400"><i class="uil uil-map-marker text-[18px] text-slate-900 dark:text-white me-1"></i>{{item.loction}}</span>
+                            </div>
+
+                            <a routerLink="/job-apply" class="btn btn-sm rounded-md bg-red-600 hover:bg-red-700 border-red-600 hover:border-red-700 text-white md:ms-2 w-full lg:w-auto lg:mt-0 mt-4">Apply Now</a>
+                        </div>
+
+                        <a href="#" (click)="$event.preventDefault()" class="btn btn-icon rounded-full bg-red-600/5 hover:bg-red-600 border-red-600/10 hover:border-red-600 text-red-600 hover:text-white absolute top-0 end-0 m-3"><i data-feather="bookmark" class="size-4"></i></a>
+                    </div><!--end content-->
+                </div><!--end grid-->
+
+                <div class="grid md:grid-cols-12 grid-cols-1 mt-8">
+                    <div class="md:col-span-12 text-center">
+                        <nav aria-label="Page navigation example">
+                            <ul class="inline-flex items-center -space-x-px">
+                                <li>
+                                    <a href="#" (click)="$event.preventDefault()" class="size-[40px] inline-flex justify-center items-center text-slate-400 bg-white dark:bg-slate-900 rounded-s-3xl hover:text-white border border-gray-100 dark:border-gray-800 hover:border-red-600 dark:hover:border-red-600 hover:bg-red-600 dark:hover:bg-red-600">
+                                        <i class="uil uil-angle-left text-[20px] rtl:rotate-180 rtl:-mt-1"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" (click)="$event.preventDefault()" class="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-red-600 dark:hover:border-red-600 hover:bg-red-600 dark:hover:bg-red-600">1</a>
+                                </li>
+                                <li>
+                                    <a href="#" (click)="$event.preventDefault()" class="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-red-600 dark:hover:border-red-600 hover:bg-red-600 dark:hover:bg-red-600">2</a>
+                                </li>
+                                <li>
+                                    <a href="#" (click)="$event.preventDefault()" aria-current="page" class="z-10 size-[40px] inline-flex justify-center items-center text-white bg-red-600 border border-red-600">3</a>
+                                </li>
+                                <li>
+                                    <a href="#" (click)="$event.preventDefault()" class="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-red-600 dark:hover:border-red-600 hover:bg-red-600 dark:hover:bg-red-600">4</a>
+                                </li>
+                                <li>
+                                    <a href="#" (click)="$event.preventDefault()" class="size-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white dark:bg-slate-900 border border-gray-100 dark:border-gray-800 hover:border-red-600 dark:hover:border-red-600 hover:bg-red-600 dark:hover:bg-red-600">5</a>
+                                </li>
+                                <li>
+                                    <a href="#" (click)="$event.preventDefault()" class="size-[40px] inline-flex justify-center items-center text-slate-400 bg-white dark:bg-slate-900 rounded-e-3xl hover:text-white border border-gray-100 dark:border-gray-800 hover:border-red-600 dark:hover:border-red-600 hover:bg-red-600 dark:hover:bg-red-600">
+                                        <i class="uil uil-angle-right text-[20px] rtl:rotate-180 rtl:-mt-1"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div><!--end col-->
+                </div><!--end grid-->
+            </div>
+        </div>
+    </div><!--end container-->
+
+    <div class="container md:mt-24 mt-16">
+        <app-services/>
+    </div><!--end container-->
+
+    <div class="container-fluid md:mt-24 mt-16">
+       <app-explore-job/>
+    </div><!--end container-->
+</section>
+<app-footer/>
