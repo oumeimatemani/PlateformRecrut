@@ -9,8 +9,13 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
   elements: any = '';
+  date:any;
+  
+
   ngOnInit() {
     this.setCurrentYear();
+    this.date = new Date().getFullYear();
+
   }
   setCurrentYear = () => {
     const currentDate = new Date();

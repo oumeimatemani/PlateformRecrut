@@ -1,0 +1,57 @@
+/* sidebar.component.css */
+
+.deznav {
+    width: 280px; /* Augmente la largeur de la sidebar */
+    overflow: hidden;
+    white-space: nowrap; /* Empêche le texte de passer à la ligne */
+}
+
+.deznav-scroll {
+    width: 100%;
+}
+
+/* Empêche les titres d'être coupés */
+.nav-text {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%; /* Assure que le texte prend toute la largeur disponible */
+}
+
+.menu-link {
+    display: flex;            /* Affiche les éléments en ligne */
+    align-items: center;       /* Centre verticalement */
+    padding: 8px 12px;         /* Espacement autour du texte et de l'icône */
+    white-space: nowrap;       /* Empêche le texte de se couper */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.menu-link i {
+    margin-right: 8px;         /* Espace entre l'icône et le texte */
+    font-size: 18px;           /* Taille de l'icône */
+}
+
+.menu-link .nav-text {
+    font-size: 14px;           /* Taille du texte */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Couleur rouge pour 'PlateformRecrut' */
+.platform-text {
+    color: #bb2323; /* Rouge vif */
+}
+
+/* Couleur rouge pour l'icône de cœur */
+.heart-icon {
+    color: #da2222; /* Rouge vif */
+}
+
+
+.copyright {
+    margin-top: 50px; /* Ajuste cette valeur comme tu veux */
+    padding-bottom: 20px; /* Pour garantir un espacement avec le bas */
+}

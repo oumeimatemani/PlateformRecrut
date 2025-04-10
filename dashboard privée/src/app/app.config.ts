@@ -4,6 +4,7 @@ import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-br
 import { RouterModule, provideRouter } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule } from '@angular/common/http'; 
 
 
 export const appConfig: ApplicationConfig = {
@@ -13,10 +14,12 @@ export const appConfig: ApplicationConfig = {
     provideAnimations(),
     importProvidersFrom(
       BrowserAnimationsModule,
+      HttpClientModule, 
       ToastrModule.forRoot(),
       RouterModule.forRoot(routes, {
         scrollPositionRestoration: 'top'
       })
-    ), provideAnimationsAsync()
+    ),
+    provideAnimationsAsync()
   ]
 };

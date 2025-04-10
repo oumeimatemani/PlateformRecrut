@@ -28,7 +28,6 @@ import { LoginComponent } from './pages/auth/login/login.component';
 import { SignupComponent } from './pages/auth/signup/signup.component';
 import { SignupSuccessComponent } from './pages/auth/signup-success/signup-success.component';
 import { ResetPasswordComponent } from './pages/auth/reset-password/reset-password.component';
-import { LockScreenComponent } from './pages/auth/lock-screen/lock-screen.component';
 import { TermsComponent } from './pages/utility/terms/terms.component';
 import { MaintenanceComponent } from './pages/special/maintenance/maintenance.component';
 import { ErrorComponent } from './pages/special/error/error.component';
@@ -62,7 +61,6 @@ export const routes: Routes = [
     {'path':'signup', component:SignupComponent},
     {'path':'signup-success', component:SignupSuccessComponent},
     {'path':'reset-password', component:ResetPasswordComponent},
-    {'path':'lock-screen', component:LockScreenComponent},
     {'path':'terms', component:TermsComponent},
     {'path':'maintenance', component:MaintenanceComponent},
     {'path':'error',component:ErrorComponent},

@@ -8,6 +8,10 @@
 @import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
 @import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
 
+/* Remplace la couleur primaire par du rouge */
+:root {
+  --primary: #cf1414; /* Rouge vif */
+}
 
 .alert-dismissible .btn {
   padding: 0.625rem 0.938rem !important;   

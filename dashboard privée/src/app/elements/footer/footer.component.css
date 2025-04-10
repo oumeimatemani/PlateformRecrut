@@ -1,0 +1,26 @@
+/* Centrer le texte */
+.footer-text {
+    text-align: center;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* Style spécifique pour les textes rouges */
+.text-red {
+    color: #ca2828; /* Rouge vif */
+}
+
+/* Style spécifique pour l'icône cœur */
+.mdi-heart {
+    color: #da2222; /* Rouge vif */
+}
+
+/* Centrer le contenu du footer */
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    background-color: #f8f9fa; /* Couleur d'arrière-plan claire (modifiable) */
+}
+

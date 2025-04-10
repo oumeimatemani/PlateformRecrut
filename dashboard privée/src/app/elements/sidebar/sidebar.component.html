@@ -9,8 +9,11 @@
                         [ngClass]="{'has-arrow ai-icon': item.subMenu}"
                         href="javascript:void(0)"
                         aria-expanded="false"
+                        class="menu-link flex items-center px-4 py-2 space-x-2" 
                     >
+                    <div class="icon-container flex items-center justify-center">
                         <i class="{{ item.icon }}"></i>
+                    </div>
                         <span class="nav-text ms-1">{{ item.title }}</span>
                         @if(item.badge){
                             <span class="badge badge-xs badge-danger ms-2">New</span>
@@ -22,9 +25,12 @@
                         [ngClass]="{'has-arrow ai-icon': item.subMenu}"
                         [routerLink]="[item.route]"
                         aria-expanded="false"
+                        class="menu-link flex items-center px-4 py-2 space-x-2" 
+
                     >
+                    <div class="icon-container flex items-center justify-center">
                         <i class="{{ item.icon }}"></i>
-                        <span class="nav-text">{{ item.title }}</span>
+                    </div>                        <span class="nav-text">{{ item.title }}</span>
                         @if(item.badge){
                             <span class="badge badge-xs badge-danger ms-2">New</span>
                         }
@@ -39,6 +45,8 @@
                                     (click)="handleActiveMenu(subitem.route)"
                                     [routerLink]="[subitem.route]"
                                     [ngClass]="{'mm-active': subitem.title == activeSubMenu}"
+                                    class="menu-link flex items-center px-4 py-2 space-x-2" 
+
                                 >
                                     {{subitem.title}}
                                     @if(subitem.subBadge){
@@ -52,6 +60,8 @@
                                     (click)="handleActiveSubMenu(subitem.title)"
                                     href="javascript:void(0)"
                                     aria-expanded="false"
+                                    class="menu-link flex items-center px-4 py-2 space-x-2" 
+
                                 >
                                     {{subitem.title}}
                                     @if(subitem.subBadge){
@@ -90,10 +100,14 @@
             }
         </ul>
         <div class="copyright">
-          <p>
-            <strong>Qerza Job Portal Admin Dashboard</strong> © <span class="current-year">2024</span> All Rights Reserved
-          </p>
-          <p>Made with <span class="heart" [class.heart-blast] = "isVisited == true" (click) = "checkVisited()"></span> by DexignZone </p>
+            <p class="mb-0 text-black font-medium">
+                © {{date}} 
+                <strong class="platform-text">PlateformRecrut</strong>. 
+                Design & Développement <br> avec 
+                <i class="mdi mdi-heart heart-icon"></i> by 
+                <a href="https://www.linkedin.com/company/tunisys" target="_blank" class="text-reset">Tunisys</a>.
+            </p>
         </div>
+        
     </div>
 </div>

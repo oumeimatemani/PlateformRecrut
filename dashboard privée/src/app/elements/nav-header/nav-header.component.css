@@ -1,0 +1,7 @@
+/* nav-header.component.css */
+
+.brand-logo img {
+    width: 160px !important;  /* Augmente la taille du logo */
+    height: auto !important;  /* Garde la proportion d'origine */
+    max-width: none !important;  /* Empêche les restrictions de taille */
+}
