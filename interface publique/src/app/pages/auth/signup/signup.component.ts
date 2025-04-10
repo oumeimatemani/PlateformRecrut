@@ -1,7 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { BackToHomeComponent } from '../../../components/back-to-home/back-to-home.component';
+import { FormsModule } from '@angular/forms';
+import { RouterLink, Router } from '@angular/router';
+import { AuthService } from '../../../_services/auth.service';
+
 
 @Component({
   selector: 'app-signup',
@@ -9,16 +12,54 @@ import { BackToHomeComponent } from '../../../components/back-to-home/back-to-ho
   imports: [
     CommonModule,
     RouterLink,
-    BackToHomeComponent
+    BackToHomeComponent,
+    CommonModule, 
+    FormsModule, 
+    RouterLink,
+
   ],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.scss'
 })
 export class SignupComponent {
- date:any;
- ngOnInit(): void {
-  //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-  //Add 'implements OnInit' to the class.
-  this.date = new Date().getFullYear();
- }
+ form: any = {
+  username: '',
+  email: '',
+  password: ''
+};
+isSuccessful = false;
+isSignUpFailed = false;
+errorMessage = '';
+date = new Date().getFullYear();
+acceptedTerms = false;
+
+
+constructor(private authService: AuthService, private router: Router) {}
+
+
+ngOnInit(): void {
+}
+
+onSubmit(): void {
+  if (!this.acceptedTerms) {
+    this.errorMessage = 'Vous devez accepter les conditions.';
+    this.isSignUpFailed = true;
+    return;
+  }
+
+  this.authService.register(this.form).subscribe({
+    next: data => {
+      this.isSuccessful = true;
+      this.isSignUpFailed = false;
+      this.router.navigate(['/login']);
+    },
+    error: err => {
+      this.errorMessage = err.error.message || 'Une erreur est survenue.';
+      this.isSignUpFailed = true;
+    }
+  });
+}
+
+
+
 }

@@ -49,27 +49,6 @@
         <!--Login button Start-->
         <ul class="buy-button list-none mb-0">
            
-            <li class="dropdown inline-block relative ps-1" (clickOutside)="closeOutSideClick($event)">
-                <button class="dropdown-toggle items-center" type="button" (click)="userDropdow($event)">
-                    <span class="btn btn-icon rounded-full bg-red-600 hover:bg-red-700 border-red-600 hover:border-red-700 text-white"><img src="assets/images/team/pdp.png" class="rounded-full" alt=""></span>
-                </button>
-                <!-- Dropdown menu -->
-                <div class="dropdown-menu absolute end-0 m-0 mt-4 z-10 w-44 rounded-md overflow-hidden bg-white dark:bg-slate-900 shadow dark:shadow-gray-700" [ngClass]="user ? '' : 'hidden' ">
-                    <ul class="py-2 text-start">
-                        <li>
-                            <a routerLink="/candidate-profile" class="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-red-600 dark:hover:text-white"><i data-feather="user" class="size-4 me-2"></i>Profile</a>
-                        </li>
-                        <li>
-                            <a routerLink="/candidate-profile-setting" class="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-red-600 dark:hover:text-white"><i data-feather="settings" class="size-4 me-2"></i>Settings</a>
-                        </li>
-                        <li class="border-t border-red-100 dark:border-gray-800 my-2"></li>
-
-                        <li>
-                            <a routerLink="/login" class="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-red-600 dark:hover:text-white"><i data-feather="log-out" class="size-4 me-2"></i>Logout</a>
-                        </li>
-                    </ul>
-                </div>
-            </li><!--end dropdown-->
         </ul>
         <!--Login button End-->
 
@@ -84,16 +63,58 @@
         <a routerLink="/aboutus" class="sub-menu-item">À propos de nous</a>
     </li>
 
-  
     <li [ngClass]="currentUrl === '/job-list-four' ? 'active' : ''">
         <a routerLink="/job-list-four" class="sub-menu-item">Offres d'emploi</a>
     </li>
 
-
-
     <li [ngClass]="currentUrl === '/contact' ? 'active' : ''">
         <a routerLink="/contact" class="sub-menu-item">Contact</a>
     </li>
+
+   <!-- Si utilisateur non connecté -->
+<li *ngIf="!isLoggedIn">
+    <a routerLink="/login">Connexion</a>
+  </li>
+  
+  <!-- Si connecté -->
+ 
+  
+  
+
+  <li *ngIf="isLoggedIn && (roles.includes('ROLE_ADMIN') || roles.includes('ROLE_RH') || roles.includes('ROLE_MANAGER') || roles.includes('ROLE_EXPERT_TECHNIQUE'))" class="has-submenu">
+    <a href="#">Bienvenue, {{ currentUser.username }} </a>
+    <ul class="submenu flex flex-col items-center gap-2">
+        <!-- Admin avec emoji -->
+        <li *ngIf="roles.includes('ROLE_ADMIN')" class="text-red-600 font-medium flex items-center justify-center">
+          👑 Admin
+        </li>
+      
+        <!-- RH -->
+        <li *ngIf="roles.includes('ROLE_RH')" class="text-indigo-600 font-medium flex items-center justify-center">
+          👥 RH
+        </li>
+      
+        <!-- Manager -->
+        <li *ngIf="roles.includes('ROLE_MANAGER')" class="text-blue-600 font-medium flex items-center justify-center">
+          📋 Manager
+        </li>
+      
+        <!-- Expert Technique -->
+        <li *ngIf="roles.includes('ROLE_EXPERT_TECHNIQUE')" class="text-yellow-600 font-medium flex items-center justify-center">
+          🧠 Expert Technique
+        </li>
+      
+        <!-- Déconnexion -->
+        <li *ngIf="isLoggedIn" class="text-gray-700 font-medium flex items-center justify-center">
+          <a href="#" (click)="logout()">Déconnexion</a>
+        </li>
+      </ul>
+      
+
+    
+  </li>
+  
+      
 </ul><!--end navigation menu-->
 
         </div><!--end navigation-->
