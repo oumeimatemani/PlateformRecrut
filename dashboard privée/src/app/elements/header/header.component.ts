@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule, TitleCasePipe } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+
 // import { WgTimeline1Component } from '../widget/list/wg-timeline-1/wg-timeline-1.component';
 @Component({
   selector: 'app-header',
@@ -15,7 +16,10 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
+    username: string = 'Utilisateur';
+
+    
   @Input() dashboardTitle: any;
 
   fullScreenClass: boolean = false;
@@ -23,6 +27,9 @@ export class HeaderComponent {
   elementValue: any;
   localData: any = '';
   currentTitle: string = '';
+
+  role: string = ''; 
+
 
   constructor(private router: Router, private route: ActivatedRoute) {
     this.route.queryParams.subscribe((params: any) => {
@@ -83,4 +90,33 @@ export class HeaderComponent {
     this.localData = localStorage.getItem('data-theme-version');
     document.body.setAttribute('data-theme-version', this.localData);
   }
+
+
+  getDisplayRole(role: string): string {
+    switch (role) {
+      case 'ROLE_ADMIN': return 'Administrateur';
+      case 'ROLE_RH': return 'Responsable RH';
+      case 'ROLE_MANAGER': return 'Manager';
+      case 'ROLE_EXPERT_TECHNIQUE': return 'Expert Technique';
+      default: return 'Utilisateur';
+    }
+  }
+  
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      if (params['username']) {
+        this.username = decodeURIComponent(params['username']);
+      }
+    
+      if (params['role']) {
+        const rawRole = decodeURIComponent(params['role']);
+        console.log("🔐 Rôle brut reçu :", rawRole);
+        this.role = this.getDisplayRole(rawRole);
+      }
+    });
+    
+    
+  }
+  
+  
 }

@@ -19,11 +19,13 @@ export class RoleListComponent implements OnInit {
   ngOnInit(): void {
     this.roleService.getAllRoles().subscribe({
       next: (data) => {
+        console.log("Rôles reçus :", data); 
         this.roles = data;
       },
       error: (err) => console.error('Erreur lors du chargement des rôles :', err)
     });
   }
+  
 
   deleteRole(id: number): void {
     if (confirm("Confirmer la suppression de ce rôle ?")) {

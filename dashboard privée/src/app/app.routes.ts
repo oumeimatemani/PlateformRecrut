@@ -34,8 +34,13 @@ export const routes: Routes = [
       { path: 'statistics', component: StatisticsComponent },
       { path: 'companies', component: CompaniesComponent },
       { path: 'users', component: UserListComponent },
-      { path: 'users/edit/:id', component: UserFormComponent },
-      { path: 'users/add', component: UserFormComponent },
+      { 
+        path: 'users/edit/:id', 
+        loadComponent: () => import('./components/admin/users/user-form/user-form.component').then(m => m.UserFormComponent)
+      },
+            
+      { path: '', redirectTo: '/users', pathMatch: 'full' }, 
+
       { path: 'roles', component: RoleListComponent },
       { path: 'roles/add', component: RoleFormComponent },
       { path: 'workflow-monitoring', component: WorkflowMonitoringComponent },

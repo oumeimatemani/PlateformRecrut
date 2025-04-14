@@ -140,7 +140,7 @@ export class SidebarComponent {
     // GESTION DES UTILISATEURS (ADMIN)
     {
       title: "Gestion des utilisateurs",
-      icon: "flaticon-381-user",  // Icône représentant un groupe d'utilisateurs
+      icon: "flaticon-381-user",  
       roles: ["ADMIN"],
       subMenu: [
         { title: "- Liste des Utilisateurs", route: "/admin/users", icon: "flaticon-381-user-7" },
@@ -152,7 +152,7 @@ export class SidebarComponent {
     // GESTION DES CANDIDATURES (RH)
     {
       title: "Gestion des candidatures",
-      icon: "flaticon-381-briefcase",  // Icône représentant un dossier de candidature
+      icon: "flaticon-381-briefcase", 
       roles: ["RH"], 
       subMenu: [
         { title: "- Annonces", route: "/rh/annonces", icon: "flaticon-381-newspaper" },
@@ -176,7 +176,7 @@ export class SidebarComponent {
     // VALIDATION MANAGERIALE (MANAGER)
     {
       title: "Validation managériale",
-      icon: "flaticon-381-lock",  // Icône représentant une validation ou un contrôle
+      icon: "flaticon-381-lock",  
       roles: ["MANAGER"], 
       subMenu: [
         { title: "- Profils présélectionnés", route: "/manager/profils-preslectionnes", icon: "flaticon-381-user-3" },
@@ -188,7 +188,7 @@ export class SidebarComponent {
     // REPORTING ET TABLEAU DE BORD (RH & MANAGER)
     {
       title: "Reporting & Tableau de bord",
-      icon: "flaticon-381-presentation",  // Icône représentant des rapports ou des graphiques
+      icon: "flaticon-381-presentation",  
       roles: ["RH", "MANAGER"], 
       subMenu: [
         { title: "- Tableau de bord global", route: "/dashboard/global", icon: "flaticon-381-analytics" },
@@ -199,25 +199,14 @@ export class SidebarComponent {
     // HISTORIQUE DES CANDIDATURES (ADMIN, RH, MANAGER)
     {
       title: "Historique des candidatures",
-      icon: "flaticon-381-calendar",  // Icône représentant un historique ou un calendrier
+      icon: "flaticon-381-calendar",  
       roles: ["ADMIN", "RH", "MANAGER"], 
       subMenu: [
         { title: "- Historique complet", route: "/historique/complet", icon: "flaticon-381-notebook" },
         { title: "- Filtrer par statut", route: "/historique/filtre-statut", icon: "flaticon-381-filter" },
         { title: "- Filtrer par utilisateur", route: "/historique/filtre-utilisateur", icon: "flaticon-381-user-2" }
       ]
-    },
-       // HISTORIQUE DES CANDIDATURES (ADMIN, RH, MANAGER)
-       {
-        title: "Historique des candidatures",
-        icon: "flaticon-381-calendar",  // Icône représentant un historique ou un calendrier
-        roles: ["ADMIN", "RH", "MANAGER"], 
-        subMenu: [
-          { title: "- Historique complet", route: "/historique/complet", icon: "flaticon-381-notebook" },
-          { title: "- Filtrer par statut", route: "/historique/filtre-statut", icon: "flaticon-381-filter" },
-          { title: "- Filtrer par utilisateur", route: "/historique/filtre-utilisateur", icon: "flaticon-381-user-2" }
-        ]
-      },
+    }
 
   ]
 

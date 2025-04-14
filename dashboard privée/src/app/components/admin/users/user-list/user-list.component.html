@@ -44,10 +44,18 @@
                             stroke-linejoin="round" />
                         </svg>
                       </div>
-                      <div class="dropdown-menu dropdown-menu-end">
-                        <a class="dropdown-item" href="javascript:void(0)">Modifier</a>
-                        <a class="dropdown-item text-danger" href="javascript:void(0)">Supprimer</a>
+                      <div class="dropdown-menu dropdown-menu-end px-2 py-2 shadow-sm rounded">
+                        <!-- Icône Modifier -->
+                        <button (click)="editUser(user.id)" class="btn btn-sm btn-light d-flex align-items-center mb-1" title="Modifier">
+                          <i class="bi bi-pencil-fill text-primary"></i>
+                        </button>
+                      
+                        <!-- Icône Supprimer -->
+                        <button (click)="deleteUser(user.id)" class="btn btn-sm btn-light d-flex align-items-center" title="Supprimer">
+                          <i class="bi bi-trash-fill text-primary"></i>
+                        </button>
                       </div>
+                      
                     </div>
                   </td>
                 </tr>

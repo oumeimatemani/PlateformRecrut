@@ -11,9 +11,11 @@ export class RoleService {
 
   constructor(private http: HttpClient) {}
 
+  
   getAllRoles(): Observable<Role[]> {
     return this.http.get<Role[]>(this.baseUrl);
   }
+  
 
   deleteRole(id: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/${id}`);

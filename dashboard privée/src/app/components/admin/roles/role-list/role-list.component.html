@@ -14,14 +14,14 @@
               <thead>
                 <tr>
                   <th>ID</th>
-                  <th>Nom du rôle</th>
+                  <th>Rôle</th>
                   <th class="text-center">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let role of roles">
                   <td>{{ role.id }}</td>
-                  <td>{{ role.name }}</td>
+                  <td>{{ role.name.toString() }}</td>
                   <td class="text-center">
                     <div class="dropdown float-end custom-dropdown mb-0 c-pointer">
                       <div class="" data-bs-toggle="dropdown">

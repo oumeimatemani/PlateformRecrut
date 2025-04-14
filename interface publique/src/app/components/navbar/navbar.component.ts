@@ -28,6 +28,8 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   currentUser: any = null;
   roles: string[] = [];
 
+  displayRole: string = '';
+
   constructor(private tokenStorage: TokenStorageService) {}
 
   @HostListener("window:scroll", [])
@@ -39,16 +41,41 @@ export class NavbarComponent implements OnInit, AfterViewInit {
     feather.replace();
   }
 
+  redirectToDashboard(): void {
+    const user = this.tokenStorage.getUser();
+    const token = this.tokenStorage.getToken();
+  
+    if (user && user.username && user.roles && token) {
+      const internalRoles = ['ROLE_ADMIN', 'ROLE_RH', 'ROLE_MANAGER', 'ROLE_EXPERT_TECHNIQUE'];
+      const matchedRole = user.roles.find((role: string) => internalRoles.includes(role));
+  
+      if (matchedRole) {
+        const dashboardUrl = `http://localhost:4300/admin?token=${token}&username=${encodeURIComponent(user.username)}&role=${encodeURIComponent(matchedRole)}`;
+        window.open(dashboardUrl, '_blank');
+      }
+    }
+  }
+  
+  
+  
+  
   ngOnInit(): void {
     this.currentUrl = window.location.pathname;
     window.scrollTo(0, 0);
-
+  
     this.isLoggedIn = !!this.tokenStorage.getToken();
     if (this.isLoggedIn) {
       this.currentUser = this.tokenStorage.getUser();
       this.roles = this.currentUser.roles;
+  
+      // Pour afficher un seul rôle lisible
+      if (this.roles.includes('ROLE_ADMIN')) this.displayRole = 'Admin';
+      else if (this.roles.includes('ROLE_RH')) this.displayRole = 'RH';
+      else if (this.roles.includes('ROLE_MANAGER')) this.displayRole = 'Manager';
+      else if (this.roles.includes('ROLE_EXPERT_TECHNIQUE')) this.displayRole = 'Expert Technique';
     }
   }
+  
 
   openSubManu(item: string) {
     this.subManu = item;

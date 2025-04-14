@@ -1,21 +1,25 @@
-<app-navbar [navLight] = 'true' [navClass] = "'justify-end nav-light'" [bgLight] = 'false' [navFull] = 'false' />
+<app-navbar [navLight]="true" [navClass]="'justify-end nav-light'" [bgLight]="false" [navFull]="false" />
 
 <section class="relative table w-full py-36 bg-[url('../../assets/images/hero/bg.jpg')] bg-top bg-no-repeat bg-cover">
     <div class="absolute inset-0 bg-red-900/90"></div>
     <div class="container">
         <div class="grid grid-cols-1 text-center mt-10">
-            <h3 class="md:text-3xl text-2xl md:leading-snug tracking-wide leading-snug font-medium text-white">Back-End Developer</h3>
-
-        </div><!--end grid-->
-    </div><!--end container-->
+            <h3 class="md:text-3xl text-2xl md:leading-snug tracking-wide leading-snug font-medium text-white">Développeur Java Spring Boot</h3>
+        </div>
+    </div>
     
     <div class="absolute text-center z-10 bottom-5 start-0 end-0 mx-3">
         <ul class="breadcrumb tracking-[0.5px] breadcrumb-light mb-0 inline-block">
-           <li class="inline breadcrumb-item text-[15px] font-semibold duration-500 ease-in-out text-white/50 hover:text-white"><a routerLink="/">Tunisys</a></li>
-            <li class="inline breadcrumb-item text-[15px] font-semibold duration-500 ease-in-out text-white" aria-current="page">Formulaire de Candidature</li>
+            <li class="inline breadcrumb-item text-[15px] font-semibold duration-500 ease-in-out text-white/50 hover:text-white">
+                <a routerLink="/">Tunisys</a>
+            </li>
+            <li class="inline breadcrumb-item text-[15px] font-semibold duration-500 ease-in-out text-white" aria-current="page">
+                Formulaire de Candidature
+            </li>
         </ul>
     </div>
-</section><!--end section-->
+</section>
+
 <div class="relative">
     <div class="shape absolute start-0 end-0 sm:-bottom-px -bottom-[2px] overflow-hidden z-1 text-slate-50 dark:text-slate-800">
         <svg class="w-full h-auto" viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -29,59 +33,121 @@
         <div class="md:flex justify-center">
             <div class="lg:w-2/4 md:w-2/3">
                 <div class="p-6 bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 rounded-md">
-                    <form class="text-start">
-                        <div class="grid grid-cols-1">
-                            <div class="mb-4 text-start">
-                                <label for="jobcategories" class="font-semibold">Job Categories:</label>
-                                <select class="form-select form-input border border-slate-100 dark:border-slate-800 mt-1">
-                                    <option value="WD">Web Designer</option>
-                                    <option value="WD">Web Developer</option>
-                                    <option value="UI">UI / UX Desinger</option>
-                                </select>
-                            </div>
-
-                            <div class="mb-4 text-start">
-                                <label class="font-semibold" for="RegisterName">Your Name:</label>
-                                <input id="RegisterName" type="text" class="form-input border border-slate-100 dark:border-slate-800 mt-1" placeholder="Harry">
-                            </div>
-
-                            <div class="mb-4 text-start">
-                                <label class="font-semibold" for="LoginEmail">Email Address:</label>
-                                <input id="LoginEmail" type="email" class="form-input border border-slate-100 dark:border-slate-800 mt-1" placeholder="name@example.com">
-                            </div>
-
-                            <div class="mb-4 text-start">
-                                <label class="font-semibold" for="PhoneNo">Phone No.:</label>
-                                <input id="PhoneNo" type="number" class="form-input border border-slate-100 dark:border-slate-800 mt-1" placeholder="+458 854-8965">
-                            </div>
-
-                            <div class="mb-4 text-start">
-                                <label for="statename" class="font-semibold">Location:</label>
-                                <select class="form-select form-input border border-slate-100 dark:border-slate-800 mt-1">
-                                    <option value="NY">New York</option>
-                                    <option value="MC">North Carolina</option>
-                                    <option value="SC">South Carolina</option>
-                                </select>
-                            </div>
-
-                            <div class="mb-2 text-start">
-                                <label for="comments" class="font-semibold">Coverting Letter:</label>
-                                <textarea name="comments" id="comments" class="form-input border border-slate-100 dark:border-slate-800 mt-1 textarea" placeholder="Message :"></textarea>
-                            </div>
-
-                            <div class="mb-4 text-start">
-                                <label class="font-semibold" for="multiple_files">Upload Resume:</label>
-                                <input class="relative form-input border border-slate-100 dark:border-slate-800 file:h-10 file:-mx-3 file:-my-2 file:cursor-pointer file:rounded-none file:border-0 file:px-3 file:text-neutral-700 bg-clip-padding px-3 py-1.5 file:me-3 mt-1" id="multiple_files" type="file" multiple>
-                            </div>
-
-                            <div>
-                                <button type="submit" id="submit" name="send" class="btn rounded-md bg-red-600 hover:bg-red-700 border-red-600 hover:border-red-700 text-white">Send</button>
-                            </div>
-                        </div>
-                    </form><!--end form-->
+                    <form
+                    class="text-start"
+                    #applyForm="ngForm"
+                    (ngSubmit)="onSubmit(applyForm.value)"
+                    enctype="multipart/form-data"
+                  >
+                  
+                    <div class="grid grid-cols-1">
+                  
+                      <!-- Poste souhaité -->
+                      <div class="mb-4 text-start">
+                        <label for="posteSouhaite" class="font-semibold">Poste souhaité :</label>
+                        <select name="posteSouhaite" [(ngModel)]="form.posteSouhaite" required class="form-select form-input border mt-1">
+                          <option value="Développeur Java Spring Boot">Développeur Java Spring Boot</option>
+                          <option value="Développeur Angular">Développeur Angular</option>
+                          <option value="Consultant Camunda">Consultant Camunda</option>
+                        </select>
+                      </div>
+                  
+                      <!-- Nom complet -->
+                      <div class="mb-4 text-start">
+                        <label class="font-semibold" for="nomComplet">Nom complet :</label>
+                        <input
+                          id="nomComplet"
+                          type="text"
+                          name="nomComplet"
+                          [(ngModel)]="form.nomComplet"
+                          required
+                          class="form-input border mt-1"
+                          placeholder="Votre nom et prénom"
+                        />
+                      </div>
+                  
+                      <!-- Email -->
+                      <div class="mb-4 text-start">
+                        <label class="font-semibold" for="email">Adresse e-mail :</label>
+                        <input
+                          id="email"
+                          type="email"
+                          name="email"
+                          [(ngModel)]="form.email"
+                          required
+                          class="form-input border mt-1"
+                          placeholder="@gmail.com"
+                        />
+                      </div>
+                  
+                      <!-- Téléphone -->
+                      <div class="mb-4 text-start">
+                        <label class="font-semibold" for="telephone">Numéro de téléphone :</label>
+                        <input
+                          id="telephone"
+                          type="tel"
+                          name="telephone"
+                          [(ngModel)]="form.telephone"
+                          required
+                          class="form-input border mt-1"
+                          placeholder="(+216)"
+                        />
+                      </div>
+                  
+                      <!-- Lieu de résidence -->
+                      <div class="mb-4 text-start">
+                        <label for="lieuResidence" class="font-semibold">Lieu de résidence :</label>
+                        <select name="lieuResidence" [(ngModel)]="form.lieuResidence" required class="form-select form-input border mt-1">
+                          <option value="Tunis">Tunis</option>
+                          <option value="Sfax">Sfax</option>
+                          <option value="Sousse">Sousse</option>
+                          <option value="Autre">Autre</option>
+                        </select>
+                      </div>
+                  
+                      <!-- Lettre de motivation -->
+                      <div class="mb-2 text-start">
+                        <label for="lettreMotivation" class="font-semibold">Lettre de motivation :</label>
+                        <textarea
+                          id="lettreMotivation"
+                          name="lettreMotivation"
+                          [(ngModel)]="form.lettreMotivation"
+                          required
+                          class="form-input border mt-1 textarea"
+                          placeholder="Exprimez votre motivation..."
+                        ></textarea>
+                      </div>
+                  
+                      <!-- Fichier -->
+                      <div class="mb-4 text-start">
+                        <label class="font-semibold" for="cv">Télécharger votre CV :</label>
+                        <input
+                          id="cv"
+                          type="file"
+                          (change)="onFileChange($event)"
+                          required
+                          class="form-input border mt-1 file:h-10 file:cursor-pointer file:border-0 file:px-3"
+                        />
+                      </div>
+                  
+                      <div>
+                        <button
+                          type="submit"
+                          id="submit"
+                          name="send"
+                          class="btn rounded-md bg-red-600 hover:bg-red-700 border-red-600 hover:border-red-700 text-white"
+                        >
+                          Envoyer la candidature
+                        </button>
+                      </div>
+                  
+                    </div>
+                  </form>
+                  
                 </div>
             </div>
-        </div><!--end flex-->
-    </div><!--end container-->
+        </div>
+    </div>
 </section>
+
 <app-footer/>

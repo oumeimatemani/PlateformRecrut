@@ -49,11 +49,11 @@ date: any;
   
     constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router) {}
 
-    allRoles: string[] = ["ROLE_USER", "ROLE_ADMIN", "ROLE_STUDENT", "ROLE_ALUMNI", "ROLE_EXHIBITOR"];
 
     ngOnInit(): void {
     }
   
+    
     onSubmit(): void {
       console.log("Tentative de login avec : ", this.form);
     
@@ -61,24 +61,24 @@ date: any;
         next: data => {
           console.log("Réponse backend :", data);
     
-          this.tokenStorage.saveToken(data.token);
+          //this.tokenStorage.saveToken(data.token);
+          this.tokenStorage.saveToken(data.accessToken);
+
           this.tokenStorage.saveUser(data);
     
           const roles: string[] = data.roles;
+          const username = data.username;
+          const token = data.accessToken;
     
-          //Vérifie si l'utilisateur a un rôle "interne"
-          const isInternalUser = roles.includes('ROLE_ADMIN') ||
-                                 roles.includes('ROLE_RH') ||
-                                 roles.includes('ROLE_MANAGER') ||
-                                 roles.includes('ROLE_EXPERT_TECHNIQUE');
+          const internalRoles = ['ROLE_ADMIN', 'ROLE_RH', 'ROLE_MANAGER', 'ROLE_EXPERT_TECHNIQUE'];
+          const matchedRole = roles.find(role => internalRoles.includes(role));
     
-          if (isInternalUser) {
-            // Redirection vers le dashboard privé externe
-            const token = data.token;
-            const dashboardUrl = `http://localhost:4300/dashboard?token=${token}`; 
-            window.location.href = dashboardUrl;
+          if (matchedRole && token) {
+            //Redirection avec tous les paramètres
+            const dashboardUrl = `http://localhost:4300/admin?token=${token}&username=${encodeURIComponent(username)}&role=${encodeURIComponent(matchedRole)}`;
+            window.open(dashboardUrl, '_blank');
           } else {
-            //Redirection locale pour les visiteurs/candidats
+            // Redirection vers site public
             this.router.navigate(['/']);
           }
         },
@@ -90,7 +90,5 @@ date: any;
       });
     }
     
-    
- 
 
 }

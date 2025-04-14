@@ -84,37 +84,21 @@
   <li *ngIf="isLoggedIn && (roles.includes('ROLE_ADMIN') || roles.includes('ROLE_RH') || roles.includes('ROLE_MANAGER') || roles.includes('ROLE_EXPERT_TECHNIQUE'))" class="has-submenu">
     <a href="#">Bienvenue, {{ currentUser.username }} </a>
     <ul class="submenu flex flex-col items-center gap-2">
-        <!-- Admin avec emoji -->
-        <li *ngIf="roles.includes('ROLE_ADMIN')" class="text-red-600 font-medium flex items-center justify-center">
-          👑 Admin
-        </li>
-      
-        <!-- RH -->
-        <li *ngIf="roles.includes('ROLE_RH')" class="text-indigo-600 font-medium flex items-center justify-center">
-          👥 RH
-        </li>
-      
-        <!-- Manager -->
-        <li *ngIf="roles.includes('ROLE_MANAGER')" class="text-blue-600 font-medium flex items-center justify-center">
-          📋 Manager
-        </li>
-      
-        <!-- Expert Technique -->
-        <li *ngIf="roles.includes('ROLE_EXPERT_TECHNIQUE')" class="text-yellow-600 font-medium flex items-center justify-center">
-          🧠 Expert Technique
-        </li>
-      
-        <!-- Déconnexion -->
-        <li *ngIf="isLoggedIn" class="text-gray-700 font-medium flex items-center justify-center">
-          <a href="#" (click)="logout()">Déconnexion</a>
+        <li
+          *ngIf="displayRole"
+          class="text-red-600 font-medium flex items-center justify-center cursor-pointer hover:underline"
+          (click)="redirectToDashboard()"
+        >
+          🧭 {{ displayRole }}
         </li>
       </ul>
-      
-
-    
+       
   </li>
   
-      
+  <li *ngIf="isLoggedIn" class="text-gray-700 font-medium flex items-center justify-center">
+    <a href="#" (click)="logout()">Déconnexion</a>
+  </li>
+  
 </ul><!--end navigation menu-->
 
         </div><!--end navigation-->
