@@ -44,8 +44,14 @@ export class PreselectionFormComponent {
   
     this.candidatureService.completePreselectionTask(payload).subscribe({
       next: () => {
-        alert('✅  Pré-sélection soumise avec succès');
-        this.preselectionDone.emit();
+        Swal.fire({
+          icon: 'success',
+          title: 'Succès',
+          text: 'Pré-sélection soumise avec succès ✅',
+          timer: 2000,
+          showConfirmButton: false
+        });
+                this.preselectionDone.emit();
       },
       error: (err) => {
         console.error("❌ Erreur lors de la soumission :", err);
