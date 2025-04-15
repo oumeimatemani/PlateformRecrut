@@ -1,0 +1,17 @@
+.custom-filter-input {
+    border: 1px solid #ced4da; /* gris clair */
+    border-radius: 0.5rem;
+    padding: 8px 12px;
+    font-size: 14px;
+    width: 300px;
+    max-width: 100%;
+    box-shadow: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .custom-filter-input:focus {
+    border-color: #c41616; /* rouge tunisys par exemple */
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(197, 19, 19, 0.25);
+  }
+  

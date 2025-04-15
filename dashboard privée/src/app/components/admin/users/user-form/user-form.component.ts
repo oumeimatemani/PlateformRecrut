@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   templateUrl: './user-form.component.html',
   styleUrl: './user-form.component.css',
-  imports: [CommonModule, ReactiveFormsModule] // <-- indispensable
+  imports: [CommonModule, ReactiveFormsModule] 
 })
 export class UserFormComponent implements OnInit {
 

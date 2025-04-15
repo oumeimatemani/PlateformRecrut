@@ -9,8 +9,9 @@ import { ChatboxComponent } from '../chatbox/chatbox.component';
 import { UserListComponent } from '../../components/admin/users/user-list/user-list.component';
 import { WorkflowMonitoringComponent } from '../../components/admin/workflow-monitoring/workflow-monitoring.component';
 import { UserFormComponent } from '../../components/admin/users/user-form/user-form.component';
-import { RoleListComponent } from '../../components/admin/roles/role-list/role-list.component';
-import { RoleFormComponent } from '../../components/admin/roles/role-form/role-form.component';
+import { CandidatureListComponent } from '../../components/RH/candidatures/candidature-list/candidature-list.component';
+import { PreselectionFormComponent } from '../../components/RH/candidatures/preselection-form/preselection-form.component';
+
 
 @Component({
   selector: 'app-admin-layout',
@@ -26,8 +27,9 @@ import { RoleFormComponent } from '../../components/admin/roles/role-form/role-f
     UserListComponent,
     WorkflowMonitoringComponent,
     UserFormComponent,
-    RoleListComponent,
-    RoleFormComponent
+    CandidatureListComponent,
+    PreselectionFormComponent,
+  
     ],
   templateUrl: './admin-layout.component.html',
   styleUrl: './admin-layout.component.css'

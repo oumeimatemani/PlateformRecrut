@@ -9,20 +9,16 @@ import { CompaniesComponent } from './pages/companies/companies.component';
 import { RegisterComponent } from './pages/authentication/register/register.component';
 import { LoginComponent } from './pages/authentication/login/login.component';
 import { ForgotPasswordComponent } from './pages/authentication/forgot-password/forgot-password.component';
-
 import { Error404Component } from './pages/error/error404/error404.component';
+
 import { UserListComponent } from './components/admin/users/user-list/user-list.component';
-import { UserFormComponent } from './components/admin/users/user-form/user-form.component';
-import { RoleListComponent } from './components/admin/roles/role-list/role-list.component';
-import { RoleFormComponent } from './components/admin/roles/role-form/role-form.component';
 import { WorkflowMonitoringComponent } from './components/admin/workflow-monitoring/workflow-monitoring.component';
-
-
-
-
+import { CandidatureListComponent } from './components/RH/candidatures/candidature-list/candidature-list.component'; // ✅ Import RH
 
 export const routes: Routes = [
   { path: '', redirectTo: '/admin', pathMatch: 'full' },
+
+  // ADMIN ROUTES
   {
     path: 'admin', component: AdminLayoutComponent, children: [
       { path: '', component: DashboardComponent },
@@ -34,29 +30,25 @@ export const routes: Routes = [
       { path: 'statistics', component: StatisticsComponent },
       { path: 'companies', component: CompaniesComponent },
       { path: 'users', component: UserListComponent },
-      { 
-        path: 'users/edit/:id', 
+      {
+        path: 'users/edit/:id',
         loadComponent: () => import('./components/admin/users/user-form/user-form.component').then(m => m.UserFormComponent)
       },
-            
-      { path: '', redirectTo: '/users', pathMatch: 'full' }, 
-
-      { path: 'roles', component: RoleListComponent },
-      { path: 'roles/add', component: RoleFormComponent },
       { path: 'workflow-monitoring', component: WorkflowMonitoringComponent },
-      
-
     ]
   },
+
+  //ROUTE POUR RH - CANDIDATURES
+  { path: 'rh', component: AdminLayoutComponent, children: [
+      { path: 'candidatures',component: CandidatureListComponent},
+  ]},
+
+  // AUTH
   { path: 'page-register', component: RegisterComponent },
   { path: 'page-login', component: LoginComponent },
   { path: 'page-forgot-password', component: ForgotPasswordComponent },
-
-  { path: '**', component: Error404Component },
-
   { path: 'login', component: LoginComponent },
 
-
-
-  
+  // 404 - catch all
+  { path: '**', component: Error404Component }
 ];
