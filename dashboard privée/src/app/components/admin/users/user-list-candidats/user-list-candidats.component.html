@@ -1,0 +1,57 @@
+<div class="content-body">
+    <div class="container-fluid">
+      <div class="d-flex flex-wrap mb-4 align-items-center search-filter">
+        <div class="me-auto mb-2 pe-2">
+          <h6 class="text-black fs-16 font-w600 mb-1">Liste des candidats</h6>
+          <span class="fs-14">Tous les candidats enregistrés sur la plateforme</span>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="table-responsive">
+            <table class="table dataTable">
+              <thead>
+                <tr>
+                  <th>Nom d'utilisateur</th>
+                  <th>Email</th>
+                  <th>Rôle</th>
+                  <th class="text-center">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of users">
+                  <td>{{ user.username }}</td>
+                  <td>{{ user.email }}</td>
+                  <td>
+                    <span *ngFor="let role of user.roles; let last = last">
+                      {{ role.name }}<span *ngIf="!last">, </span>
+                    </span>
+                  </td>
+                  <td class="text-center">
+                    <div class="dropdown float-end custom-dropdown">
+                      <div class="" data-bs-toggle="dropdown">
+                        <i class="bi bi-three-dots"></i>
+                      </div>
+                      <div class="dropdown-menu dropdown-menu-end px-2 py-2">
+                        <button (click)="editUser(user.id)" class="btn btn-sm btn-light mb-1" title="Modifier">
+                          <i class="bi bi-pencil-fill text-primary"></i>
+                        </button>
+                        <button (click)="deleteUser(user.id)" class="btn btn-sm btn-light" title="Supprimer">
+                          <i class="bi bi-trash-fill text-primary"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="dataTables_info">
+              Total : {{ users.length }} candidats
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

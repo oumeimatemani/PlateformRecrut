@@ -143,9 +143,9 @@ export class SidebarComponent {
       icon: "flaticon-381-user",  
       roles: ["ADMIN"],
       subMenu: [
-        { title: "- Liste des Utilisateurs", route: "/admin/users", icon: "flaticon-381-user-7" },
-        { title: "- Rôles", route: "/admin/roles", icon: "flaticon-381-settings-2" },
-        { title: "- Workflow Monitoring", route: "/admin/workflow-monitoring", icon: "flaticon-381-networking" },
+        { title: "- 👤 Liste des Candidats", route: "/admin/candidats", icon: "flaticon-381-user-7" },
+        { title: "- 👨‍💼 Liste des Utilisateurs Administratifs", route: "/admin/admins", icon: "flaticon-381-user-7" },
+
       ]
     },
 
@@ -157,6 +157,7 @@ export class SidebarComponent {
       subMenu: [
         { title: "- Annonces", route: "/rh/annonces", icon: "flaticon-381-newspaper" },
         { title: "- Candidatures", route: "/rh/candidatures", icon: "flaticon-381-folder" },
+        { title: "- Workflow Monitoring", route: "/rh/workflow-monitoring", icon: "flaticon-381-networking" },
         { title: "- Intégration", route: "/rh/integration", icon: "flaticon-381-add-user" }
       ]
     },

@@ -7,11 +7,13 @@ import { HeaderComponent } from '../header/header.component';
 import { NavHeaderComponent } from '../nav-header/nav-header.component';
 import { ChatboxComponent } from '../chatbox/chatbox.component';
 import { UserListComponent } from '../../components/admin/users/user-list/user-list.component';
-import { WorkflowMonitoringComponent } from '../../components/admin/workflow-monitoring/workflow-monitoring.component';
+import { WorkflowMonitoringComponent } from '../../components/RH/workflow-monitoring/workflow-monitoring.component';
 import { UserFormComponent } from '../../components/admin/users/user-form/user-form.component';
 import { CandidatureListComponent } from '../../components/RH/candidatures/candidature-list/candidature-list.component';
 import { PreselectionFormComponent } from '../../components/RH/candidatures/preselection-form/preselection-form.component';
 import { CandidatureDetailsComponent } from '../../components/RH/candidatures/candidature-details/candidature-details.component';
+import { UserListAdminsComponent } from '../../components/admin/users/user-list-admins/user-list-admins.component';
+import { UserListCandidatsComponent } from '../../components/admin/users/user-list-candidats/user-list-candidats.component';
 
 
 @Component({
@@ -31,6 +33,8 @@ import { CandidatureDetailsComponent } from '../../components/RH/candidatures/ca
     CandidatureListComponent,
     CandidatureDetailsComponent,
     PreselectionFormComponent,
+    UserListAdminsComponent,
+    UserListCandidatsComponent
   
     ],
   templateUrl: './admin-layout.component.html',

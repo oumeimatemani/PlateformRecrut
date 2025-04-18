@@ -12,9 +12,11 @@ import { ForgotPasswordComponent } from './pages/authentication/forgot-password/
 import { Error404Component } from './pages/error/error404/error404.component';
 
 import { UserListComponent } from './components/admin/users/user-list/user-list.component';
-import { WorkflowMonitoringComponent } from './components/admin/workflow-monitoring/workflow-monitoring.component';
+import { WorkflowMonitoringComponent } from './components/RH/workflow-monitoring/workflow-monitoring.component';
 import { CandidatureListComponent } from './components/RH/candidatures/candidature-list/candidature-list.component'; // ✅ Import RH
 import { CandidatureDetailsComponent } from './components/RH/candidatures/candidature-details/candidature-details.component';
+import { UserListCandidatsComponent } from './components/admin/users/user-list-candidats/user-list-candidats.component';
+import { UserListAdminsComponent } from './components/admin/users/user-list-admins/user-list-admins.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/admin', pathMatch: 'full' },
@@ -35,14 +37,24 @@ export const routes: Routes = [
         path: 'users/edit/:id',
         loadComponent: () => import('./components/admin/users/user-form/user-form.component').then(m => m.UserFormComponent)
       },
-      { path: 'workflow-monitoring', component: WorkflowMonitoringComponent },
+      {
+        path: 'candidats',
+        component: UserListCandidatsComponent
+      },
+      {
+        path: 'admins',
+        component: UserListAdminsComponent
+      }
+      
     ]
   },
 
   //ROUTE POUR RH - CANDIDATURES
   { path: 'rh', component: AdminLayoutComponent, children: [
       { path: 'candidatures',component: CandidatureListComponent},
-      { path: 'candidatures/details/:id', component: CandidatureDetailsComponent }
+      { path: 'candidatures/details/:id', component: CandidatureDetailsComponent },
+      { path: 'workflow-monitoring', component: WorkflowMonitoringComponent },
+
 
   ]},
 

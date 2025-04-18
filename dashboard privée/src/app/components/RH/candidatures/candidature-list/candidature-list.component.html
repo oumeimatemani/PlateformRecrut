@@ -46,7 +46,7 @@
                     <a
                     [routerLink]="['/rh/candidatures/details', c.id]"
                     class="btn btn-outline-danger btn-sm"
-                    style="border-color: #c51313; color: #c51313;"
+                    style= "background-color: #eeeeee ; border-color: #c51313; color: #e86a6a;"
                   >
                     Voir + 
                   </a>
@@ -64,10 +64,11 @@
                     <button 
                     type="button" 
                     (click)="deleteCandidature(c.id)" 
-                    class="btn btn-outline-danger btn-sm" 
-                    style="border-color: #c51313; color: #c51313;">
-                    <i class="bi bi-trash" style="color: #c51313;"></i>
+                    class="btn btn-sm" 
+                    style="background-color: #d9d9d9; color: rgb(199, 39, 39); border: none;">
+                    <i class="bi bi-trash"></i>
                   </button>
+                  
                   
                   </td>   
                 </tr>
