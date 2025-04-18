@@ -11,6 +11,7 @@ import { WorkflowMonitoringComponent } from '../../components/admin/workflow-mon
 import { UserFormComponent } from '../../components/admin/users/user-form/user-form.component';
 import { CandidatureListComponent } from '../../components/RH/candidatures/candidature-list/candidature-list.component';
 import { PreselectionFormComponent } from '../../components/RH/candidatures/preselection-form/preselection-form.component';
+import { CandidatureDetailsComponent } from '../../components/RH/candidatures/candidature-details/candidature-details.component';
 
 
 @Component({
@@ -28,6 +29,7 @@ import { PreselectionFormComponent } from '../../components/RH/candidatures/pres
     WorkflowMonitoringComponent,
     UserFormComponent,
     CandidatureListComponent,
+    CandidatureDetailsComponent,
     PreselectionFormComponent,
   
     ],

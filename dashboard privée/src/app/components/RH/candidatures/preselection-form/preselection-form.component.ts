@@ -37,24 +37,24 @@ export class PreselectionFormComponent {
   onSubmit() {
     const payload = {
       candidatureId: this.candidatureId,
-      decision: this.decision.toUpperCase() // 👈 Force en majuscule (très important !)
+      decision: this.decision.toUpperCase() 
     };
   
-    console.log("📤 Payload envoyé :", JSON.stringify(payload));
+    console.log("Payload envoyé :", JSON.stringify(payload));
   
     this.candidatureService.completePreselectionTask(payload).subscribe({
       next: () => {
         Swal.fire({
           icon: 'success',
           title: 'Succès',
-          text: 'Pré-sélection soumise avec succès ✅',
+          text: 'Pré-sélection soumise avec succès ',
           timer: 2000,
           showConfirmButton: false
         });
                 this.preselectionDone.emit();
       },
       error: (err) => {
-        console.error("❌ Erreur lors de la soumission :", err);
+        console.error("Erreur lors de la soumission :", err);
       }
     });
   }

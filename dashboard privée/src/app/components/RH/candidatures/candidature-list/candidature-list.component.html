@@ -32,6 +32,7 @@
                     <th class="text-center">Nom</th>
                     <th class="text-center">Email</th>
                     <th class="text-center">Poste</th>
+                    <th class="text-center">Détails</th>
                     <th class="text-center">État</th>
                     <th class="text-center">Supprimer</th>
                 </tr>
@@ -42,6 +43,15 @@
                   <td>{{ c.email }}</td>
                   <td>{{ c.posteSouhaite }}</td>
                   <td>
+                    <a
+                    [routerLink]="['/rh/candidatures/details', c.id]"
+                    class="btn btn-outline-danger btn-sm"
+                    style="border-color: #c51313; color: #c51313;"
+                  >
+                    Voir + 
+                  </a>
+                  </td>
+                  <td>
                     <app-preselection-form
                     [candidatureId]="c.id"
                     [etatActuel]="c.etat || 'EN_ATTENTE'"
@@ -51,11 +61,14 @@
                   
                   </td>               
                   <td>
-                    <button (click)="deleteCandidature(c.id)" 
+                    <button 
+                    type="button" 
+                    (click)="deleteCandidature(c.id)" 
                     class="btn btn-outline-danger btn-sm" 
                     style="border-color: #c51313; color: #c51313;">
-                   <i class="bi bi-trash" style="color: #c51313;"></i>
-                   </button>
+                    <i class="bi bi-trash" style="color: #c51313;"></i>
+                  </button>
+                  
                   </td>   
                 </tr>
               </tbody>

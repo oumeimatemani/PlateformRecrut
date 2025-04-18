@@ -1,1 +1,81 @@
-<p>candidature-details works!</p>
+<div class="content-body">
+    <div class="container-fluid">
+      <div class="d-flex flex-wrap mb-4 align-items-center search-filter">
+        <div class="me-auto mb-2 pe-2">
+          <h6 class="text-black fs-16 font-w600 mb-1">Détails de la Candidature</h6>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-xl-12">
+            <div class="container mt-5">
+              
+                <div *ngIf="candidature">
+                  <p><strong>Nom :</strong> {{ candidature.nomComplet }}</p>
+                  <p><strong>Email :</strong> {{ candidature.email }}</p>
+                  <p><strong>Téléphone :</strong> {{ candidature.telephone }}</p>
+                  <p><strong>Poste souhaité :</strong> {{ candidature.posteSouhaite }}</p>
+                  <p><strong>Lieu de résidence :</strong> {{ candidature.lieuResidence }}</p>
+                  <p><strong>Lettre de motivation :</strong> {{ candidature.lettreMotivation }}</p>
+                  <p><strong>État :</strong> {{ candidature.etat }}</p>
+                  <p><strong>CV :</strong> 
+                    <a href="#" (click)="downloadFile(); $event.preventDefault()" class="btn btn-sm btn-danger">
+                        📄 Télécharger le CV
+                      </a>                      
+                   </p>
+                </div>
+                <a routerLink="/rh/candidatures" class="btn btn-outline-dark mt-4">
+                    <i class="bi bi-arrow-left"></i> Retour à la liste
+                </a>
+            </div>
+              
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

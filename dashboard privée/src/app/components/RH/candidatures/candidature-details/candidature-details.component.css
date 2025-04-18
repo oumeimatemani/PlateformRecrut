@@ -1,0 +1,12 @@
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+  
+  .btn-danger {
+    background-color: #eaeaea;
+    color: rgb(188, 39, 39);
+    border: none;
+    border-radius: 0.25rem;
+  }
+  

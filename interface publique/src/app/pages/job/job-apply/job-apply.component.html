@@ -4,7 +4,9 @@
     <div class="absolute inset-0 bg-red-900/90"></div>
     <div class="container">
         <div class="grid grid-cols-1 text-center mt-10">
-            <h3 class="md:text-3xl text-2xl md:leading-snug tracking-wide leading-snug font-medium text-white">Développeur Java Spring Boot</h3>
+          <h3 class="md:text-3xl text-2xl md:leading-snug tracking-wide leading-snug font-medium text-white">
+            {{ form.posteSouhaite || 'Formulaire de Candidature' }}
+          </h3>
         </div>
     </div>
     
@@ -46,9 +48,10 @@
                       <div class="mb-4 text-start">
                         <label for="posteSouhaite" class="font-semibold">Poste souhaité :</label>
                         <select name="posteSouhaite" [(ngModel)]="form.posteSouhaite" required class="form-select form-input border mt-1">
-                          <option value="Développeur Java Spring Boot">Développeur Java Spring Boot</option>
-                          <option value="Développeur Angular">Développeur Angular</option>
-                          <option value="Consultant Camunda">Consultant Camunda</option>
+                          <option *ngIf="form.posteSouhaite" [value]="form.posteSouhaite">{{ form.posteSouhaite }}</option>
+                          //  <!-- Autres options -->
+                          <option *ngFor="let poste of postesDisponibles" [value]="poste">{{ poste }}</option>
+
                         </select>
                       </div>
                   

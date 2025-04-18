@@ -8,16 +8,11 @@ export interface OffreEmploi {
     nombreCandidats: string;
     nombrePostes: string;
     salaire: string;
-    duree: string;
-    tauxHoraire: string; 
-  
-    descriptionCourte: string; 
-    descriptionLongue: string; 
-  
+    desc: string;
+    desc2: string;
     datePub: string;
-    dateExpiration: string; 
     image: string;
     badge: boolean;
-    competences: string[];
+    compétences: string[];
   }
   
