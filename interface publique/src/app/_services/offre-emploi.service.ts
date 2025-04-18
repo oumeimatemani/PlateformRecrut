@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { HttpParams } from '@angular/common/http';
 import { OffreEmploi } from '../models/offre-emploi.model';
 
 @Injectable({
@@ -15,7 +16,18 @@ export class OffreEmploiService {
     return this.http.get<OffreEmploi[]>(this.apiUrl);
   }
 
-  getFiltreData() {
-    return this.http.get<{ villes: string[], typesContrat: string[], competences: string[] }>(`${this.apiUrl}/filtre-data`);
+
+  filtrerOffres(filtre: any): Observable<OffreEmploi[]> {
+    let params = new HttpParams();
+
+    if (filtre.titre) params = params.set('titre', filtre.titre);
+    if (filtre.ville) params = params.set('ville', filtre.ville);
+    if (filtre.competence) params = params.set('competence', filtre.competence);
+
+    const typeContrat = Object.entries(filtre.contrats).find(([_, v]) => v)?.[0];
+    if (typeContrat) params = params.set('typeContrat', typeContrat);
+
+    return this.http.get<OffreEmploi[]>(`${this.apiUrl}/filtrer`, { params });
   }
+  
 }

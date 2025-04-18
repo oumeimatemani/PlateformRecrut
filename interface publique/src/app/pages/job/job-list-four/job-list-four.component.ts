@@ -8,6 +8,8 @@ import { FooterComponent } from '../../../components/footer/footer.component';
 import { HttpClient } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Component, OnInit } from '@angular/core';
+import { OffreEmploiService } from '../../../_services/offre-emploi.service';
+import { OffreEmploi } from '../../../models/offre-emploi.model';
 
 @Component({
   selector: 'app-job-list-four',
@@ -27,55 +29,56 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class JobListFourComponent implements OnInit {
-  jobData: any[] = [];
  
-  paginatedJobs: any[] = [];
 
   currentPage: number = 1;
   itemsPerPage: number = 4;
 
-  constructor(private http: HttpClient) {}
+  filtreActif: any = {};
+
+  jobData: OffreEmploi[] = [];
+  paginatedJobs: OffreEmploi[] = [];
+
+  totalPages: number = 1;
+
+  constructor(private http: HttpClient, private offreService: OffreEmploiService) {}
 
   ngOnInit(): void {
-    this.http.get<any[]>('http://localhost:8080/api/offres').subscribe(data => {
+    this.loadAllJobs();
+  }
+
+  // Charger tout au début
+  loadAllJobs(): void {
+    this.offreService.getAllOffres().subscribe(data => {
       this.jobData = data;
       this.updatePagination();
     });
   }
 
-  updatePagination() {
+  // filtrage
+  onFiltreChange(filtre: any) {
+    this.offreService.filtrerOffres(filtre).subscribe(data => {
+      this.jobData = data;
+      this.currentPage = 1;
+      this.updatePagination();
+    });
+  }
+
+  // pagination
+  updatePagination(): void {
     const start = (this.currentPage - 1) * this.itemsPerPage;
     const end = start + this.itemsPerPage;
     this.paginatedJobs = this.jobData.slice(start, end);
+    this.totalPages = Math.ceil(this.jobData.length / this.itemsPerPage);
   }
 
-  changePage(page: number) {
+  changePage(page: number): void {
     this.currentPage = page;
     this.updatePagination();
   }
-
-  get totalPages(): number {
-    return Math.ceil(this.jobData.length / this.itemsPerPage);
-  }
-
-  //filtre
-  onFiltreChange(filtres: any) {
-    const params = new URLSearchParams();
-    if (filtres.ville) params.set('ville', filtres.ville);
-    if (filtres.typeContrat) params.set('typeContrat', filtres.typeContrat);
-    if (filtres.competence) params.set('competence', filtres.competence);
-    if (filtres.search) params.set('search', filtres.search); 
-    params.set('minSalaire', filtres.minSalaire);
-    params.set('maxSalaire', filtres.maxSalaire);
-  
-    this.http.get<any[]>(`http://localhost:8080/api/offres?${params}`).subscribe(data => {
-      this.jobData = data;
-      this.currentPage = 1; // reset to page 1
-      this.updatePagination();
-    });
-  }
-  
-  
-
-  
 }
+
+
+ 
+
+  
