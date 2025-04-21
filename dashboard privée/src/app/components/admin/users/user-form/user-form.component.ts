@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../../../../services/user.service';
 import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-user-form',
@@ -12,49 +13,58 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule, ReactiveFormsModule] 
 })
 export class UserFormComponent implements OnInit {
-
   userForm!: FormGroup;
-  userId?: number;
+  userId!: number;
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
+    private userService: UserService,
     private fb: FormBuilder,
-    private userService: UserService
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    console.log("Composant UserForm chargé !");
-
     this.userId = Number(this.route.snapshot.paramMap.get('id'));
 
     this.userForm = this.fb.group({
-      name: ['', Validators.required],
+      username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
+      phoneNumber: ['']
     });
 
-    if (this.userId) {
-      this.userService.getUser(this.userId).subscribe(userData => {
+    this.userService.getUser(this.userId).subscribe({
+      next: (user) => {
         this.userForm.patchValue({
-          name: userData.username,
-          email: userData.email,
+          username: user.username,
+          email: user.email,
+          phoneNumber: user.phoneNumber
         });
-      }, error => {
-        console.error('Erreur lors du chargement de l’utilisateur', error);
-      });
-    }
+      },
+      error: (err) => console.error('Erreur chargement utilisateur', err)
+    });
   }
 
-  onSubmit(): void {
-    if (this.userForm.invalid) return;
-    if (this.userId) {
-      this.userService.updateUser(this.userId, this.userForm.value).subscribe(() => {
-        this.router.navigate(['/admin/users']);
+  onSubmit() {
+    if (this.userForm.valid) {
+      this.userService.updateUser(this.userId, this.userForm.value).subscribe({
+        next: () => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Utilisateur mis à jour',
+            showConfirmButton: false,
+            timer: 1500
+          });
+          this.router.navigate(['/admin/candidats']); // ou admin/users
+        },
+        error: (err) => {
+          console.error('Erreur mise à jour :', err);
+          Swal.fire({
+            icon: 'error',
+            title: 'Erreur',
+            text: 'Impossible de mettre à jour l\'utilisateur.'
+          });
+        }
       });
     }
-  }
-
-  cancel(): void {
-    this.router.navigate(['/admin/users']);
   }
 }

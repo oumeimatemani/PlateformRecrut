@@ -2,20 +2,25 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../../services/user.service';
 import { User } from '../../../../models/user';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import Swal from 'sweetalert2';
+import { PreselectionFormComponent } from '../../../RH/candidatures/preselection-form/preselection-form.component';
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-user-list-candidats',
   standalone: true,
   templateUrl: './user-list-candidats.component.html',
   styleUrl: './user-list-candidats.component.css',
-  imports: [CommonModule]
+  imports: [CommonModule, RouterModule, PreselectionFormComponent, FormsModule]
 })
 export class UserListCandidatsComponent implements OnInit {
 
   users: User[] = [];
 
   constructor(private userService: UserService, private router: Router) {}
+  
 
   ngOnInit(): void {
     this.userService.getAllUsers().subscribe({
@@ -33,11 +38,39 @@ export class UserListCandidatsComponent implements OnInit {
     this.router.navigate(['/admin/users/edit', userId]);
   }
 
-  deleteUser(userId: number): void {
-    if (confirm('Voulez-vous vraiment supprimer ce candidat ?')) {
-      this.userService.deleteUser(userId).subscribe(() => {
-        this.ngOnInit(); // Recharge la liste
-      }, error => console.error('Erreur lors de la suppression', error));
-    }
+
+  deleteUser(id: number) {
+    Swal.fire({
+      title: 'Êtes-vous sûr(e) ?',
+      text: 'Cette action supprimera définitivement le Candidat .',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Oui, supprimer',
+      cancelButtonText: 'Annuler'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.userService.deleteUser(id).subscribe(() => {
+  
+          Swal.fire({
+            icon: 'success',
+            title: 'Candidat supprimé avec succès !',
+            showConfirmButton: false,
+            timer: 1500
+          });
+        }, error => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Erreur',
+            text: 'Une erreur est survenue pendant la suppression.',
+          });
+          console.error("Erreur lors de la suppression :", error);
+        });
+      }
+    });
   }
+  
+  
+  
 }

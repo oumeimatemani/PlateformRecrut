@@ -20,11 +20,11 @@ export class UserService {
     return this.http.get<any[]>(`${this.apiUrl}/AllUsers`, { headers });
   }
   
-  deleteUser(id: number): Observable<any> {
-    const token = this.tokenStorage.getToken();
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.delete(`${this.apiUrl}/deleteUser/${id}`, { headers });
+
+  deleteUser(id: number) {
+    return this.http.delete(`${this.apiUrl}/deleteUser/${id}`, { responseType: 'text' });
   }
+  
 
   getUser(id: number): Observable<any> {
     const token = this.tokenStorage.getToken();
@@ -32,6 +32,7 @@ export class UserService {
     return this.http.get(`${this.apiUrl}/getUser/${id}`, { headers });
   }
   
+
   
   updateUser(id: number, userData: any): Observable<any> {
     const token = this.tokenStorage.getToken();

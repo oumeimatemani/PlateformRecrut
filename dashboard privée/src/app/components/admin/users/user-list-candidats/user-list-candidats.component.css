@@ -1,0 +1,41 @@
+.table th,
+.table td {
+  text-align: center;
+  vertical-align: middle !important;
+}
+
+.actions-header {
+    padding-left: 20px; 
+    text-align: center;
+  }
+  
+  .action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+  }
+  
+  .btn-edit {
+    background-color: #e0e0e0;
+    color: hsl(0, 72%, 48%); 
+    border: none;
+    border-radius: 6px;
+    padding: 6px 10px;
+  }
+  
+  .btn-delete {
+    background-color: #e0e0e0; 
+    color: hsl(0, 72%, 48%); 
+    border: none;
+    border-radius: 6px;
+    padding: 6px 10px;
+  }
+  
+  .btn-edit:hover {
+    background-color: #dddddd;
+  }
+  
+  .btn-delete:hover {
+    background-color: #dddddd;
+  }
+  

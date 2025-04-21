@@ -14,6 +14,8 @@ import { PreselectionFormComponent } from '../../components/RH/candidatures/pres
 import { CandidatureDetailsComponent } from '../../components/RH/candidatures/candidature-details/candidature-details.component';
 import { UserListAdminsComponent } from '../../components/admin/users/user-list-admins/user-list-admins.component';
 import { UserListCandidatsComponent } from '../../components/admin/users/user-list-candidats/user-list-candidats.component';
+import { AnnonceListComponent } from '../../components/RH/annonces/annonce-list/annonce-list.component';
+import { AnnonceFormComponent } from '../../components/RH/annonces/annonce-form/annonce-form.component';
 
 
 @Component({
@@ -34,7 +36,9 @@ import { UserListCandidatsComponent } from '../../components/admin/users/user-li
     CandidatureDetailsComponent,
     PreselectionFormComponent,
     UserListAdminsComponent,
-    UserListCandidatsComponent
+    UserListCandidatsComponent,
+    AnnonceListComponent,
+    AnnonceFormComponent
   
     ],
   templateUrl: './admin-layout.component.html',

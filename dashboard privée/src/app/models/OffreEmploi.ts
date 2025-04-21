@@ -13,6 +13,6 @@ export interface OffreEmploi {
     datePub: string;
     image: string;
     badge: boolean;
-    compétences: string[];
+    competences: string[];
   }
   

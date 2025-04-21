@@ -16,7 +16,7 @@
                   <th>Nom d'utilisateur</th>
                   <th>Email</th>
                   <th>Rôle</th>
-                  <th class="text-center">Actions</th>
+                  <th class="text-center" style="width: 120px;">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -28,20 +28,16 @@
                       {{ role.name }}<span *ngIf="!last">, </span>
                     </span>
                   </td>
-                  <td class="text-center">
-                    <div class="dropdown float-end custom-dropdown">
-                      <div class="" data-bs-toggle="dropdown">
-                        <i class="bi bi-three-dots"></i>
-                      </div>
-                      <div class="dropdown-menu dropdown-menu-end px-2 py-2">
-                        <button (click)="editUser(user.id)" class="btn btn-sm btn-light mb-1" title="Modifier">
-                          <i class="bi bi-pencil-fill text-primary"></i>
+                  <td >
+                    <div class="action-buttons">
+                        <button (click)="editUser(user.id)" class="btn btn-edit" title="Modifier">
+                          <i class="bi bi-pencil-fill"></i>
                         </button>
-                        <button (click)="deleteUser(user.id)" class="btn btn-sm btn-light" title="Supprimer">
-                          <i class="bi bi-trash-fill text-primary"></i>
+                        <button  (click)="deleteUser(user.id)" class="btn btn-delete" title="Supprimer">
+                          <i class="bi bi-trash-fill"></i>
                         </button>
                       </div>
-                    </div>
+                      
                   </td>
                 </tr>
               </tbody>

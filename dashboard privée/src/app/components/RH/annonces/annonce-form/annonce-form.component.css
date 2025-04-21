@@ -1,0 +1,31 @@
+/* Bouton "Ajouter compétence" en violet */
+.btn-theme-purple {
+    background-color: #c52d2d; /* violet Bootstrap */
+    color: white;
+    border: none;
+    padding: 6px 15px;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-theme-purple:hover {
+    background-color: #b91a1a;
+  }
+  
+  /* Bouton "Créer / Mettre à jour" en vert stylé */
+  .btn-theme-green {
+    background-color: #c52d2d;
+    color: white;
+    border: none;
+    padding: 6px 15px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  .btn-theme-green:hover {
+    background-color: #c52d2d;
+  }
+  

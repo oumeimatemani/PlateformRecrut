@@ -1,1 +1,104 @@
-<p>annonce-form works!</p>
+<div class="container mt-5">
+  <h3 class="mb-4">{{ isEditMode ? 'Modifier' : 'Créer' }} une offre d'emploi</h3>
+  <form [formGroup]="offreForm" (ngSubmit)="onSubmit()">
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label>Titre du poste</label>
+        <input class="form-control" formControlName="titrePoste" />
+      </div>
+      <div class="col-md-6 mb-3">
+        <label>Nom de l'entreprise</label>
+        <input class="form-control" formControlName="nomEntreprise" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <label>Type de contrat</label>
+        <select class="form-select" formControlName="typeContrat">
+          <option value="CDI">CDI</option>
+          <option value="CDD">CDD</option>
+          <option value="STAGE">Stage</option>
+        </select>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label>Pays</label>
+        <input class="form-control" formControlName="pays" />
+      </div>
+      <div class="col-md-4 mb-3">
+        <label>Ville</label>
+        <input class="form-control" formControlName="ville" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <label>Nombre de postes</label>
+        <input class="form-control" formControlName="nombrePostes" />
+      </div>
+      <div class="col-md-4 mb-3">
+        <label>Salaire</label>
+        <input class="form-control" formControlName="salaire" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label>Durée</label>
+        <input class="form-control" formControlName="duree" />
+      </div>
+      <div class="col-md-6 mb-3">
+        <label>Taux horaire</label>
+        <input class="form-control" formControlName="tauxHoraire" />
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label>Description courte</label>
+      <textarea class="form-control" formControlName="descriptionCourte"></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label>Description longue</label>
+      <textarea class="form-control" formControlName="descriptionLongue"></textarea>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label>Date de publication</label>
+        <input type="date" class="form-control" formControlName="datePub" />
+      </div>
+      <div class="col-md-6 mb-3">
+        <label>Date d'expiration</label>
+        <input type="date" class="form-control" formControlName="dateExpiration" />
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label>Image (URL)</label>
+      <input class="form-control" formControlName="image" />
+    </div>
+
+
+    <div class="mb-3">
+        <label>Compétences :</label>
+        <br>
+        <div *ngFor="let comp of competences.controls; let i = index" class="d-flex gap-2 mb-2">
+          <input [formControl]="comp" class="form-control" />
+          <button type="button" class="btn btn-sm btn-supprimer" (click)="removeCompetence(i)">
+            <i class="bi bi-trash-fill"></i>
+          </button>
+        </div>
+      
+        <!-- bouton violet -->
+        <button type="button" class="btn btn-theme-purple btn-sm" (click)="addCompetence()">+ Ajouter compétence</button>
+      </div>
+      
+      <!-- bouton vert -->
+      <button class="btn btn-theme-green" type="submit">
+        {{ isEditMode ? 'Mettre à jour' : 'Créer' }}
+      </button>
+      
+  </form>
+</div>

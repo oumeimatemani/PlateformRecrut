@@ -14,4 +14,22 @@ export class OffreEmploiService {
   getAllOffres(): Observable<OffreEmploi[]> {
     return this.http.get<OffreEmploi[]>(this.apiUrl);
   }
+
+
+  getOffreById(id: number): Observable<OffreEmploi> {
+    return this.http.get<OffreEmploi>(`${this.apiUrl}/${id}`);
+  }
+  
+  createOffre(offre: OffreEmploi): Observable<OffreEmploi> {
+    return this.http.post<OffreEmploi>(this.apiUrl, offre);
+  }
+  
+  updateOffre(id: number, offre: OffreEmploi): Observable<OffreEmploi> {
+    return this.http.put<OffreEmploi>(`${this.apiUrl}/${id}`, offre);
+  }
+  
+  deleteOffre(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+  
 }
