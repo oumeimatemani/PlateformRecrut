@@ -1,0 +1,24 @@
+<div class="content-body">
+    <div class="container-fluid">
+      <h3>Détails du processus</h3>
+
+      <div *ngIf="processInstance">
+        <p><strong>ID :</strong> {{ processInstance.id }}</p>
+        <p><strong>Début :</strong> {{ processInstance.startTime | date:'short' }}</p>
+        <p><strong>Fin :</strong> {{ processInstance.endTime ? (processInstance.endTime | date:'short') : '-' }}</p>
+        <p><strong>Etat :</strong> 
+          <span [ngClass]="{ 'text-success': processInstance.endTime, 'text-warning': !processInstance.endTime }">
+            {{ processInstance.endTime ? 'Terminé' : 'En cours' }}
+          </span>
+        </p>
+      </div>
+      
+
+      <div *ngIf="!processInstance">
+        <p>Chargement des détails...</p>
+      </div>
+
+      <a class="btn btn-secondary mt-3" [routerLink]="['/rh/workflow-monitoring']">Retour</a>
+    </div>
+  </div>
+`

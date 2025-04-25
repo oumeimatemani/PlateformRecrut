@@ -1,1 +1,57 @@
-<p>workflow-monitoring works!</p>
+<div class="content-body">
+    <div class="container-fluid">
+      <div class="d-flex flex-wrap mb-4 align-items-center justify-content-between">
+        <h3>Suivi des processus Camunda</h3>
+  
+        <select class="form-select w-auto" [(ngModel)]="filterEtat" (change)="applyFilter()">
+          <option value="ALL">Tous les états</option>
+          <option value="ONGOING">En cours</option>
+          <option value="FINISHED">Terminé</option>
+        </select>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-6 col-xl-4 mb-4" *ngFor="let instance of paginatedInstances">
+          <div class="card shadow rounded-3 p-3">
+            <h6 class="fw-bold">Processus Camunda</h6>
+            <p><strong>ID Instance :</strong> {{ instance.id }}</p>
+            <p><strong>Définition :</strong> {{ instance.processDefinitionId }}</p>
+            <p>
+              <strong>État :</strong> 
+              <span [ngClass]="{ 'text-success': instance.endTime, 'text-warning': !instance.endTime }">
+                {{ instance.endTime ? 'Terminé' : 'En cours' }}
+              </span>
+            </p>
+            <p><strong>Début :</strong> {{ instance.startTime | date:'short' }}</p>
+            <p><strong>Fin :</strong> {{ instance.endTime ? (instance.endTime | date:'short') : '-' }}</p>
+  
+            <div class="d-flex justify-content-between mt-3">
+              <a *ngIf="instance.candidatureId" [routerLink]="['/rh/candidatures/details', instance.candidatureId]" class="btn btn-outline-primary btn-sm">
+                Voir la candidature
+              </a>
+              <a class="btn btn-outline-dark btn-sm" [routerLink]="['/rh/processus', instance.id]">
+                Voir détails
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Pagination -->
+      <nav class="d-flex justify-content-center mt-3">
+        <ul class="pagination">
+          <li class="page-item" [class.disabled]="currentPage === 1">
+            <button class="page-link" (click)="previousPage()">Précédent</button>
+          </li>
+          <li class="page-item" *ngFor="let page of [].constructor(totalPages); let i = index" 
+              [class.active]="currentPage === i + 1">
+            <button class="page-link" (click)="goToPage(i + 1)">{{ i + 1 }}</button>
+          </li>
+          <li class="page-item" [class.disabled]="currentPage === totalPages">
+            <button class="page-link" (click)="nextPage()">Suivant</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  

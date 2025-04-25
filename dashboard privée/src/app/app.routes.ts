@@ -19,6 +19,7 @@ import { UserListCandidatsComponent } from './components/admin/users/user-list-c
 import { UserListAdminsComponent } from './components/admin/users/user-list-admins/user-list-admins.component';
 import { AnnonceListComponent } from './components/RH/annonces/annonce-list/annonce-list.component';
 import { AnnonceFormComponent } from './components/RH/annonces/annonce-form/annonce-form.component';
+import { ProcessusDetailsComponent } from './components/RH/workflow-monitoring/processus-details/processus-details.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/admin', pathMatch: 'full' },
@@ -56,6 +57,7 @@ export const routes: Routes = [
       { path: 'candidatures',component: CandidatureListComponent},
       { path: 'candidatures/details/:id', component: CandidatureDetailsComponent },
       { path: 'workflow-monitoring', component: WorkflowMonitoringComponent },
+      { path: 'processus/:id', component: ProcessusDetailsComponent },
       { path: 'annonces', component: AnnonceListComponent },
       { path: 'annonce/create', component: AnnonceFormComponent },
       { path: 'annonce/edit/:id', component: AnnonceFormComponent }

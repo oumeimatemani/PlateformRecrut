@@ -10,8 +10,8 @@
         <div class="col-xl-12">
             <div class="container mt-5">
               
-                <div *ngIf="candidature">
-                  <p><strong>Nom :</strong> {{ candidature.nomComplet }}</p>
+                <div *ngIf="candidature; else notFound">
+                    <p><strong>Nom :</strong> {{ candidature.nomComplet }}</p>
                   <p><strong>Email :</strong> {{ candidature.email }}</p>
                   <p><strong>Téléphone :</strong> {{ candidature.telephone }}</p>
                   <p><strong>Poste souhaité :</strong> {{ candidature.posteSouhaite }}</p>
@@ -24,7 +24,11 @@
                       </a>                      
                    </p>
                 </div>
-                <a routerLink="/rh/candidatures" class="btn btn-outline-dark mt-4">
+                <ng-template #notFound>
+                    <p class="text-danger">❌ Candidature non trouvée.</p>
+                </ng-template>
+
+                <a routerLink="/rh/workflow-monitoring" class="btn btn-outline-dark mt-4">
                     <i class="bi bi-arrow-left"></i> Retour à la liste
                 </a>
             </div>

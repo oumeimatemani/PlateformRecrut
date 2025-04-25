@@ -16,6 +16,7 @@ import { UserListAdminsComponent } from '../../components/admin/users/user-list-
 import { UserListCandidatsComponent } from '../../components/admin/users/user-list-candidats/user-list-candidats.component';
 import { AnnonceListComponent } from '../../components/RH/annonces/annonce-list/annonce-list.component';
 import { AnnonceFormComponent } from '../../components/RH/annonces/annonce-form/annonce-form.component';
+import { ProcessusDetailsComponent } from '../../components/RH/workflow-monitoring/processus-details/processus-details.component';
 
 
 @Component({
@@ -30,7 +31,8 @@ import { AnnonceFormComponent } from '../../components/RH/annonces/annonce-form/
     HeaderComponent,
     ChatboxComponent,
     UserListComponent,
-    WorkflowMonitoringComponent,
+    WorkflowMonitoringComponent,    
+    ProcessusDetailsComponent,
     UserFormComponent,
     CandidatureListComponent,
     CandidatureDetailsComponent,
