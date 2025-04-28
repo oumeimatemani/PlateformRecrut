@@ -1,0 +1,11 @@
+.chart-container {
+    width: 300px;   
+    height: 300px;
+    margin: 20px auto; 
+  }
+  
+  #etatChart {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  

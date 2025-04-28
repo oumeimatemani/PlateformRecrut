@@ -1,24 +1,43 @@
 <div class="content-body">
-    <div class="container-fluid">
-      <h3>Détails du processus</h3>
+  <div class="container-fluid">
+    <h3>Détails du processus</h3>
 
-      <div *ngIf="processInstance">
-        <p><strong>ID :</strong> {{ processInstance.id }}</p>
-        <p><strong>Début :</strong> {{ processInstance.startTime | date:'short' }}</p>
-        <p><strong>Fin :</strong> {{ processInstance.endTime ? (processInstance.endTime | date:'short') : '-' }}</p>
-        <p><strong>Etat :</strong> 
-          <span [ngClass]="{ 'text-success': processInstance.endTime, 'text-warning': !processInstance.endTime }">
-            {{ processInstance.endTime ? 'Terminé' : 'En cours' }}
-          </span>
-        </p>
-      </div>
+    <div *ngIf="processInstance">
+      <p><strong>ID :</strong> {{ processInstance.id }}</p>
+      <p><strong>Début :</strong> {{ processInstance.startTime | date:'short' }}</p>
+      <p><strong>Fin :</strong> {{ processInstance.endTime ? (processInstance.endTime | date:'short') : '-' }}</p>
+      <p><strong>État :</strong>
+        <span [ngClass]="{ 'text-success': processInstance.endTime, 'text-warning': !processInstance.endTime }">
+          {{ processInstance.endTime ? 'Terminé' : 'En cours' }}
+        </span>
+      </p>
+
       
-
-      <div *ngIf="!processInstance">
-        <p>Chargement des détails...</p>
+      <div class="row">
+        <!-- diagramme -->
+        <div class="col-md-8">
+          <div id="bpmnCanvas" style="height: 300px; border: 1px solid #ccc;" *ngIf="hasDiagram; else noDiagram"></div>
+          <ng-template #noDiagram>
+            <div class="alert alert-warning text-center" style="height: 500px; display: flex; align-items: center; justify-content: center; border: 1px dashed #ccc;">
+              Aucun diagramme BPMN disponible pour ce processus.
+            </div>
+          </ng-template>
+                  </div>
+        
+        <!-- Canvas pour le graphique -->
+        <div class="col-md-4 d-flex justify-content-center align-items-center">
+          <div class="chart-container">
+            <canvas id="etatChart"></canvas>
+          </div>        
+        </div>
       </div>
 
-      <a class="btn btn-secondary mt-3" [routerLink]="['/rh/workflow-monitoring']">Retour</a>
     </div>
+
+    <div *ngIf="!processInstance">
+      <p>Chargement des détails...</p>
+    </div>
+
+    <a class="btn btn-secondary mt-3" [routerLink]="['/rh/workflow-monitoring']">Retour</a>
   </div>
-`
+</div>
