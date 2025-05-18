@@ -1,0 +1,65 @@
+.btn-ajout {
+    background-color: #dc3545 !important; /* Rouge Bootstrap */
+    color: white !important;
+    border: none;
+  }
+  
+  .btn-ajout:hover,
+  .btn-ajout:focus,
+  .btn-ajout:active,
+  .btn-ajout:visited {
+    background-color: #c82333 !important; /* Rouge foncé au hover/focus */
+    color: white !important;
+    border: none;
+  }
+  
+
+  .bg-bordeaux {
+    background-color: #c61429; /* Rouge bordeaux */
+  }
+  
+  .btn-bordeaux {
+    background-color: #b61427;
+    border-color: #c12235;
+  }
+  
+  .btn-bordeaux:hover {
+    background-color: #cd2539;
+    border-color: #aa0c1e;
+  }
+  
+  .border-bordeaux {
+    border-color: #d11127 !important;
+  }
+  
+
+  .btn-enregistrer {
+    background-color: #a5a3a3;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: 0.3s ease;
+  }
+  
+  .btn-enregistrer:hover {
+    background-color: #a91121;
+    color: white;
+  }
+  
+  .section-title {
+    color: #19324be6; /* Bleu marine (ou mets `#000` pour noir) */
+    font-weight: 700;
+    font-size: 24px;
+  }
+
+
+  .bg-echoue {
+    background-color: #f91933 !important;
+    color: white;
+    padding: 0.35em 0.65em;
+    border-radius: 0.25rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  
