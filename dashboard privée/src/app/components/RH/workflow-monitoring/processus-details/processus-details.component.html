@@ -16,21 +16,23 @@
       <div class="row">
         <!-- diagramme -->
         <div class="col-md-8">
-          <div id="bpmnCanvas" style="height: 300px; border: 1px solid #ccc;" *ngIf="hasDiagram; else noDiagram"></div>
+          <div id="bpmnCanvas" *ngIf="hasDiagram; else noDiagram" class="diagram-container"></div>
+      
           <ng-template #noDiagram>
-            <div class="alert alert-warning text-center" style="height: 500px; display: flex; align-items: center; justify-content: center; border: 1px dashed #ccc;">
+            <div class="no-diagram-message">
               Aucun diagramme BPMN disponible pour ce processus.
             </div>
           </ng-template>
-                  </div>
-        
-        <!-- Canvas pour le graphique -->
+        </div>
+      
+        <!-- chart -->
         <div class="col-md-4 d-flex justify-content-center align-items-center">
           <div class="chart-container">
             <canvas id="etatChart"></canvas>
-          </div>        
+          </div>
         </div>
       </div>
+      
 
     </div>
 

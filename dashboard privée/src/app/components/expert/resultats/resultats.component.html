@@ -1,1 +1,63 @@
-<p>resultats works!</p>
+<div class="content-body">
+  <div class="container-fluid">
+    <div class="d-flex flex-wrap mb-4 align-items-center search-filter">
+      <div class="me-auto mb-2 pe-2">
+          <h3>Résultats des tests</h3>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="table-responsive">
+          <div class="row mb-3">
+            <div class="d-flex justify-content-end mb-3">
+              <input 
+                  [(ngModel)]="filtre"
+                  type="text"
+                  placeholder="🔍 Filtrer par nom ou email..." 
+                  class="form-control custom-filter-input"
+                />
+              </div>
+              
+                  
+          </div>
+
+          <table class="table table-bordered table-striped">
+              <thead class="table-dark text-center">
+                <tr>
+                  <th>Nom du candidat</th>
+                  <th>Email</th>
+                  <th>Test</th>
+                  <th>Score</th>
+                  <th>Statut</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody class="text-center align-middle">
+                <tr *ngFor="let r of resultats">
+                  <td>{{ r.nomCandidat || r.candidatNom || 'N/A' }}</td>
+                  <td>{{ r.email || 'N/A' }}</td>
+                  <td>{{ r.testTitre || r.test?.titre || 'N/A' }}</td>
+                  <td>{{ r.score }} %</td>
+                  <td [ngClass]="{'text-success': r.statut === 'RÉUSSI', 'text-danger': r.statut === 'ÉCHEC'}">
+                    {{ r.statut || 'N/A' }}
+                  </td>
+                  <td>{{ r.dateEvaluation || r.datePassage | date:'short' }}</td>
+                </tr>
+                
+                
+              </tbody>
+            </table>
+
+      
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+

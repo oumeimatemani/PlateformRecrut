@@ -47,5 +47,16 @@ export class RecomendedJobsComponent {
 
     }
   }
+
+
+  getFilename(path: string): string {
+    return path ? path.split('/').pop() ?? 'default.png' : 'default.png';
+  }
+  
+  onImageError(event: any) {
+    event.target.src = 'assets/images/company/default.png';
+  }
+
+  
 }
 

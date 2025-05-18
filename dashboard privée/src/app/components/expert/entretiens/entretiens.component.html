@@ -1,1 +1,40 @@
-<p>entretiens works!</p>
+<div class="content-body">
+    <div class="container-fluid">
+      <div class="d-flex flex-wrap mb-4 align-items-center search-filter">
+        <div class="me-auto mb-2 pe-2">
+            <h3>Planification des entretiens </h3>
+        </div>
+      </div>
+  
+
+        <div *ngFor="let c of candidatures" class="card my-3 p-3">
+          <p><strong>Candidat :</strong> {{ c.nomComplet }}</p>
+          <p><strong>Email :</strong> {{ c.email }}</p>
+          <p><strong>Poste :</strong> {{ c.posteSouhaite }}</p>
+      
+          <div class="row">
+            <div class="col-md-4">
+              <label>Test technique</label>
+              <select class="form-select" [(ngModel)]="selectedTests[c.id]">
+                <option *ngFor="let t of tests" [value]="t.lienTest">{{ t.titre }}</option>
+              </select>
+            </div>
+      
+            <div class="col-md-4">
+              <label>Date d'entretien</label>
+              <input type="datetime-local" class="form-control" [(ngModel)]="selectedDates[c.id]" />
+            </div>
+      
+            <div class="col-md-4 d-flex align-items-end">
+              <button class="btn btn-primary w-100" (click)="planifier(c)">Programmer</button>
+            </div>
+          </div>
+        </div>
+
+    </div>
+  </div>
+  
+
+
+
+

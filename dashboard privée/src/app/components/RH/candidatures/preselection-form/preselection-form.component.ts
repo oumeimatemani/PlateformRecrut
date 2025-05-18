@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter, SimpleChanges } from '@angular/
 import { CandidatureService } from '../../../../services/candidature.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import Swal from 'sweetalert2';
+import Swal, { SweetAlertIcon } from 'sweetalert2';
 
 
 @Component({
@@ -14,52 +14,56 @@ import Swal from 'sweetalert2';
 })
 export class PreselectionFormComponent {
   @Input() candidatureId!: number;
+  @Input() etatActuel: string = 'EN_ATTENTE';
   @Output() preselectionDone = new EventEmitter<void>();
-  @Input() etatActuel: string = 'EN_ATTENTE';  
-
-  decision: string = '';
 
   constructor(private candidatureService: CandidatureService) {}
 
-  ngOnInit() {
-    this.decision = this.etatActuel || 'EN_ATTENTE';
-  }
+  onEtatChange(newEtat: string) {
+    if (!newEtat) return;
   
-
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['etatActuel']) {
-      this.decision = changes['etatActuel'].currentValue;
-    }
-    
-  }
-
-
-  onSubmit() {
-    const payload = {
+    this.candidatureService.completePreselectionTask({
       candidatureId: this.candidatureId,
-      decision: this.decision.toUpperCase() 
-    };
-  
-    console.log("Payload envoyé :", JSON.stringify(payload));
-  
-    this.candidatureService.completePreselectionTask(payload).subscribe({
+      decision: newEtat
+    }).subscribe({
       next: () => {
+        let message = '';
+        let icon: SweetAlertIcon = 'success';
+
+  
+        if (newEtat === 'ACCEPTEE') {
+          message = 'La candidature a été acceptée avec succès.';
+        } else if (newEtat === 'REFUSEE') {
+          message = 'La candidature a été refusée.';
+          icon = 'info';
+        } else {
+          message = 'État mis à jour.';
+        }
+  
         Swal.fire({
-          icon: 'success',
+          icon: icon,
           title: 'Succès',
-          text: 'Pré-sélection soumise avec succès ',
+          text: message,
           timer: 2000,
           showConfirmButton: false
         });
-                this.preselectionDone.emit();
+  
+        this.preselectionDone.emit();
       },
       error: (err) => {
-        console.error("Erreur lors de la soumission :", err);
+        Swal.fire({
+          icon: 'error',
+          title: 'Erreur',
+          text: 'Impossible de mettre à jour la présélection.'
+        });
+        console.error("Erreur de présélection :", err);
       }
     });
   }
   
+}
+  
   
 
 
-}
+

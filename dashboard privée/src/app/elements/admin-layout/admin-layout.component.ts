@@ -17,6 +17,10 @@ import { UserListCandidatsComponent } from '../../components/admin/users/user-li
 import { AnnonceListComponent } from '../../components/RH/annonces/annonce-list/annonce-list.component';
 import { AnnonceFormComponent } from '../../components/RH/annonces/annonce-form/annonce-form.component';
 import { ProcessusDetailsComponent } from '../../components/RH/workflow-monitoring/processus-details/processus-details.component';
+import { ResultatsComponent } from '../../components/expert/resultats/resultats.component';
+import { EntretiensComponent } from '../../components/expert/entretiens/entretiens.component';
+import { TestsEnLigneComponent } from '../../components/expert/tests-en-ligne/tests-en-ligne.component';
+import { IntegrationListComponent } from '../../components/RH/integration/integration-list/integration-list.component';
 
 
 @Component({
@@ -40,8 +44,12 @@ import { ProcessusDetailsComponent } from '../../components/RH/workflow-monitori
     UserListAdminsComponent,
     UserListCandidatsComponent,
     AnnonceListComponent,
-    AnnonceFormComponent
-  
+    AnnonceFormComponent,
+    ResultatsComponent,
+    EntretiensComponent,
+    TestsEnLigneComponent,
+    IntegrationListComponent
+
     ],
   templateUrl: './admin-layout.component.html',
   styleUrl: './admin-layout.component.css'

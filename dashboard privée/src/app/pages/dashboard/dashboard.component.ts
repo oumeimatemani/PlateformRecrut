@@ -3,6 +3,8 @@ import { VacancyStatsComponent } from '../../elements/short-cods/dashboard/vacan
 import { RecomendedJobsComponent } from '../../elements/short-cods/dashboard/recomended-jobs/recomended-jobs.component';
 import { RouterLink } from '@angular/router';
 import { UserAboutInfoComponent } from '../../elements/short-cods/dashboard/user-about-info/user-about-info.component';
+import { DashboardService } from '../../services/dashboard.service';
+import { OffreEmploiService } from '../../services/offre-emploi.service';
 
 interface jobsType {
   title: string,
@@ -33,152 +35,101 @@ interface companiesType {
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
+  totalOffers: number = 0;
+  totalCandidatures: number = 0;
+  totalUsers: number = 0;
 
-  apps = [
-    {
-      total_no: "43",
-      title: "Application Sent",
-      image: "assets/images/application_sent.svg",
-      total_class: "text-success",
-      image_class: "bgl-success",
-      border_class: "bg-success",
-      wrapper_class: "col-xl-4 col-xxl-6 col-lg-4 col-sm-6",
-    },
-    {
-      total_no: "27",
-      title: "Interviews Schedule",
-      image: "assets/images/interview_schedule.svg",
-      total_class: "text-secondary",
-      image_class: "bgl-secondary",
-      border_class: "bg-secondary",
-      wrapper_class: "col-xl-4 col-xxl-6 col-lg-4 col-sm-6",
-    },
-    {
-      total_no: "52k",
-      title: "Profile Viewed",
-      image: "assets/images/profile.svg",
-      total_class: "text-warning",
-      image_class: "bgl-warning",
-      border_class: "bg-warning",
-      wrapper_class: "col-xl-4 col-xxl-12 col-lg-4 col-md-12",
-    },
-  ];
+  apps: any[] = [];
 
-  recomendedJobs: jobsType[] = [
-    {
-      title: "Intern UX Designer",
-      company: "Maximoz Team",
-      image: "assets/images/companylogo/1.svg",
-      follow_url: "/admin/companies",
-      salary: "$14,000 - $25,000",
-      location: "London, England",
-      application_type: "FULTIME",
-      url: "/admin/search-job",
-    },
-    {
-      title: "Senior UX Designer",
-      company: "Inacyx Studios",
-      image: "assets/images/companylogo/2.svg",
-      follow_url: "/admin/companies",
-      salary: "$21,000 - $25,000",
-      location: "Manchester, England",
-      application_type: "FREELANCE, PART TIME",
-      url: "/admin/search-job",
-    },
-    {
-      title: "Freelance UI Designer",
-      company: "Naonatu Team",
-      image: "assets/images/companylogo/3.svg",
-      follow_url: "/admin/companies",
-      salary: "$21,000 - $25,000",
-      location: "Manchester, England",
-      application_type: "FREELANCE, PART TIME",
-      url: "/admin/search-job",
-    },
-    {
-      title: "Senior UX Designer",
-      company: "Inacyx Studios",
-      image: "assets/images/companylogo/4.svg",
-      follow_url: "/admin/companies",
-      salary: "$21,000 - $25,000",
-      location: "Manchester, England",
-      application_type: "FREELANCE, PART TIME",
-      url: "/admin/search-job",
-    },
-  ];
+  constructor(
+    private dashboardService: DashboardService ,   
+    private offreEmploiService: OffreEmploiService 
+  ) {}
 
-  featuredCompanies: companiesType[] = [
-    {
-      image: "assets/images/companylogo/medium/1.svg",
-      title: "Herman-Carter",
-      total_vacancy: 21,
-      url: "/admin/application",
-    },
-    {
-      image: "assets/images/companylogo/medium/2.svg",
-      title: "Funk Inc",
-      total_vacancy: 17,
-      url: "/admin/application",
-    },
-    {
-      image: "assets/images/companylogo/medium/3.svg",
-      title: "Simonis Ltd",
-      total_vacancy: 31,
-      url: "/admin/application",
-    },
-    {
-      image: "assets/images/companylogo/medium/4.svg",
-      title: "Mosciski Inc",
-      total_vacancy: 7,
-      url: "/admin/application",
-    },
-    {
-      image: "assets/images/companylogo/medium/5.svg",
-      title: "Williamson Inc",
-      total_vacancy: 4,
-      url: "/admin/application",
-    },
-    {
-      image: "assets/images/companylogo/medium/6.svg",
-      title: "Donnelly Ltd",
-      total_vacancy: 4,
-      url: "/admin/application",
-    },
-    {
-      image: "assets/images/companylogo/medium/7.svg",
-      title: "Bosco-Reilly",
-      total_vacancy: 21,
-      url: "/admin/application",
-    },
-    {
-      image: "assets/images/companylogo/medium/8.svg",
-      title: "Kerluke Inc",
-      total_vacancy: 18,
-      url: "/admin/application",
-    },
-    {
-      image: "assets/images/companylogo/medium/9.svg",
-      title: "Ferry Inc",
-      total_vacancy: 12,
-      url: "/admin/application",
-    },
-    {
-      image: "assets/images/companylogo/medium/10.svg",
-      title: "Carroll-Walker",
-      total_vacancy: 5,
-      url: "/admin/application",
-    },
-    {
-      image: "assets/images/companylogo/medium/11.svg",
-      title: "Russel Ltd",
-      total_vacancy: 53,
-      url: "/admin/application",
-    },
-    {
-      image: "assets/images/companylogo/medium/12.svg",
-      title: "Murray-Marvin",
-      total_vacancy: 4,
-      url: "/admin/application",
-    },
-  ];
+ 
+  ngOnInit(): void {
+    this.loadRecommendedJobs(); 
+    this.loadStats();
+  }
+  
+
+  processStats = { actifs: 0, termines: 0 };
+
+  recomendedJobs: any[] = [];
+
+  // tri des offres 
+  loadRecommendedJobs(): void {
+    this.offreEmploiService.getRecommendedOffres().subscribe(data => {
+      this.recomendedJobs = data.map((offre: any) => ({
+        title: offre.titrePoste,
+        company: offre.nomEntreprise,
+        image: offre.image || 'assets/images/default.png',
+        follow_url: "/",
+        salary: offre.salaire,
+        location: `${offre.ville}, ${offre.pays}`,
+        application_type: offre.typeContrat,
+        candidatureCount: offre.candidatureCount,
+        url: `/admin/offres/${offre.id}` 
+      }));
+    });
+  }
+
+  // statistique 
+  
+  loadStats() {
+    // Appels en parallèle + regroupement des résultats
+    Promise.all([
+      this.dashboardService.getTotalOffers().toPromise(),
+      this.dashboardService.getTotalCandidatures().toPromise(),
+      this.dashboardService.getTotalUsers().toPromise(),
+      this.dashboardService.getProcessStats().toPromise()
+    ]).then(([offers, candidatures, users, stats]) => {
+      this.totalOffers = offers ?? 0;
+      this.totalCandidatures = candidatures ?? 0;
+      this.totalUsers = users ?? 0;
+      this.processStats = stats ?? { actifs: 0, termines: 0 };
+  
+      this.apps = [
+        {
+          total_no: this.totalOffers,
+          title: "Offres Publiées",
+          image: "assets/images/application_sent.svg",
+          total_class: "text-success",
+          image_class: "bgl-success",
+          border_class: "bg-success",
+          wrapper_class: "col-xl-4 col-xxl-6 col-lg-4 col-sm-6",
+        },
+        {
+          total_no: this.totalCandidatures,
+          title: "Candidatures Déposées",
+          image: "assets/images/interview_schedule.svg",
+          total_class: "text-secondary",
+          image_class: "bgl-secondary",
+          border_class: "bg-secondary",
+          wrapper_class: "col-xl-4 col-xxl-6 col-lg-4 col-sm-6",
+        },
+        {
+          total_no: this.totalUsers,
+          title: "Utilisateurs Inscrits",
+          image: "assets/images/profile.svg",
+          total_class: "text-warning",
+          image_class: "bgl-warning",
+          border_class: "bg-warning",
+          wrapper_class: "col-xl-4 col-xxl-12 col-lg-4 col-md-12",
+        },
+        {
+          total_no: this.processStats.actifs + this.processStats.termines,
+          title: "Processus de Recrutement",
+          image: "assets/images/workflow.svg", 
+          total_class: "text-info",
+          image_class: "bgl-info",
+          border_class: "bg-info",
+          wrapper_class: "col-xl-3 col-lg-6 col-md-6 col-sm-6", 
+        }
+        
+      ];
+    });
+  }
+  
+  
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Candidature } from '../models/candidature';
 import { Observable } from 'rxjs';
+import { OffreData } from '../models/OffreData';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,15 @@ export class CandidatureService {
   }
   
   completePreselectionTask(data: { candidatureId: number, decision: string }) {
-    return this.http.post(`${this.apiUrl}/preselection`, data , { responseType: 'text' });
+    const payload = {
+      candidatureId: data.candidatureId.toString(), 
+      decision: data.decision
+    };
+  
+    return this.http.post(`${this.apiUrl}/preselection`, payload, {
+      headers: { 'Content-Type': 'application/json' }, 
+      responseType: 'text'
+    });
   }
   
   getCandidatureById(id: number): Observable<Candidature> {
@@ -37,6 +46,21 @@ export class CandidatureService {
     });
   }
   
+  //entrentien
+  getCandidaturesPreselectionnees(): Observable<Candidature[]> {
+    return this.http.get<Candidature[]>(`${this.apiUrl}/preselectionnees`);
+  }
+
+  
+  //stat
+  getCandidatureStats() {
+    return this.http.get<{ total: number, accepted: number, rejected: number }>(`${this.apiUrl}/candidatures-stats`);
+  }
+
+  //tri des offres 
+  getRecommendedOffers(): Observable<OffreData[]> {
+    return this.http.get<OffreData[]>('http://localhost:8080/api/candidatures/offres/recommended');
+  }
   
 
 }

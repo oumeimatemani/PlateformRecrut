@@ -2,58 +2,49 @@
 
 <owl-carousel-o [options]="customOptions" style="direction: ltr;">
   @for(items of data; track items;){
-  <ng-template carouselSlide>
-    <div class="items">
-      <div class="card">
-        <div class="card-body">
-          <div class="media pb-4 border-bottom mb-4 align-items-center">
-            <img src="{{items.image}}" class="me-3 width80" />
-            <div class="media-body">
-              <h4 class="fs-20">
-                <a routerLink="/{{items.url}}" class="text-black">{{ items.title }}</a>
-              </h4>
-              <div class="d-flex">
-                <p class="mb-0 me-auto">{{ items.company }}</p>
-                <a routerLink="/{{items.follow_url}}" class="btn-link">+Follow</a>
+        <ng-template carouselSlide>
+          <div class="items">
+            <div class="card">
+              <div class="card-body">
+                <!-- Titre & entreprise -->
+                <div class="media pb-4 border-bottom mb-4 align-items-center">
+                  <img [src]="items.image" (error)="onImageError($event)" class="me-3 width80" />
+                  <div class="media-body">
+                    <h4 class="fs-20">
+                      <a class="text-black">{{ items.title }}</a>
+                    </h4>
+                    <div class="d-flex">
+                      <p class="mb-0 me-auto">{{ items.company }}</p>
+                      <a href="http://localhost:4300/rh/annonces" class="btn-link">+Info</a>
+                    </div>
+                  </div>
+                </div>
+    
+                <!-- Salaire -->
+                <div class="d-flex mb-2">
+                  <span class="text-black me-auto font-w500">{{ items.salary }}</span>
+                  <span>/monthly</span>
+                </div>
+    
+                <!-- Localisation -->
+                <div class="d-flex mb-2">
+                  <span class="text-black me-auto font-w500">{{ items.location }}</span>
+                  <span>View Maps</span>
+                </div>
+    
+                <!-- Type de contrat -->
+                <div class="d-flex mb-2">
+                  <span class="text-black me-auto font-w500">{{ items.application_type }}</span>
+                </div>
+    
+                <!-- Nombre de candidatures -->
+                <div class="d-flex mb-2">
+                  <span class="text-muted">{{ items.candidatureCount }} candidatures</span>
+                </div>
+    
               </div>
             </div>
           </div>
-          <div class="d-flex mb-3">
-            <span class="text-black me-auto font-w500">
-              <svg class="me-3" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip3)">
-                  <path d="M14.0001 7.83997C10.5987 7.83997 7.65356 10.2024 6.91568 13.5229L4.49921 24.397C4.48149 24.4768 4.47254 24.5583 4.47254 24.64C4.47254 25.2585 4.97398 25.76 5.59254 25.76H22.4077C22.4894 25.76 22.5709 25.751 22.6507 25.7333C23.2545 25.5991 23.6352 25.0008 23.501 24.397L21.0846 13.5229C20.3467 10.2024 17.4016 7.83997 14.0001 7.83997ZM14.0001 5.59997C18.4515 5.59997 22.3056 8.69164 23.2712 13.037L25.6877 23.9111C26.0902 25.7226 24.9481 27.5174 23.1366 27.92C22.8973 27.9731 22.6529 28 22.4077 28H5.59254C3.73687 28 2.23254 26.4956 2.23254 24.64C2.23254 24.3948 2.25937 24.1504 2.31256 23.9111L4.72902 13.037C5.69466 8.69164 9.54877 5.59997 14.0001 5.59997Z" fill="#A9A9A9" />
-                  <path d="M16.2402 12.32C16.8588 12.32 17.3602 12.8214 17.3602 13.44C17.3602 14.0585 16.8588 14.56 16.2402 14.56H13.4402C13.1309 14.56 12.8802 14.8107 12.8802 15.12C12.8802 15.4292 13.1309 15.68 13.4402 15.68H14.5602C16.1066 15.68 17.3602 16.9336 17.3602 18.48C17.3602 20.0264 16.1066 21.28 14.5602 21.28H11.7602C11.1416 21.28 10.6402 20.7785 10.6402 20.16C10.6402 19.5414 11.1416 19.04 11.7602 19.04H14.5602C14.8695 19.04 15.1202 18.7892 15.1202 18.48C15.1202 18.1707 14.8695 17.92 14.5602 17.92H13.4402C11.8938 17.92 10.6402 16.6664 10.6402 15.12C10.6402 13.5736 11.8938 12.32 13.4402 12.32H16.2402Z" fill="#A9A9A9" />
-                  <path d="M12.8802 11.2C12.8802 10.5814 13.3817 10.08 14.0002 10.08C14.6188 10.08 15.1203 10.5814 15.1203 11.2V13.44C15.1203 14.0586 14.6188 14.56 14.0002 14.56C13.3817 14.56 12.8802 14.0586 12.8802 13.44V11.2Z" fill="#A9A9A9" />
-                  <path d="M15.1203 22.4C15.1203 23.0186 14.6188 23.52 14.0002 23.52C13.3817 23.52 12.8802 23.0186 12.8802 22.4V20.16C12.8802 19.5414 13.3817 19.04 14.0002 19.04C14.6188 19.04 15.1203 19.5414 15.1203 20.16V22.4Z" fill="#A9A9A9" />
-                  <path d="M12.8001 6.30404C13.0298 6.87836 12.7504 7.53017 12.1761 7.75989C11.6018 7.98962 10.95 7.71027 10.7203 7.13596L8.48027 1.53596C8.11627 0.625951 9.01409 -0.279605 9.92718 0.0765737C10.7659 0.403728 11.391 0.56 11.7602 0.56C11.8521 0.56 11.9283 0.540358 12.0946 0.469683C12.1387 0.450919 12.1906 0.428012 12.3122 0.374186C12.8915 0.12032 13.3491 -3.76254e-07 14.0002 -3.76254e-07C14.6497 -3.76254e-07 15.1146 0.12064 15.6957 0.372056C15.8432 0.43663 15.9021 0.462313 15.9542 0.483786C16.0978 0.542916 16.1669 0.56 16.2402 0.56C16.5878 0.56 17.2185 0.402322 18.0812 0.0734544C18.9932 -0.274175 19.8825 0.629785 19.5201 1.53596L17.2801 7.13596C17.0503 7.71027 16.3985 7.98962 15.8242 7.75989C15.2499 7.53017 14.9705 6.87836 15.2003 6.30404L16.6096 2.78073C16.4808 2.79355 16.3578 2.8 16.2402 2.8C15.8314 2.8 15.4927 2.7162 15.1013 2.55506C15.0241 2.52324 14.9394 2.4863 14.8064 2.42794C14.4822 2.28767 14.2985 2.24 14.0002 2.24C13.7048 2.24 13.5313 2.28561 13.2114 2.42581C13.1015 2.47449 13.0319 2.50524 12.9706 2.53126C12.5512 2.70952 12.2002 2.8 11.7602 2.8C11.6419 2.8 11.5189 2.79386 11.3911 2.78165L12.8001 6.30404Z" fill="#A9A9A9" />
-                </g>
-                <defs>
-                  <clipPath id="clip3">
-                    <rect width="28" height="28" fill="white" />
-                  </clipPath>
-                </defs>
-              </svg> {{ items.salary }} </span>
-            <span>/monthly</span>
-          </div>
-          <div class="d-flex mb-3">
-            <span class="text-black me-auto font-w500">
-              <svg class="me-3" width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 0C6.93398 0 2.8125 4.12148 2.8125 9.1875C2.8125 10.8091 3.24094 12.4034 4.05145 13.7979C4.24041 14.123 4.45162 14.4398 4.67934 14.7396L11.6008 24H12.3991L19.3207 14.7397C19.5483 14.4398 19.7595 14.1231 19.9485 13.7979C20.7591 12.4034 21.1875 10.8091 21.1875 9.1875C21.1875 4.12148 17.066 0 12 0ZM12 12.2344C10.32 12.2344 8.95312 10.8675 8.95312 9.1875C8.95312 7.50745 10.32 6.14062 12 6.14062C13.68 6.14062 15.0469 7.50745 15.0469 9.1875C15.0469 10.8675 13.68 12.2344 12 12.2344Z" fill="#A9A9A9" />
-              </svg> {{ items.location }} </span>
-            <span>View Maps</span>
-          </div>
-          <div>
-            <span class="text-black me-auto font-w500">
-              <svg class="me-3" width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M21.9999 5.99971H20.0001V21.9999H21.9999C23.0997 21.9999 24 21.0993 24 19.9995V7.99951C24 6.9 23.0997 5.99971 21.9999 5.99971Z" fill="#A9A9A9" />
-                <path d="M15.9999 5.9997V3.9999C15.9999 2.90009 15.0996 1.9998 14.0001 1.9998H9.9999C8.90039 1.9998 8.0001 2.90009 8.0001 3.9999V5.9997H6V21.9999H18V5.9997H15.9999ZM14.0001 5.9997H9.9999V3.99961H14.0001V5.9997Z" fill="#A9A9A9" />
-                <path d="M2.0001 5.99971C0.900293 5.99971 0 6.9 0 7.99981V19.9998C0 21.0996 0.900293 22.0002 2.0001 22.0002H3.9999V5.99971H2.0001Z" fill="#A9A9A9" />
-              </svg> {{ items.application_type }} </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </ng-template>
+        </ng-template>
   }
-</owl-carousel-o>
+</owl-carousel-o>    

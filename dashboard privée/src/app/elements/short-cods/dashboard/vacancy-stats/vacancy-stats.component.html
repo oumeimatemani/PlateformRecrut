@@ -1,20 +1,21 @@
 <div class="card">
   <div class="card-header border-0 pb-0 flex-wrap">
-    <h4 class="fs-20 text-black me-4 mb-3">Vacancy Stats</h4>
+    <h4 class="fs-20 text-black me-4 mb-3">Statistique</h4>
+
     <div class="form-check custom-switch toggle-switch text-end me-3 my-2">
-      <input type="checkbox" class="form-check-input" id="customSwitch1">
-      <label class="form-check-label" for="customSwitch1">Application Sent</label>
+      <input type="checkbox" class="form-check-input" id="customSwitch1" [(ngModel)]="showTotal" (change)="loadChartData(selectedFilter)">
+      <label class="form-check-label" for="customSwitch1">Total candidatures</label>      
     </div>
     <div class="form-check custom-switch toggle-switch text-end me-3 my-2">
-      <input type="checkbox" class="form-check-input" id="customSwitch2">
-      <label class="form-check-label" for="customSwitch2">Interviews</label>
+      <input type="checkbox" class="form-check-input" id="customSwitch2" [(ngModel)]="showAccepted" (change)="loadChartData(selectedFilter)">
+      <label class="form-check-label" for="customSwitch2">Candidatures Acceptées</label>
     </div>
     <div class="form-check custom-switch toggle-switch text-end me-3 my-2">
-      <input type="checkbox" class="form-check-input" id="customSwitch3">
-      <label class="form-check-label" for="customSwitch3">Rejected</label>
+      <input type="checkbox" class="form-check-input" id="customSwitch3" [(ngModel)]="showRejected" (change)="loadChartData(selectedFilter)">
+      <label class="form-check-label" for="customSwitch3">Candidatures Refusées</label>
     </div>
     <div>
-      <app-dropdown [dropdown]="dropdown_item"></app-dropdown>
+      <app-dropdown [dropdown]="dropdown_item" (selectionChange)="onFilterChange($event)"></app-dropdown>
     </div>
   </div>
   <div class="card-body">

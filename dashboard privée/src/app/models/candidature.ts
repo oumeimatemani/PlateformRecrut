@@ -9,4 +9,5 @@ export interface Candidature {
   cvFileName: string;
   etat?: string; // EN_ATTENTE, ACCEPTEE, REFUSEE
   processInstanceId?: string;
-}
+
+  }

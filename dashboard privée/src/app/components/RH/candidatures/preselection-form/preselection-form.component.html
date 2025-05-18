@@ -1,11 +1,8 @@
-<form (ngSubmit)="onSubmit()" class="d-flex align-items-center gap-2">
-    <select [(ngModel)]="decision" name="decision" class="form-select form-select-sm" required>
-        <option value="EN_ATTENTE">En attente</option>
-        <option value="ACCEPTEE">Acceptée</option>
-        <option value="REFUSEE">Refusée</option>
+<div class="d-flex align-items-center gap-2">
+    <select [(ngModel)]="etatActuel" (change)="onEtatChange(etatActuel)" class="form-select">
+      <option value="EN_ATTENTE">En attente</option>
+      <option value="ACCEPTEE">Acceptée</option>
+      <option value="REFUSEE">Refusée</option>
     </select>
-      
-    <button type="submit" class="btn btn-sm" style="background-color: #eeeeee; color: white; border: none;">  <span style="color: rgb(205, 19, 19);"> ✔</span>
-    </button>
-</form>
+  </div>
   

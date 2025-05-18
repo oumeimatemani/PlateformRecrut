@@ -56,7 +56,7 @@ export class StatisticsComponent {
       description: '<span class="font-w600 fs-12 text-primary d-block">Go to Message</span>',
     },
     {
-      title: "Application Sent",
+      title: "Total candidatures",
       total_no: "651",
       image: "assets/images/svg/suitcase1.svg",
       description: '',

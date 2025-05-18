@@ -1,0 +1,7 @@
+.apexcharts-toolbar button[title="Selection Zoom"]::after,
+.apexcharts-toolbar button[title="Panning"]::after,
+.apexcharts-toolbar button[title="Selection Zoom"],
+.apexcharts-toolbar button[title="Panning"] {
+  pointer-events: none;
+  visibility: hidden;
+}

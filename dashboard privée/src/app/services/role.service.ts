@@ -7,17 +7,17 @@ import { Role } from '../models/role';
   providedIn: 'root'
 })
 export class RoleService {
-  private baseUrl = 'http://localhost:8080/api/roles';
+  private apiUrl = 'http://localhost:8080/api/roles';
 
   constructor(private http: HttpClient) {}
 
   
   getAllRoles(): Observable<Role[]> {
-    return this.http.get<Role[]>(this.baseUrl);
+    return this.http.get<Role[]>(this.apiUrl);
   }
   
 
   deleteRole(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.baseUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }

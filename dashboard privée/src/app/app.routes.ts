@@ -13,13 +13,17 @@ import { Error404Component } from './pages/error/error404/error404.component';
 
 import { UserListComponent } from './components/admin/users/user-list/user-list.component';
 import { WorkflowMonitoringComponent } from './components/RH/workflow-monitoring/workflow-monitoring.component';
-import { CandidatureListComponent } from './components/RH/candidatures/candidature-list/candidature-list.component'; // ✅ Import RH
+import { CandidatureListComponent } from './components/RH/candidatures/candidature-list/candidature-list.component'; 
 import { CandidatureDetailsComponent } from './components/RH/candidatures/candidature-details/candidature-details.component';
 import { UserListCandidatsComponent } from './components/admin/users/user-list-candidats/user-list-candidats.component';
 import { UserListAdminsComponent } from './components/admin/users/user-list-admins/user-list-admins.component';
 import { AnnonceListComponent } from './components/RH/annonces/annonce-list/annonce-list.component';
 import { AnnonceFormComponent } from './components/RH/annonces/annonce-form/annonce-form.component';
 import { ProcessusDetailsComponent } from './components/RH/workflow-monitoring/processus-details/processus-details.component';
+import { TestsEnLigneComponent } from './components/expert/tests-en-ligne/tests-en-ligne.component';
+import { ResultatsComponent } from './components/expert/resultats/resultats.component';
+import { EntretiensComponent } from './components/expert/entretiens/entretiens.component';
+import { IntegrationListComponent } from './components/RH/integration/integration-list/integration-list.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/admin', pathMatch: 'full' },
@@ -52,7 +56,7 @@ export const routes: Routes = [
     ]
   },
 
-  //ROUTE POUR RH - CANDIDATURES
+  //ROUTE POUR RH 
   { path: 'rh', component: AdminLayoutComponent, children: [
       { path: 'candidatures',component: CandidatureListComponent},
       { path: 'candidatures/details/:id', component: CandidatureDetailsComponent },
@@ -60,8 +64,19 @@ export const routes: Routes = [
       { path: 'processus/:id', component: ProcessusDetailsComponent },
       { path: 'annonces', component: AnnonceListComponent },
       { path: 'annonce/create', component: AnnonceFormComponent },
-      { path: 'annonce/edit/:id', component: AnnonceFormComponent }
+      { path: 'annonce/edit/:id', component: AnnonceFormComponent },
+      { path: 'integration', component: IntegrationListComponent },
+
   ]},
+
+
+    //ROUTE POUR EXPERT TECHNIQUE
+    { path: 'expert', component: AdminLayoutComponent, children: [
+      { path: 'tests',component: TestsEnLigneComponent},
+      { path: 'entretiens', component: EntretiensComponent },
+      { path: 'resultats', component: ResultatsComponent }
+    ]},
+
 
   // AUTH
   { path: 'page-register', component: RegisterComponent },

@@ -73,22 +73,25 @@ date: any;
           const internalRoles = ['ROLE_ADMIN', 'ROLE_RH', 'ROLE_MANAGER', 'ROLE_EXPERT_TECHNIQUE'];
           const matchedRole = roles.find(role => internalRoles.includes(role));
     
-          if (matchedRole && token) {
-            //Redirection avec tous les paramètres
-            const dashboardUrl = `http://localhost:4300/admin?token=${token}&username=${encodeURIComponent(username)}&role=${encodeURIComponent(matchedRole)}`;
-            window.open(dashboardUrl, '_blank');
-          } else {
-            // Redirection vers site public
-            this.router.navigate(['/']);
-          }
-        },
-        error: err => {
-          console.error("Erreur login :", err);
-          this.errorMessage = err.error.message;
-          this.isLoginFailed = true;
-        }
-      });
+      //    if (matchedRole && token) {
+      //      //Redirection avec tous les paramètres
+      //      const dashboardUrl = `http://localhost:4300/admin?token=${token}&username=${encodeURIComponent(username)}&role=${encodeURIComponent(matchedRole)}`;
+      //      window.open(dashboardUrl, '_blank');
+      //    } else {
+      //    // Redirection vers site public
+      //      this.router.navigate(['/']);
+       //   }
+     //   
+     // },
+     this.router.navigate(['/']);
+    },
+    error: err => {
+      console.error("Erreur login :", err);
+      this.errorMessage = err.error.message;
+      this.isLoginFailed = true;
     }
+  });
+}
     
 
 }

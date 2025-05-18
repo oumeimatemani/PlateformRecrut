@@ -1,0 +1,74 @@
+.card {
+    transition: transform 0.2s ease;
+  }
+  .card:hover {
+    transform: scale(1.02);
+  }
+  
+/* Conteneur du formulaire */
+.card.p-4.mt-4 {
+  background-color: #f7f7f7; /* gris très clair */
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  box-shadow: 0px 0px 10px rgba(185, 24, 24, 0.1); /* ombre rouge bordeaux légère */
+}
+
+/* Titres */
+.card h4 {
+  color: #990000; /* rouge bordeaux */
+  margin-bottom: 20px;
+}
+
+/* Champs du formulaire */
+.form-control {
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  box-shadow: none;
+  font-size: 14px;
+}
+
+/* Boutons */
+button[type="submit"] {
+  background-color: #990000;
+  border: none;
+  color: white;
+}
+
+button[type="submit"]:hover {
+  background-color: #b83030;
+}
+
+button[type="button"] {
+  background-color: #d3d3d3;
+  border: none;
+  color: black;
+}
+
+button[type="button"]:hover {
+  background-color: #b0b0b0;
+}
+
+.btn-light.btn-sm {
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 14px;
+}
+
+.btn-light.btn-sm:hover {
+  background-color: #fce6e6;
+  color: #b83030;
+  border-color: #b83030;
+}
+
+.btn-light.btn-sm.text-danger {
+  background-color: #ffffff;
+  color: #990000; /* rouge bordeaux */
+  border-color: #990000;
+}
+
+.btn-light.btn-sm.text-danger:hover {
+  background-color: #e21f30;
+  color: #b83030;
+  border-color: #b83030;
+}
+

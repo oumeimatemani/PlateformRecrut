@@ -1,0 +1,38 @@
+.bg-light-info {
+    background-color: #e8f4fd;
+  }
+  
+  .bg-light-success {
+    background-color: #e4fcef;
+  }
+  
+  .card.border-card {
+    border: none;
+    border-radius: 16px;
+    min-height: 130px;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .card.border-card:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .fs-16 {
+    font-size: 16px;
+  }
+  
+  .custom-process-card {
+    background-color: #e2e2e287;
+    min-height: 180px;
+    border-radius: 15px;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .custom-process-card:hover {
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .fs-16 {
+    font-size: 16px;
+  }
+  

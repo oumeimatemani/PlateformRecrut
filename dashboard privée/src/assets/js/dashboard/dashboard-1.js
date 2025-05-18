@@ -14,13 +14,13 @@
 	var lineChart = function(){
 		var options = {
           series: [{
-          name: 'Application Sent',
+          name: 'Total candidatures',
           data: [31, 40, 28, 51, 42, 60, 40]
         }, {
-          name: 'Interviews',
+          name: 'candidatures Acceptées',
           data: [11, 32, 45, 32, 34, 70, 41]
         },{
-		name: 'Rejected',
+		name: 'Candidatures Refusées',
           data: [12, 35, 55, 42, 44, 80, 51]
         }],
           chart: {
