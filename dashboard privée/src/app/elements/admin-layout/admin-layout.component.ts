@@ -21,6 +21,9 @@ import { ResultatsComponent } from '../../components/expert/resultats/resultats.
 import { EntretiensComponent } from '../../components/expert/entretiens/entretiens.component';
 import { TestsEnLigneComponent } from '../../components/expert/tests-en-ligne/tests-en-ligne.component';
 import { IntegrationListComponent } from '../../components/RH/integration/integration-list/integration-list.component';
+import { AffectationComponent } from '../../components/manager/affectation/affectation.component';
+import { ValidationComponent } from '../../components/manager/validation/validation.component';
+import { ProfilsPreslectionnesComponent } from '../../components/manager/profils-preslectionnes/profils-preslectionnes.component';
 
 
 @Component({
@@ -48,8 +51,10 @@ import { IntegrationListComponent } from '../../components/RH/integration/integr
     ResultatsComponent,
     EntretiensComponent,
     TestsEnLigneComponent,
-    IntegrationListComponent
-
+    IntegrationListComponent,
+    AffectationComponent,
+    ValidationComponent,
+    ProfilsPreslectionnesComponent
     ],
   templateUrl: './admin-layout.component.html',
   styleUrl: './admin-layout.component.css'

@@ -1,0 +1,115 @@
+<div class="content-body">
+    <div class="container-fluid">
+      <div class="d-flex flex-wrap mb-4 align-items-center search-filter">
+        <div class="me-auto mb-2 pe-2">
+          <h6 class="text-black fs-16 font-w600 mb-1">Liste des Candidatures</h6>
+          <span class="fs-14">Candidatures Validées par l'Expert Technique</span>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="table-responsive">
+            <div class="mb-3 text-end">
+                <button class="btn btn-outline-primary" (click)="exporterPDF()">
+                  <i class="fa fa-download me-1"></i> Exporter en PDF
+                </button>
+              </div>
+              
+            <div class="row mb-3">
+             
+ 
+            <table class="table dataTable display mb-4 dataTablesCard table-responsive-xl card-table" >
+              <thead>
+                <tr>
+                    <th class="text-center">Nom</th>
+                    <th class="text-center">Email</th>
+                    <th class="text-center" style="width: 120px;">Poste</th>
+                    <th class="text-center">Détails</th>
+                    <th class="text-center" style="width: 100px;">État</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let c of paginatedCandidatures">
+                  <td class="text-center">{{ c.nomComplet }}</td>
+                  <td class="text-center">{{ c.email }}</td>
+                  <td class="text-center">{{ c.posteSouhaite }}</td>
+                  <td class="text-center">
+                    <ul class="list-unstyled mb-0">
+                      <li *ngFor="let r of c.resultats" class="mb-2">
+                        {{ r.test?.titre }}<br />
+                        <span class="badge custom-score me-1">Score: {{ r.score }}</span>
+                        <span class="badge custom-statut me-1">Statut: {{ r.statut }}</span>                        
+                        <br />
+                        <a [href]="r.test?.lienTest" target="_blank" class="text-primary text-decoration-underline">Voir le test</a>
+                      </li>
+                    </ul>
+                  </td>
+                  
+                  <td class="text-center">
+                    <span class="badge custom-etat me-1">{{ c.etat }}</span>
+                  </td>
+         
+                </tr>
+              </tbody>
+              
+            </table>
+           
+            <nav class="d-flex justify-content-center mt-3">
+                <ul class="pagination">
+                  <li class="page-item" [class.disabled]="currentPage === 1">
+                    <button class="page-link" (click)="currentPage = currentPage - 1" [disabled]="currentPage === 1">
+                      Précédent
+                    </button>
+                  </li>
+              
+                  <li
+                    class="page-item"
+                    *ngFor="let page of [].constructor(totalPages); let i = index"
+                    [class.active]="currentPage === i + 1"
+                  >
+                    <button class="page-link" (click)="currentPage = i + 1">
+                      {{ i + 1 }}
+                    </button>
+                  </li>
+              
+                  <li class="page-item" [class.disabled]="currentPage === totalPages">
+                    <button class="page-link" (click)="currentPage = currentPage + 1" [disabled]="currentPage === totalPages">
+                      Suivant
+                    </button>
+                  </li>
+                </ul>
+              </nav>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

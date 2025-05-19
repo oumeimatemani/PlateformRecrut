@@ -1,0 +1,14 @@
+.bordeaux-button {
+    background-color: #c74343; /* Rouge bordeaux foncé */
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .bordeaux-button:hover {
+    background-color: #cf2c2c;
+  }
+  

@@ -63,3 +63,40 @@
     font-size: 0.9rem;
   }
   
+
+  .btn-outline-success {
+    color: #198754;
+    border-color: #198754;
+  }
+  
+  .btn-outline-danger {
+    color: #c61429;
+    border-color: #c61429;
+  }
+  
+
+
+  .btn-export-excel {
+    background-color: #198754;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+  }
+  
+  .btn-export-excel:hover {
+    background-color: #146c43;
+  }
+  
+  .btn-export-pdf {
+    background-color: #c61429;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+  }
+  
+  .btn-export-pdf:hover {
+    background-color: #a10f21;
+  }
+  

@@ -62,5 +62,16 @@ export class CandidatureService {
     return this.http.get<OffreData[]>('http://localhost:8080/api/candidatures/offres/recommended');
   }
   
+  //candidatures validées par RH+expert 
+  getCandidaturesValideesParExpert(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/validesParExpert`);
+  }
 
+
+  //validation manager
+  envoyerValidationManager(data: {id: number, noteManager: number, feedbackManager: string, decisionManager: boolean}): Observable<any> {
+    return this.http.post(`${this.apiUrl}/validationManager`, data, {
+      responseType: 'text'
+    });
+  }
 }

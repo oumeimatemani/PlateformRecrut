@@ -35,7 +35,8 @@
               "node_modules/ngx-toastr/toastr.css",
               "node_modules/bootstrap-icons/font/bootstrap-icons.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": ["xlsx", "file-saver"]
           },
           "configurations": {
             "production": {

@@ -1,0 +1,84 @@
+<p>validation works!</p>
+<div class="content-body">
+    <div class="container-fluid">
+      <div class="d-flex flex-wrap mb-4 align-items-center search-filter">
+        <div class="me-auto mb-2 pe-2">
+          <h6 class="text-black fs-16 font-w600 mb-1">Liste des Candidatures</h6>
+          <span class="fs-14">Validation finale des Candidatures</span>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-xl-12">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                  <thead class="table-dark">
+                    <tr>
+                      <th>Nom</th>
+                      <th>Poste</th>
+                      <th>Email</th>
+                      <th>Note</th>
+                      <th>Feedback</th>
+                      <th>Décision</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let c of candidatures">
+                      <td>{{ c.nomComplet }}</td>
+                      <td>{{ c.posteSouhaite }}</td>
+                      <td>{{ c.email }}</td>
+              
+                      <td>
+                        <input type="number" class="form-control" [(ngModel)]="c.noteManager" min="0" max="10" step="0.1" />
+                      </td>
+              
+                      <td>
+                        <textarea class="form-control" [(ngModel)]="c.feedbackManager"></textarea>
+                      </td>
+              
+                      <td>
+                        <select class="form-select" [(ngModel)]="c.decisionManager">
+                          <option [value]="true">✅ Validé</option>
+                          <option [value]="false">❌ Refusé</option>
+                        </select>
+                      </td>
+              
+                      <td>
+                        <button class="bordeaux-button" (click)="valider(c)">Valider</button>
+                    </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              
+      </div>
+    </div>
+  </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

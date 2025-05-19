@@ -24,6 +24,9 @@ import { TestsEnLigneComponent } from './components/expert/tests-en-ligne/tests-
 import { ResultatsComponent } from './components/expert/resultats/resultats.component';
 import { EntretiensComponent } from './components/expert/entretiens/entretiens.component';
 import { IntegrationListComponent } from './components/RH/integration/integration-list/integration-list.component';
+import { ProfilsPreslectionnesComponent } from './components/manager/profils-preslectionnes/profils-preslectionnes.component';
+import { ValidationComponent } from './components/manager/validation/validation.component';
+import { AffectationComponent } from './components/manager/affectation/affectation.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/admin', pathMatch: 'full' },
@@ -77,7 +80,12 @@ export const routes: Routes = [
       { path: 'resultats', component: ResultatsComponent }
     ]},
 
-
+    //ROUTE POUR ManAGER
+    { path: 'manager', component: AdminLayoutComponent, children: [
+      { path: 'profils-preslectionnes',component: ProfilsPreslectionnesComponent},
+      { path: 'validation', component: ValidationComponent },
+      { path: 'affectation', component: AffectationComponent }
+    ]},
   // AUTH
   { path: 'page-register', component: RegisterComponent },
   { path: 'page-login', component: LoginComponent },

@@ -1,0 +1,26 @@
+.custom-score {
+    background-color: #c82333;
+    color: #fff;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 8px;
+  }
+  
+  .custom-statut {
+    background-color: #3053aa;
+    color: #fff;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 8px;
+  }
+  
+  .custom-etat {
+    background-color: #1c704d;
+    color: #fff;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 8px;
+  }
+  
+
+  

@@ -181,8 +181,8 @@ export class SidebarComponent {
       roles: ["MANAGER"], 
       subMenu: [
         { title: "- Profils présélectionnés", route: "/manager/profils-preslectionnes", icon: "flaticon-381-user-3" },
-        { title: "- Validation des candidatures", route: "/manager/validation-candidatures", icon: "flaticon-381-success" },
-        { title: "- Affectation des candidats", route: "/manager/affectation-projets", icon: "flaticon-381-network" }
+        { title: "- Validation des candidatures", route: "/manager/validation", icon: "flaticon-381-success" },
+        { title: "- Affectation des candidats", route: "/manager/affectation", icon: "flaticon-381-network" }
       ]
     },
     
