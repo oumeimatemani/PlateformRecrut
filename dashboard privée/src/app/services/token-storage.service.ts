@@ -20,9 +20,11 @@ export class TokenStorageService {
   }
 
   public getToken(): string | null {
-    return window.localStorage.getItem(TOKEN_KEY);
+    const t = window.localStorage.getItem(TOKEN_KEY);
+    console.log('Token lu depuis storage :', t);
+    return t;
   }
-
+  
   public saveUser(user: any): void {
     window.localStorage.removeItem(USER_KEY);
     window.localStorage.setItem(USER_KEY, JSON.stringify(user));

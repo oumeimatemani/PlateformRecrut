@@ -21,56 +21,71 @@ export class UserListCandidatsComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router) {}
   
-
   ngOnInit(): void {
+    console.log("Token dans localStorage :", localStorage.getItem('auth-token')); 
     this.userService.getAllUsers().subscribe({
       next: (data) => {
         this.users = data.filter(user =>
           user.roles.some((role: { name: string }) => role.name === 'CANDIDAT')
         );
-        
       },
       error: (err) => console.error('Erreur lors du chargement des candidats :', err)
     });
   }
-
-  editUser(userId: number): void {
-    this.router.navigate(['/admin/users/edit', userId]);
-  }
-
-
-  deleteUser(id: number) {
-    Swal.fire({
-      title: 'Êtes-vous sûr(e) ?',
-      text: 'Cette action supprimera définitivement le Candidat .',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#d33',
-      cancelButtonColor: '#3085d6',
-      confirmButtonText: 'Oui, supprimer',
-      cancelButtonText: 'Annuler'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this.userService.deleteUser(id).subscribe(() => {
   
-          Swal.fire({
-            icon: 'success',
-            title: 'Candidat supprimé avec succès !',
-            showConfirmButton: false,
-            timer: 1500
-          });
-        }, error => {
-          Swal.fire({
-            icon: 'error',
-            title: 'Erreur',
-            text: 'Une erreur est survenue pendant la suppression.',
-          });
-          console.error("Erreur lors de la suppression :", error);
+
+  editUser(user: User): void {
+    Swal.fire({
+      title: 'Modifier utilisateur',
+      html:
+        `<input id="username" class="swal2-input" value="${user.username}" placeholder="Nom d'utilisateur">` +
+        `<input id="email" class="swal2-input" value="${user.email}" placeholder="Email">` +
+        `<input id="phone" class="swal2-input" value="${user.phoneNumber}" placeholder="Téléphone">` +
+        `<input id="password" class="swal2-input" placeholder="Nouveau mot de passe">`,
+      preConfirm: () => {
+        return {
+          username: (document.getElementById('username') as HTMLInputElement).value,
+          email: (document.getElementById('email') as HTMLInputElement).value,
+          phoneNumber: (document.getElementById('phone') as HTMLInputElement).value,
+          password: (document.getElementById('password') as HTMLInputElement).value || null
+        };
+      }
+    }).then(result => {
+      if (result.isConfirmed) {
+        const updatedData = result.value;
+        if (!updatedData.password) delete updatedData.password; // éviter erreur si vide
+        this.userService.updateUser(user.id, updatedData).subscribe({
+          next: () => {
+            Swal.fire('Succès', 'Utilisateur modifié avec succès', 'success');
+            this.ngOnInit();
+          },
+          error: err => Swal.fire('Erreur', err.error.message || 'Échec de la modification', 'error')
         });
       }
     });
   }
   
+  deleteUser(id: number): void {
+    Swal.fire({
+      title: 'Êtes-vous sûr ?',
+      text: "Cette action est irréversible !",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Oui, supprimer !'
+    }).then(result => {
+      if (result.isConfirmed) {
+        this.userService.deleteUser(id).subscribe({
+          next: () => {
+            Swal.fire('Supprimé', 'Utilisateur supprimé avec succès', 'success');
+            this.ngOnInit();
+          },
+          error: () => Swal.fire('Erreur', 'Échec de la suppression', 'error')
+        });
+      }
+    });
+  }
+  
+
   
   
 }

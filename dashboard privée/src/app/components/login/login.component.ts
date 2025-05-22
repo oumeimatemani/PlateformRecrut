@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { FormsModule } from '@angular/forms';
+import { TokenStorageService } from '../../services/token-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -14,19 +16,21 @@ import { AuthService } from '../../services/auth.service';
     </form>
     <p *ngIf="isLoginFailed">{{ errorMessage }}</p>
   `,
-  imports: []
+  imports: [FormsModule]
 })
 export class LoginComponent {
   form: any = { username: '', password: '' };
   isLoginFailed = false;
   errorMessage = '';
-
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService) {}
 
   onSubmit(): void {
-    this.authService.login(this.form.username, this.form.password).subscribe({
+    this.authService.login(this.form).subscribe({
+      
       next: data => {
-        localStorage.setItem('token', data.token);
+        this.tokenStorage.saveToken(data.token); 
+        this.tokenStorage.saveUser(data);   
+              
         this.isLoginFailed = false;
         alert('Login Successful');
       },

@@ -31,7 +31,7 @@ isSuccessful = false;
 isSignUpFailed = false;
 errorMessage = '';
 date = new Date().getFullYear();
-acceptedTerms = false;
+ConditionsAcceptees = false;
 
 
 constructor(private authService: AuthService, private router: Router) {}
@@ -41,7 +41,7 @@ ngOnInit(): void {
 }
 
 onSubmit(): void {
-  if (!this.acceptedTerms) {
+  if (!this.ConditionsAcceptees) {
     this.errorMessage = 'Vous devez accepter les conditions.';
     this.isSignUpFailed = true;
     return;

@@ -56,12 +56,12 @@
                       class="form-checkbox rounded border-gray-200 dark:border-gray-800 text-red-600 focus:border-red-300 focus:ring focus:ring-offset-0 focus:ring-red-200 focus:ring-opacity-50 me-2"
                       type="checkbox"
                       id="AcceptTerms"
-                      [(ngModel)]="acceptedTerms"
-                      name="acceptedTerms"
+                      [(ngModel)]="ConditionsAcceptees"
+                      name="ConditionsAcceptees"
                     />
                     <label class="form-checkbox-label text-slate-400" for="AcceptTerms">
                       I Accept
-                      <a href="#" (click)="$event.preventDefault()" class="text-red-600">Terms And Condition</a>
+                      <a href="#" (click)="$event.preventDefault()" class="text-red-600">Conditions </a>
                     </label>
                   </div>
                 </div>
@@ -77,7 +77,7 @@
                 </div>
   
                 <div class="text-center">
-                  <span class="text-slate-400 me-2">Already have an account ?</span>
+                  <span class="text-slate-400 me-2">Vous avez déjà un compte ?</span>
                   <a routerLink="/login" class="text-black dark:text-white font-bold">Sign in</a>
                 </div>
               </div>

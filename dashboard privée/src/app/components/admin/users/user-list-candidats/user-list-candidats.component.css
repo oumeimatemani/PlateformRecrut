@@ -39,3 +39,19 @@
     background-color: #dddddd;
   }
   
+
+  .btn-ajout {
+    background-color: #dc3545 !important; /* Rouge Bootstrap */
+    color: white !important;
+    border: none;
+  }
+  
+  .btn-ajout:hover,
+  .btn-ajout:focus,
+  .btn-ajout:active,
+  .btn-ajout:visited {
+    background-color: #c82333 !important; /* Rouge foncé au hover/focus */
+    color: white !important;
+    border: none;
+  }
+  

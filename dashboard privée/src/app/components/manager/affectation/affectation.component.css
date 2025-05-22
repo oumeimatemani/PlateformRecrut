@@ -1,0 +1,67 @@
+.bordeaux-button {
+    background-color: #c74343;
+    color: white;
+    font-weight: bold;
+    padding: 6px 16px;
+    border: none;
+    border-radius: 20px;
+    transition: 0.3s ease;
+  }
+  
+  .bordeaux-button:hover {
+    background-color: #a62828;
+  }
+
+
+  .bordeaux-button {
+    background-color: #c74343; /* Rouge bordeaux foncé */
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .bordeaux-button:hover {
+    background-color: #cf2c2c;
+  }
+  
+  ngx-editor {
+    display: block;
+    min-width: 200px;
+    max-width: 300px;
+  }
+
+  .bordeaux-button {
+    background-color: #c74343; /* Rouge bordeaux foncé */
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .bordeaux-button:hover {
+    background-color: #bb1f1f;
+  }
+
+  .card-title {
+    color: #cf2c2c;
+  }
+
+  th.text-center {
+    text-align: center;
+    vertical-align: middle !important;
+  }
+
+  th {
+    text-align: left !important;
+  }
+  
+  
+  
+  
+  
+  

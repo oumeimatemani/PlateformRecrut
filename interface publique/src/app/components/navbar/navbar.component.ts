@@ -50,12 +50,10 @@ export class NavbarComponent implements OnInit, AfterViewInit {
       const matchedRole = user.roles.find((role: string) => internalRoles.includes(role));
   
       if (matchedRole) {
-        const dashboardUrl = `http://localhost:4300/admin?token=${token}&username=${encodeURIComponent(user.username)}&role=${encodeURIComponent(matchedRole)}`;
-        window.open(dashboardUrl, '_blank');
+        window.open('http://localhost:4300/login', '_blank');
       }
     }
   }
-  
   
   
   

@@ -6,9 +6,7 @@ import { FooterComponent } from '../footer/footer.component';
 import { HeaderComponent } from '../header/header.component';
 import { NavHeaderComponent } from '../nav-header/nav-header.component';
 import { ChatboxComponent } from '../chatbox/chatbox.component';
-import { UserListComponent } from '../../components/admin/users/user-list/user-list.component';
 import { WorkflowMonitoringComponent } from '../../components/RH/workflow-monitoring/workflow-monitoring.component';
-import { UserFormComponent } from '../../components/admin/users/user-form/user-form.component';
 import { CandidatureListComponent } from '../../components/RH/candidatures/candidature-list/candidature-list.component';
 import { PreselectionFormComponent } from '../../components/RH/candidatures/preselection-form/preselection-form.component';
 import { CandidatureDetailsComponent } from '../../components/RH/candidatures/candidature-details/candidature-details.component';
@@ -37,10 +35,8 @@ import { ProfilsPreslectionnesComponent } from '../../components/manager/profils
     NavHeaderComponent,
     HeaderComponent,
     ChatboxComponent,
-    UserListComponent,
     WorkflowMonitoringComponent,    
     ProcessusDetailsComponent,
-    UserFormComponent,
     CandidatureListComponent,
     CandidatureDetailsComponent,
     PreselectionFormComponent,

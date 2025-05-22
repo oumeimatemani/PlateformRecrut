@@ -74,4 +74,11 @@ export class CandidatureService {
       responseType: 'text'
     });
   }
+
+  //affectation de candidat au projet 
+  getCandidaturesValideesParManager(): Observable<Candidature[]> {
+    return this.http.get<Candidature[]>(`${this.apiUrl}/validees-par-manager`);
+  }
+  
+
 }

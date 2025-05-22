@@ -83,13 +83,13 @@
 
   <li *ngIf="isLoggedIn && (roles.includes('ROLE_ADMIN') || roles.includes('ROLE_RH') || roles.includes('ROLE_MANAGER') || roles.includes('ROLE_EXPERT_TECHNIQUE'))" class="has-submenu">
     <a href="#">Bienvenue, {{ currentUser.username }} </a>
-    <ul class="submenu flex flex-col items-center gap-2">
+    <ul class="submenu flex flex-col items-center gap-3">
         <li
           *ngIf="displayRole"
           class="text-red-600 font-medium flex items-center justify-center cursor-pointer hover:underline"
           (click)="redirectToDashboard()"
         >
-          🧭 {{ displayRole }}
+           Accéder au dashboard
         </li>
       </ul>
        

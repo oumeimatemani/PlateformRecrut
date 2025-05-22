@@ -35,4 +35,25 @@
   .fs-16 {
     font-size: 16px;
   }
+
+
+  .border-actif {
+    border: 2px solid #264653; /* Exemple : bleu foncé */
+    border-radius: 10px;
+  }
+  
+  .border-termine {
+    border: 2px solid #2a9d8f; /* Exemple : turquoise */
+    border-radius: 10px;
+  }
+  
+  .text-actif {
+    color: #264653;
+  }
+  
+  .text-termine {
+    color: #2a9d8f;
+  }
+
+  
   

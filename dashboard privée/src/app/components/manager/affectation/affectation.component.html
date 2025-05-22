@@ -1,1 +1,135 @@
-<p>affectation works!</p>
+<div class="content-body">
+    <div class="container-fluid">
+  
+      <!-- Titre et description -->
+      <div class="d-flex flex-wrap mb-4 align-items-center search-filter">
+        <div class="me-auto mb-2 pe-2">
+          <h6 class="text-black fs-16 font-w600 mb-1">Liste des Candidatures</h6>
+          <span class="fs-14">Validation finale des Candidatures</span>
+        </div>
+      </div>
+  
+      <!-- Tableau des candidatures -->
+      <div class="row">
+        <div class="col-xl-12">
+            
+          <div class="table-responsive">
+
+            <div class="mb-3 text-end">
+                <button class="btn btn-outline-primary" (click)="exporterCandidaturesPDF()">
+                    <i class="fa fa-download me-1"></i> Exporter en PDF
+                  </button>
+            </div>
+
+            <table class="table table-bordered table-striped">
+              <thead class="table-dark">
+                <tr>
+                  <th style="width: 25%">Nom</th>
+                  <th style="width: 40%">Email</th>
+                  <th style="width: 35%" class="text-start">Affecter à :</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let c of candidatures">
+                  <td>{{ c.nomComplet }}</td>
+                  <td>{{ c.email }}</td>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <select class="form-select form-select-sm me-2 rounded-pill shadow-sm" style="width: 150px" #projetSelect>
+                        <option *ngFor="let p of projets" [value]="p.id">{{ p.titre }}</option>
+                      </select>
+                      <button class="btn btn-sm px-3 py-1" style="background-color: #a4002b; color: white" (click)="affecter(c.id, +projetSelect.value)">
+                        Affecter
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+  
+          <!-- Titre + bouton ajouter projet -->
+          <div class="d-flex justify-content-between align-items-center mt-4 mb-3">
+            <h5 class="text-black mb-0"><strong>Liste des Projets :</strong></h5>
+
+            <button class="btn btn-outline-dark rounded-pill" (click)="toggleAddForm()">+ Ajouter un projet</button>
+                
+            <button class="btn btn-outline-primary" (click)="exporterProjetsPDF()">
+                <i class="fa fa-download me-1"></i> Exporter en PDF
+              </button>
+          </div>
+  
+          <!-- Formulaire ajout projet -->
+          <form *ngIf="showAddForm" (ngSubmit)="submitAddForm()" class="mb-4">
+            <div class="row g-2">
+              <div class="col-md-4">
+                <input class="form-control" placeholder="Titre" [(ngModel)]="newProjet.titre" name="titre" required />
+              </div>
+              <div class="col-md-4">
+                <input class="form-control" placeholder="Technologies" [(ngModel)]="newProjet.technologies" name="technologies" required />
+              </div>
+              <div class="col-md-4">
+                <input class="form-control" placeholder="Chef de Projet" [(ngModel)]="newProjet.chefProjet" name="chefProjet" required />
+              </div>
+              <div class="col-md-4">
+                <input type="date" class="form-control" [(ngModel)]="newProjet.dateDebut" name="dateDebut" required />
+              </div>
+              <div class="col-md-8">
+                <textarea class="form-control" placeholder="Description" [(ngModel)]="newProjet.description" name="description" required></textarea>
+              </div>
+              <div class="col-12 text-end">
+                <button type="submit" class="btn btn-success btn-sm">Ajouter</button>
+              </div>
+            </div>
+          </form>
+  
+          <!-- Formulaire modification projet -->
+          <form *ngIf="editMode && selectedProjet" (ngSubmit)="submitEditForm()" class="mb-4">
+            <div class="row g-2">
+              <div class="col-md-4">
+                <input class="form-control" [(ngModel)]="selectedProjet.titre" name="titreEdit" required />
+              </div>
+              <div class="col-md-4">
+                <input class="form-control" [(ngModel)]="selectedProjet.technologies" name="technologiesEdit" required />
+              </div>
+              <div class="col-md-4">
+                <input class="form-control" [(ngModel)]="selectedProjet.chefProjet" name="chefProjetEdit" required />
+              </div>
+              <div class="col-md-4">
+                <input type="date" class="form-control" [(ngModel)]="selectedProjet.dateDebut" name="dateDebutEdit" required />
+              </div>
+              <div class="col-md-8">
+                <textarea class="form-control" [(ngModel)]="selectedProjet.description" name="descriptionEdit" required></textarea>
+              </div>
+              <div class="col-12 text-end">
+                <button type="submit" class="btn btn-primary btn-sm">Modifier</button>
+              </div>
+            </div>
+          </form>
+  
+          <!-- Affichage projets -->
+          <div class="row">
+            <div class="col-md-4 mb-4" *ngFor="let p of projets">
+              <div class="card shadow-lg border-0 rounded-4 position-relative">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold" style="color: #cf2c2c">{{ p.titre }}</h5>
+                  <ul class="list-unstyled small text-dark">
+                    <li><strong>🪰 Technologies :</strong> {{ p.technologies }}</li>
+                    <li><strong>👨‍💼 Chef de Projet :</strong> {{ p.chefProjet }}</li>
+                    <li><strong>🗓️ Date de début :</strong> {{ p.dateDebut }}</li>
+                    <li><strong>📍 Description :</strong> {{ p.description }}</li>
+                  </ul>
+                  <div class="d-flex justify-content-end mt-3">
+                    <button class="btn btn-outline-primary btn-sm me-2" (click)="editProjet(p)">✏️</button>
+                    <button class="btn btn-outline-danger btn-sm" (click)="supprimerProjet(p.id)">🗑️</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  

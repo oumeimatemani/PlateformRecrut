@@ -1,54 +1,56 @@
 <div class="content-body">
-    <div class="container-fluid">
-      <div class="d-flex flex-wrap mb-4 align-items-center search-filter">
-        <div class="me-auto mb-2 pe-2">
-          <h6 class="text-black fs-16 font-w600 mb-1">Utilisateurs Administratifs</h6>
-          <span class="fs-14">Liste des Admin, RH, Manager, Expert Technique</span>
-        </div>
+  <div class="container-fluid">
+    <div class="d-flex flex-wrap mb-4 align-items-center search-filter">
+      <div class="me-auto mb-2 pe-2">
+          <h3>Liste des utilisateurs administratifs </h3>      
       </div>
-  
-      <div class="row">
-        <div class="col-xl-12">
-          <div class="table-responsive">
-            <table class="table dataTable">
-              <thead>
-                <tr>
-                  <th>Nom d'utilisateur</th>
-                  <th>Email</th>
-                  <th>Rôle</th>
-                  <th class="text-center" style="width: 120px;">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let user of users">
-                  <td>{{ user.username }}</td>
-                  <td>{{ user.email }}</td>
-                  <td>
-                    <span *ngFor="let role of user.roles; let last = last">
-                      {{ role.name }}<span *ngIf="!last">, </span>
-                    </span>
-                  </td>
-                  <td >
-                    <div class="action-buttons">
-                        <button (click)="editUser(user.id)" class="btn btn-edit" title="Modifier">
-                          <i class="bi bi-pencil-fill"></i>
-                        </button>
-                        <button (click)="deleteUser(user.id)" class="btn btn-delete" title="Supprimer">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                      </div>
-                      
-                  </td>
-                  
-                </tr>
-              </tbody>
-            </table>
-            <div class="dataTables_info">
-              Total : {{ users.length }} utilisateurs
-            </div>
-          </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped">
+            <thead class="table-dark text-center">
+              <tr>
+                <th>Nom d'utilisateur</th>
+                <th>Email</th>
+                <th>Mot de passe</th>
+                <th>Téléphone</th>
+                <th>Rôle</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of users">
+                <td>{{ user.username || 'VIDE' }}</td>
+                <td>{{ user.email || 'VIDE' }}</td>
+                <td>{{ user.password || 'VIDE' }}</td>
+                <td>{{ user.phoneNumber || 'VIDE' }}</td>
+                <td>
+                  <select class="form-select form-select-sm" [(ngModel)]="user.roles[0].name" (change)="changeRole(user)">
+                    <option *ngFor="let role of allRoles" [value]="role.name">{{ role.name }}</option>
+                  </select>
+                </td>
+                <td>
+                  <button class="btn btn-outline-primary btn-sm me-2" (click)="editUser(user)">
+                    <i class="bi bi-pencil-fill"></i>
+                  </button>
+                  <button class="btn btn-outline-danger btn-sm" (click)="deleteUser(user.id)" style="background-color: #eeeeee; color: rgb(185, 24, 24); border: none;">
+                    <span style="color: rgb(205, 19, 19);"></span>
+                    <i class="bi bi-trash-fill"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          
         </div>
       </div>
     </div>
   </div>
-  
+</div>
+
+
+
+
+

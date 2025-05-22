@@ -20,12 +20,6 @@ export class UserService {
     return this.http.get<any[]>(`${this.apiUrl}/AllUsers`, { headers });
   }
   
-
-  deleteUser(id: number) {
-    return this.http.delete(`${this.apiUrl}/deleteUser/${id}`, { responseType: 'text' });
-  }
-  
-
   getUser(id: number): Observable<any> {
     const token = this.tokenStorage.getToken();
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
@@ -33,13 +27,29 @@ export class UserService {
   }
   
 
-  
   updateUser(id: number, userData: any): Observable<any> {
     const token = this.tokenStorage.getToken();
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.put(`${this.apiUrl}/updateUser/${id}`, userData, { headers });
   }
   
+  updateRole(id: number, newRole: string): Observable<any> {
+    const token = this.tokenStorage.getToken();
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const body = new URLSearchParams();
+    body.set('newRole', newRole);
+    return this.http.put(`${this.apiUrl}/updateRole/${id}`, body.toString(), {
+      headers: headers.set('Content-Type', 'application/x-www-form-urlencoded'),
+      responseType: 'text'
+    });
+  }
+  
+  deleteUser(id: number): Observable<any> {
+    const token = this.tokenStorage.getToken();
+    console.log('Token utilisé pour suppression :', token); // <-- LOG
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.delete(`${this.apiUrl}/deleteUser/${id}`, { headers, responseType: 'text' });
+  }
   
   
 }

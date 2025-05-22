@@ -10,8 +10,6 @@ import { RegisterComponent } from './pages/authentication/register/register.comp
 import { LoginComponent } from './pages/authentication/login/login.component';
 import { ForgotPasswordComponent } from './pages/authentication/forgot-password/forgot-password.component';
 import { Error404Component } from './pages/error/error404/error404.component';
-
-import { UserListComponent } from './components/admin/users/user-list/user-list.component';
 import { WorkflowMonitoringComponent } from './components/RH/workflow-monitoring/workflow-monitoring.component';
 import { CandidatureListComponent } from './components/RH/candidatures/candidature-list/candidature-list.component'; 
 import { CandidatureDetailsComponent } from './components/RH/candidatures/candidature-details/candidature-details.component';
@@ -29,7 +27,7 @@ import { ValidationComponent } from './components/manager/validation/validation.
 import { AffectationComponent } from './components/manager/affectation/affectation.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/admin', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
 
   // ADMIN ROUTES
   {
@@ -42,11 +40,7 @@ export const routes: Routes = [
       { path: 'profile', component: ProfileComponent },
       { path: 'statistics', component: StatisticsComponent },
       { path: 'companies', component: CompaniesComponent },
-      { path: 'users', component: UserListComponent },
-      {
-        path: 'users/edit/:id',
-        loadComponent: () => import('./components/admin/users/user-form/user-form.component').then(m => m.UserFormComponent)
-      },
+
       {
         path: 'candidats',
         component: UserListCandidatsComponent
