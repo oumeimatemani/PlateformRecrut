@@ -14,7 +14,6 @@
                   <tr>
                     <th>Nom d'utilisateur</th>
                     <th>Email</th>
-                    <th>Mot de passe</th>
                     <th>Téléphone</th>
                     <th>Actions</th>
                   </tr>
@@ -23,7 +22,6 @@
                   <tr *ngFor="let user of users">
                     <td>{{ user.username || 'VIDE' }}</td>
                     <td>{{ user.email || 'VIDE' }}</td>
-                    <td>{{ user.password || 'VIDE' }}</td>
                     <td>{{ user.phoneNumber || 'VIDE' }}</td>
                     <td>
                       <button class="btn btn-outline-primary btn-sm me-2" (click)="editUser(user)">

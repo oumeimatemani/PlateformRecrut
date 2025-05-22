@@ -40,14 +40,12 @@ export class UserListCandidatsComponent implements OnInit {
       html:
         `<input id="username" class="swal2-input" value="${user.username}" placeholder="Nom d'utilisateur">` +
         `<input id="email" class="swal2-input" value="${user.email}" placeholder="Email">` +
-        `<input id="phone" class="swal2-input" value="${user.phoneNumber}" placeholder="Téléphone">` +
-        `<input id="password" class="swal2-input" placeholder="Nouveau mot de passe">`,
+        `<input id="phone" class="swal2-input" value="${user.phoneNumber}" placeholder="Téléphone">`,
       preConfirm: () => {
         return {
           username: (document.getElementById('username') as HTMLInputElement).value,
           email: (document.getElementById('email') as HTMLInputElement).value,
           phoneNumber: (document.getElementById('phone') as HTMLInputElement).value,
-          password: (document.getElementById('password') as HTMLInputElement).value || null
         };
       }
     }).then(result => {

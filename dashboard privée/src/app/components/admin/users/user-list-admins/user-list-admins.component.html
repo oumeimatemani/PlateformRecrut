@@ -14,7 +14,6 @@
               <tr>
                 <th>Nom d'utilisateur</th>
                 <th>Email</th>
-                <th>Mot de passe</th>
                 <th>Téléphone</th>
                 <th>Rôle</th>
                 <th>Actions</th>
@@ -24,7 +23,6 @@
               <tr *ngFor="let user of users">
                 <td>{{ user.username || 'VIDE' }}</td>
                 <td>{{ user.email || 'VIDE' }}</td>
-                <td>{{ user.password || 'VIDE' }}</td>
                 <td>{{ user.phoneNumber || 'VIDE' }}</td>
                 <td>
                   <select class="form-select form-select-sm" [(ngModel)]="user.roles[0].name" (change)="changeRole(user)">
